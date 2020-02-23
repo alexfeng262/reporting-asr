@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class Mllr_solve {
     private static String[] cmd;
     
-    public Mllr_solve(){
+    public Mllr_solve(String name){
         cmd = new String[9];
         Resource_manager rm = new Resource_manager();
         
@@ -27,9 +27,9 @@ public class Mllr_solve {
         cmd[3] = "-varfn";
         cmd[4] = rm.getAcoustic_model_dir_path()+"\\variances";
         cmd[5] = "-outmllrfn";
-        cmd[6] = "mllr_matrix";
+        cmd[6] = rm.getWav_dir_path()+"\\"+name+"\\mllr_matrix";
         cmd[7] = "-accumdir";
-        cmd[8] = rm.getBase_dir_path();
+        cmd[8] = rm.getWav_dir_path()+"\\"+name;
     }
     
     public void exec_mllr_solve(){

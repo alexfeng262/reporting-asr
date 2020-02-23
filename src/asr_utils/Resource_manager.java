@@ -21,6 +21,11 @@ public class Resource_manager {
     private final String fileids_path;
     private final String transcription_path;
     private final String base_dir_path;
+    private final String wav_dir_path;
+
+    public String getWav_dir_path() {
+        return wav_dir_path;
+    }
     
     private final String bw_tool_path;
     private final String sphinx_fe_tool_path;
@@ -63,14 +68,15 @@ public class Resource_manager {
     
 
     public Resource_manager(){
-        acoustic_model_dir_path = "C:\\Users\\alexf\\Documents\\GitHub\\ASR_SPHINX4\\src\\main\\resources\\es_acoustic_model";
-        language_model_path = "file:C:\\Users\\alexf\\Documents\\GitHub\\ASR_SPHINX4\\src\\main\\resources\\linguist\\lm_3gram.bin";
-        dictionary_path = "C:\\Users\\alexf\\Documents\\GitHub\\ASR_SPHINX4\\src\\main\\resources\\linguist\\vocab_phoneme.dict";
-        config_xml_path = "C:\\Users\\alexf\\Documents\\GitHub\\ASR_SPHINX4\\src\\main\\resources\\config_xml\\config.xml";
-        corpus_path = "C:\\Users\\alexf\\Documents\\GitHub\\ASR_SPHINX4\\src\\main\\resources\\corpus\\result.txt";
-        fileids_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\Alex\\test.fileids";
-        transcription_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\Alex\\test.transcription";
-        base_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\Alex";
+        acoustic_model_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\es_acoustic_model";
+        language_model_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\lm_3gram.bin";
+        dictionary_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\vocab_phoneme.dict";
+        config_xml_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\config_xml\\config.xml";
+        corpus_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\corpus\\result.txt";
+        fileids_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\test.fileids";
+        transcription_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\test.transcription";
+        base_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex";
+        wav_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav";
         
         bw_tool_path = "C:\\sphinx2\\sphinxtrain\\bin\\Release\\Win32\\bw.exe";
         sphinx_fe_tool_path = "C:\\sphinx2\\sphinxbase\\bin\\Release\\Win32\\sphinx_fe.exe";

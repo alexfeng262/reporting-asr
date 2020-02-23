@@ -20,7 +20,7 @@ public class Sphinx_fe {
     
     private static String[] cmd;
     
-    public Sphinx_fe(){
+    public Sphinx_fe(String name){
         cmd = new String[13];
         Resource_manager rm = new Resource_manager();
         
@@ -30,7 +30,7 @@ public class Sphinx_fe {
         cmd[3] = "-samprate";
         cmd[4] = "16000";
         cmd[5] = "-c";
-        cmd[6] = rm.getFileids_path();
+        cmd[6] = rm.getWav_dir_path()+"\\"+name+"\\test.fileids";
         cmd[7] = "-eo";
         cmd[8] = "mfc";
         cmd[9] = "-mswav";

@@ -5,10 +5,11 @@
  */
 package ASR_tfm;
 
-import static adaptation_mllr.Adaptation_mllr.*;
+import static adaptation_mllr.Generate_files.*;
 import adaptation_mllr.Bw;
 import adaptation_mllr.Mllr_solve;
 import adaptation_mllr.Sphinx_fe;
+import asr_utils.Directories;
 import edu.cmu.sphinx.frontend.Data;
 import edu.cmu.sphinx.frontend.DoubleData;
 import edu.cmu.sphinx.frontend.FrontEnd;
@@ -51,6 +52,7 @@ import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import train_sentence_generation.Sentence_generation;
 
@@ -343,6 +345,12 @@ public class app_gui extends javax.swing.JFrame {
         //pbeam_slider.setValue((int) (recognizerConfig.getLw()));
         pbeam_value_lbl.setText(formatter.format(recognizerConfig.getPbeam()));
         
+        String[] speakers = Directories.getAllSpeakers();
+        if(speakers.length != 0){
+            for(String s : speakers){
+                init_speaker_combo_box.addItem(s);
+            }
+        }
     }
     
     public static void enable_reload_model(){
@@ -356,6 +364,10 @@ public class app_gui extends javax.swing.JFrame {
         lw_slider.setEnabled(true);
         pbeam_slider.setEnabled(true);
     
+    }
+    
+    public static void print_mllr_process(String log){
+        mllr_log_txt_area.append(log+"\n");
     }
 
     /**
@@ -391,6 +403,7 @@ public class app_gui extends javax.swing.JFrame {
         play_pause_btn = new javax.swing.JToggleButton();
         reload_model_btn = new javax.swing.JButton();
         clear_btn = new javax.swing.JButton();
+        init_speaker_combo_box = new javax.swing.JComboBox<>();
         adaptation_card_panel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         adapt_text_area = new javax.swing.JTextArea();
@@ -401,8 +414,16 @@ public class app_gui extends javax.swing.JFrame {
         sent_gen_btn = new javax.swing.JButton();
         timer_label = new javax.swing.JLabel();
         audio_player_scroll = new javax.swing.JScrollPane();
+        mllr_card_panel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        mllr_log_txt_area = new javax.swing.JTextArea();
+        jPanel3 = new javax.swing.JPanel();
+        speakers_combo_box = new javax.swing.JComboBox<>();
+        create_mllr_btn = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         file_menu = new javax.swing.JMenu();
+        new_speaker_menu_item = new javax.swing.JMenuItem();
+        del_speaker_menu_item = new javax.swing.JMenuItem();
         save_as_menu_item = new javax.swing.JMenuItem();
         edit_menu = new javax.swing.JMenu();
         selectAll_menu_item = new javax.swing.JMenuItem();
@@ -410,8 +431,7 @@ public class app_gui extends javax.swing.JFrame {
         view_menu = new javax.swing.JMenu();
         create_report_menu_item = new javax.swing.JMenuItem();
         speaker_adapt_menu_item = new javax.swing.JMenuItem();
-        tools_menu = new javax.swing.JMenu();
-        adaptation_menu_item = new javax.swing.JMenuItem();
+        train_mllr_menu_item = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 800));
@@ -442,7 +462,7 @@ public class app_gui extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -581,6 +601,19 @@ public class app_gui extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 16, 15);
         principal_card_panel.add(jPanel1, gridBagConstraints);
 
+        init_speaker_combo_box.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        init_speaker_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(None)" }));
+        init_speaker_combo_box.setToolTipText("");
+        init_speaker_combo_box.setPreferredSize(new java.awt.Dimension(200, 30));
+        init_speaker_combo_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                init_speaker_combo_boxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(7, 15, 0, 0);
+        principal_card_panel.add(init_speaker_combo_box, gridBagConstraints);
+
         card_layout_panel.add(principal_card_panel, "principal_card");
 
         adaptation_card_panel.setLayout(new java.awt.GridBagLayout());
@@ -687,11 +720,67 @@ public class app_gui extends javax.swing.JFrame {
 
         card_layout_panel.add(adaptation_card_panel, "adaptation_card");
 
+        mllr_card_panel.setLayout(new java.awt.GridBagLayout());
+
+        mllr_log_txt_area.setColumns(20);
+        mllr_log_txt_area.setRows(5);
+        jScrollPane3.setViewportView(mllr_log_txt_area);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(23, 23, 23, 23);
+        mllr_card_panel.add(jScrollPane3, gridBagConstraints);
+
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 5));
+
+        speakers_combo_box.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        speakers_combo_box.setMinimumSize(new java.awt.Dimension(71, 10));
+        speakers_combo_box.setPreferredSize(new java.awt.Dimension(200, 30));
+        jPanel3.add(speakers_combo_box);
+
+        create_mllr_btn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        create_mllr_btn.setText("Create MLLR");
+        create_mllr_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                create_mllr_btnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(create_mllr_btn);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.weighty = 0.1;
+        mllr_card_panel.add(jPanel3, gridBagConstraints);
+
+        card_layout_panel.add(mllr_card_panel, "mllr_card");
+
         getContentPane().add(card_layout_panel, java.awt.BorderLayout.CENTER);
 
         file_menu.setText("File");
-        file_menu.setEnabled(false);
         file_menu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        new_speaker_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        new_speaker_menu_item.setText("New speaker");
+        new_speaker_menu_item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_speaker_menu_itemActionPerformed(evt);
+            }
+        });
+        file_menu.add(new_speaker_menu_item);
+
+        del_speaker_menu_item.setText("Delete speaker");
+        del_speaker_menu_item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                del_speaker_menu_itemActionPerformed(evt);
+            }
+        });
+        file_menu.add(del_speaker_menu_item);
 
         save_as_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         save_as_menu_item.setText("Save As...");
@@ -735,6 +824,7 @@ public class app_gui extends javax.swing.JFrame {
 
         create_report_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
         create_report_menu_item.setText("Create report");
+        create_report_menu_item.setEnabled(false);
         create_report_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_report_menu_itemActionPerformed(evt);
@@ -751,19 +841,16 @@ public class app_gui extends javax.swing.JFrame {
         });
         view_menu.add(speaker_adapt_menu_item);
 
-        jMenuBar1.add(view_menu);
-
-        tools_menu.setText("Tools");
-
-        adaptation_menu_item.setText("Adaptation MLLR");
-        adaptation_menu_item.addActionListener(new java.awt.event.ActionListener() {
+        train_mllr_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
+        train_mllr_menu_item.setText("Train MLLR");
+        train_mllr_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adaptation_menu_itemActionPerformed(evt);
+                train_mllr_menu_itemActionPerformed(evt);
             }
         });
-        tools_menu.add(adaptation_menu_item);
+        view_menu.add(train_mllr_menu_item);
 
-        jMenuBar1.add(tools_menu);
+        jMenuBar1.add(view_menu);
 
         setJMenuBar(jMenuBar1);
 
@@ -810,8 +897,13 @@ public class app_gui extends javax.swing.JFrame {
         CardLayout cl = (CardLayout)(card_layout_panel.getLayout());
         cl.show(card_layout_panel, "adaptation_card");
         recognize.Stop_recognition();
-        file_menu.setEnabled(true);
+        
         edit_menu.setEnabled(true);
+        
+        speaker_adapt_menu_item.setEnabled(false);
+        create_report_menu_item.setEnabled(true);
+        train_mllr_menu_item.setEnabled(true);
+        
         Logger_status.Log("Adaptation mode.", Logger_status.LogType.INFO);
     }//GEN-LAST:event_speaker_adapt_menu_itemActionPerformed
 
@@ -856,8 +948,23 @@ public class app_gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)(card_layout_panel.getLayout());
         cl.show(card_layout_panel, "principal_card");
-        file_menu.setEnabled(false);
+       
         edit_menu.setEnabled(false);
+        
+        speaker_adapt_menu_item.setEnabled(true);
+        create_report_menu_item.setEnabled(false);
+        train_mllr_menu_item.setEnabled(true);
+        
+        String[] speakers = Directories.getAllSpeakers();
+        init_speaker_combo_box.removeAllItems();
+        init_speaker_combo_box.addItem("(None)");
+        init_speaker_combo_box.setSelectedIndex(0);
+        if(speakers.length != 0){
+            for(String s : speakers){
+                init_speaker_combo_box.addItem(s);
+            }
+        }
+        
         recognize.Init_start_recognition();
     }//GEN-LAST:event_create_report_menu_itemActionPerformed
 
@@ -939,22 +1046,105 @@ public class app_gui extends javax.swing.JFrame {
         report_txt.setText("");
     }//GEN-LAST:event_clear_btnActionPerformed
 
-    private void adaptation_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adaptation_menu_itemActionPerformed
-        // TODO: Manage path
-        Sphinx_fe acoustic_feature = new Sphinx_fe();
-        Bw acum_count = new Bw();
-        Mllr_solve mllr_matrix = new Mllr_solve();
+    private void train_mllr_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_train_mllr_menu_itemActionPerformed
+        // TODO add your handling code here:
+        recognize.Stop_recognition();
+        speakers_combo_box.removeAllItems();
+        speakers_combo_box.addItem("(None)");
+        speakers_combo_box.setSelectedIndex(0);
         
-        System.out.println("creating file ids");
-        create_fileid_file();
+        speaker_adapt_menu_item.setEnabled(true);
+        create_report_menu_item.setEnabled(true);
+        train_mllr_menu_item.setEnabled(false);
         
-        System.out.println("creating transcription file");
-        create_transcription_file();
+        CardLayout cl = (CardLayout)(card_layout_panel.getLayout());
+        cl.show(card_layout_panel, "mllr_card");
+        for(String s:Directories.getAllSpeakers())
+            speakers_combo_box.addItem(s);
+    }//GEN-LAST:event_train_mllr_menu_itemActionPerformed
+
+    private void new_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_speaker_menu_itemActionPerformed
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog(this, "Write the new speaker name");
+        if(name != null ){
+            int confirm = Directories.create_speaker_dir(name);
+            switch(confirm){
+                case 0:
+                    JOptionPane.showMessageDialog(this,"Speaker "+name+" created succesfully");
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(this,"Something when wrong.");
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(this,"Is not a valid speaker name");
+                    break;
+            }
         
-        acoustic_feature.exec_sphinx_fe();
-        acum_count.exec_bw();
-        mllr_matrix.exec_mllr_solve();
-    }//GEN-LAST:event_adaptation_menu_itemActionPerformed
+        }
+         
+    }//GEN-LAST:event_new_speaker_menu_itemActionPerformed
+
+    private void del_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_speaker_menu_itemActionPerformed
+        // TODO add your handling code here:
+        
+        String[] speakers = Directories.getAllSpeakers();
+        if(speakers.length != 0){
+            String name = (String) JOptionPane.showInputDialog(this, "Select speaker to delete",
+                                                        "Delete speaker",
+                                                        JOptionPane.QUESTION_MESSAGE, 
+                                                        null, 
+                                                        speakers,
+                                                        speakers[0]);
+            if (name!= null){
+                Directories.delete_speaker_dir(name);
+                JOptionPane.showMessageDialog(this,"Speaker "+name+" deleted succesfully!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"No speakers available to delete");
+        }
+        
+    }//GEN-LAST:event_del_speaker_menu_itemActionPerformed
+
+    private void create_mllr_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_mllr_btnActionPerformed
+        // TODO add your handling code here:
+        String name = (String) speakers_combo_box.getSelectedItem();
+        if(!Directories.is_empty_dir(name) && name != null ){
+            mllr_log_txt_area.setText("");
+            
+            Sphinx_fe acoustic_feature = new Sphinx_fe(name);
+            Bw acum_count = new Bw(name);
+            Mllr_solve mllr_matrix = new Mllr_solve(name);
+
+            mllr_log_txt_area.append("\n\n********CREATING ID FILES************\n");
+            create_fileid_file(name);
+
+            mllr_log_txt_area.append("\n\n********CREATING TRANSCRIPTION FILE************\n");
+            create_transcription_file(name);
+            
+            mllr_log_txt_area.append("\n\n********GENERATING ACOUSTIC FEATURES************\n");
+            acoustic_feature.exec_sphinx_fe();
+            
+            mllr_log_txt_area.append("\n\n********ACUMULATING STATISTIC COUNTS************\n");
+            acum_count.exec_bw();
+            
+            mllr_log_txt_area.append("\n\n********GENERATING MLLR MATRIX************\n");
+            mllr_matrix.exec_mllr_solve();
+            
+            mllr_log_txt_area.append("\n\n********FINISHED************\n");
+            JOptionPane.showMessageDialog(this,"MLLR finished");
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Cannot perform MLLR. Must select a speaker");
+        }
+               
+        
+    }//GEN-LAST:event_create_mllr_btnActionPerformed
+
+    private void init_speaker_combo_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_speaker_combo_boxActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_init_speaker_combo_boxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -995,25 +1185,32 @@ public class app_gui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTextArea adapt_text_area;
     private javax.swing.JPanel adaptation_card_panel;
-    private static javax.swing.JMenuItem adaptation_menu_item;
     private static javax.swing.JScrollPane audio_player_scroll;
     public static javax.swing.JSlider beam_slider;
     public static javax.swing.JLabel beam_value_lbl;
     private javax.swing.JPanel card_layout_panel;
     public static javax.swing.JButton clear_btn;
+    private javax.swing.JButton create_mllr_btn;
     private javax.swing.JMenuItem create_report_menu_item;
     private javax.swing.JMenuItem crop_menu_item;
+    private javax.swing.JMenuItem del_speaker_menu_item;
     private static javax.swing.JMenu edit_menu;
     private static javax.swing.JMenu file_menu;
+    private static javax.swing.JComboBox<String> init_speaker_combo_box;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lw_lbl;
     public static javax.swing.JSlider lw_slider;
     public static javax.swing.JLabel lw_value_lbl;
+    private javax.swing.JPanel mllr_card_panel;
+    private static javax.swing.JTextArea mllr_log_txt_area;
+    private javax.swing.JMenuItem new_speaker_menu_item;
     public static javax.swing.JSlider pbeam_slider;
     public static javax.swing.JLabel pbeam_value_lbl;
     private javax.swing.JLabel phoneticBeam_lbl;
@@ -1029,10 +1226,11 @@ public class app_gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem selectAll_menu_item;
     private javax.swing.JButton sent_gen_btn;
     private javax.swing.JMenuItem speaker_adapt_menu_item;
+    private static javax.swing.JComboBox<String> speakers_combo_box;
     public static javax.swing.JLabel status_bar;
     private javax.swing.JPanel status_jpanel;
     private javax.swing.JLabel timer_label;
-    private javax.swing.JMenu tools_menu;
+    private javax.swing.JMenuItem train_mllr_menu_item;
     private javax.swing.JMenu view_menu;
     private javax.swing.JLabel wip_lbl;
     public static javax.swing.JSlider wip_slider;

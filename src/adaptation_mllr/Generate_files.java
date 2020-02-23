@@ -25,11 +25,13 @@ import java.util.logging.Logger;
  *
  * @author alexf
  */
-public class Adaptation_mllr {
-    public static void create_fileid_file(){
+public class Generate_files {
+    public static void create_fileid_file(String name){
         Resource_manager rm = new Resource_manager();
-        File f = new File("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\Alex");
-        File fileids = new File(rm.getFileids_path());
+        
+        String speaker_dir = rm.getWav_dir_path()+"\\"+name+"\\";
+        File f = new File(speaker_dir);
+        File fileids = new File(speaker_dir+"test.fileids");
         
         FilenameFilter filter = new FilenameFilter() {
             @Override
@@ -45,7 +47,7 @@ public class Adaptation_mllr {
             OutputStreamWriter stream_writer = new OutputStreamWriter(output_stream,"utf-8");
             BufferedWriter out = new BufferedWriter(stream_writer);
             for (String filename: txt_filenames){
-                out.write("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\Alex\\" + filename.replace(".txt", "") + "\n");
+                out.write(speaker_dir + filename.replace(".txt", "") + "\n");
                 //System.out.println(filename.replace(".txt", ""));
             }
             out.close();
@@ -59,11 +61,12 @@ public class Adaptation_mllr {
     
     }
     
-    public static void create_transcription_file(){
+    public static void create_transcription_file(String name){
         Resource_manager rm = new Resource_manager();
         String base_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\Alex\\";
-        File f = new File("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\Alex\\");
-        File transcription = new File(rm.getTranscription_path());
+        String speaker_dir = rm.getWav_dir_path()+"\\"+name+"\\";
+        File f = new File(speaker_dir);
+        File transcription = new File(speaker_dir + "test.transcription");
         
         String line = "";
         FilenameFilter filter = new FilenameFilter() {
@@ -81,7 +84,7 @@ public class Adaptation_mllr {
             
             for (String filename: f.list(filter)){
             
-                BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(new File(base_path + filename)), "UTF8"));
+                BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(new File(speaker_dir + filename)), "UTF8"));
                 String str;
                 str = br.readLine();
                 line = "<s> "+str+" </s> "+"("+filename.replace(".txt", "")+")\n";
@@ -90,11 +93,11 @@ public class Adaptation_mllr {
             
             out.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Adaptation_mllr.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Generate_files.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(Adaptation_mllr.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Generate_files.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Adaptation_mllr.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Generate_files.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     }

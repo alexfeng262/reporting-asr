@@ -52,7 +52,7 @@ public class App_recognizer extends Thread{
     public App_recognizer(){
         Resource_manager props = new Resource_manager();
         acoustic_model_path = "file:"+props.getAcoustic_model_dir_path();
-        language_model_path = props.getLanguage_model_path();
+        language_model_path = "file:"+props.getLanguage_model_path();
         dictionary_path = "file:"+props.getDictionary_path();
         config_xml = "file:"+props.getConfig_xml_path();
         Config();
@@ -62,7 +62,7 @@ public class App_recognizer extends Thread{
     public App_recognizer(Map<String, String> global_prop){
         Resource_manager props = new Resource_manager();
         acoustic_model_path = "file:"+ props.getAcoustic_model_dir_path();
-        language_model_path = props.getLanguage_model_path();
+        language_model_path = "file:"+props.getLanguage_model_path();
         dictionary_path = "file:"+props.getDictionary_path();
         config_xml = "file:"+props.getConfig_xml_path();
         Config_reloaded(global_prop);
@@ -114,7 +114,7 @@ public class App_recognizer extends Thread{
         try{
             context = new Context(config_xml,configuration);
             recognizer = new LiveSpeechRecognizer(context);
-            //recognizer.loadTransform(mllr_path, 1); // Load MLLR
+            recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
         }
         catch(Exception ex){
              System.out.println(ex.getMessage());

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author alexf
@@ -17,7 +18,7 @@ import java.util.logging.Logger;
 public class Bw {
     private static String[] cmd;
     
-    public Bw(){
+    public Bw(String name){
         cmd = new String[23];
         Resource_manager rm = new Resource_manager();
         cmd[0] = rm.getBw_tool_path();
@@ -38,11 +39,11 @@ public class Bw {
         cmd[15] = "-dictfn";
         cmd[16] = rm.getDictionary_path();
         cmd[17] = "-ctlfn";
-        cmd[18] = rm.getFileids_path();
+        cmd[18] = rm.getWav_dir_path()+"\\"+name+"\\test.fileids";
         cmd[19] = "-lsnfn";
-        cmd[20] = rm.getTranscription_path();
+        cmd[20] = rm.getWav_dir_path()+"\\"+name+"\\test.transcription";
         cmd[21] = "-accumdir";
-        cmd[22] = rm.getBase_dir_path();
+        cmd[22] = rm.getWav_dir_path()+"\\"+name;
     }
     
     public void exec_bw(){
