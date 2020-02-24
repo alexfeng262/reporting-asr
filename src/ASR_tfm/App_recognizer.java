@@ -89,7 +89,7 @@ public class App_recognizer extends Thread{
             
             System.out.println("Config reloaded");
             recognizer = new LiveSpeechRecognizer(context);
-            //recognizer.loadTransform(mllr_path, 1); // Load MLLR
+            //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
         }
         catch(Exception ex){
              System.out.println(ex.getMessage());
@@ -114,7 +114,8 @@ public class App_recognizer extends Thread{
         try{
             context = new Context(config_xml,configuration);
             recognizer = new LiveSpeechRecognizer(context);
-            recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
+            //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
+            
         }
         catch(Exception ex){
              System.out.println(ex.getMessage());
@@ -222,14 +223,18 @@ public class App_recognizer extends Thread{
     public void Start_recognition(){
       
         recognizer.startRecognition(true);
-        Logger_status.Log("Recognizing.",Logger_status.LogType.INFO);
-
-        //App_gui.report_txt.append(recognizer.toString()+"\n");
-       // this.IsStart = true;
-        //app_gui.report_txt.setEnabled(true);
-
+        Logger_status.Log("Recognizing.",Logger_status.LogType.INFO);            
+    }
+    
+    public void load_speaker_mllr(String name){
+        Resource_manager rm = new Resource_manager();
         
-                       
+        try {
+            recognizer.loadTransform(rm.getWav_dir_path()+"\\"+name+"\\mllr_matrix", 1); // Load MLLR
+        } catch (Exception ex) {
+            Logger.getLogger(App_recognizer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
 }
 

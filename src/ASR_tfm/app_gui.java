@@ -420,6 +420,7 @@ public class app_gui extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         speakers_combo_box = new javax.swing.JComboBox<>();
         create_mllr_btn = new javax.swing.JButton();
+        lm_panel = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         file_menu = new javax.swing.JMenu();
         new_speaker_menu_item = new javax.swing.JMenuItem();
@@ -432,6 +433,8 @@ public class app_gui extends javax.swing.JFrame {
         create_report_menu_item = new javax.swing.JMenuItem();
         speaker_adapt_menu_item = new javax.swing.JMenuItem();
         train_mllr_menu_item = new javax.swing.JMenuItem();
+        lang_model_menu_item = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 800));
@@ -760,6 +763,9 @@ public class app_gui extends javax.swing.JFrame {
 
         card_layout_panel.add(mllr_card_panel, "mllr_card");
 
+        lm_panel.setLayout(new java.awt.GridBagLayout());
+        card_layout_panel.add(lm_panel, "lm_card");
+
         getContentPane().add(card_layout_panel, java.awt.BorderLayout.CENTER);
 
         file_menu.setText("File");
@@ -850,7 +856,19 @@ public class app_gui extends javax.swing.JFrame {
         });
         view_menu.add(train_mllr_menu_item);
 
+        lang_model_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_MASK));
+        lang_model_menu_item.setText("Language modeling");
+        lang_model_menu_item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lang_model_menu_itemActionPerformed(evt);
+            }
+        });
+        view_menu.add(lang_model_menu_item);
+
         jMenuBar1.add(view_menu);
+
+        jMenu1.setText("Help");
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -904,7 +922,7 @@ public class app_gui extends javax.swing.JFrame {
         create_report_menu_item.setEnabled(true);
         train_mllr_menu_item.setEnabled(true);
         
-        Logger_status.Log("Adaptation mode.", Logger_status.LogType.INFO);
+        Logger_status.Log("Speakers daptation mode.", Logger_status.LogType.INFO);
     }//GEN-LAST:event_speaker_adapt_menu_itemActionPerformed
 
     private void play_pause_btnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_play_pause_btnItemStateChanged
@@ -966,6 +984,7 @@ public class app_gui extends javax.swing.JFrame {
         }
         
         recognize.Init_start_recognition();
+        Logger_status.Log("Recognition mode.", Logger_status.LogType.INFO);
     }//GEN-LAST:event_create_report_menu_itemActionPerformed
 
     private void sent_gen_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sent_gen_btnActionPerformed
@@ -1061,6 +1080,7 @@ public class app_gui extends javax.swing.JFrame {
         cl.show(card_layout_panel, "mllr_card");
         for(String s:Directories.getAllSpeakers())
             speakers_combo_box.addItem(s);
+        Logger_status.Log("Training MLLR mode.", Logger_status.LogType.INFO);
     }//GEN-LAST:event_train_mllr_menu_itemActionPerformed
 
     private void new_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_speaker_menu_itemActionPerformed
@@ -1143,8 +1163,24 @@ public class app_gui extends javax.swing.JFrame {
 
     private void init_speaker_combo_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_speaker_combo_boxActionPerformed
         // TODO add your handling code here:
+        String item = (String) init_speaker_combo_box.getSelectedItem();
+        int id_item = init_speaker_combo_box.getSelectedIndex();
+        
+        if(id_item > 0){
+            recognize.load_speaker_mllr(item);
+            Logger_status.Log("speaker "+item+" mllr lodaded.", Logger_status.LogType.INFO);
+            
+        }
         
     }//GEN-LAST:event_init_speaker_combo_boxActionPerformed
+
+    private void lang_model_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lang_model_menu_itemActionPerformed
+        // TODO add your handling code here:
+        CardLayout cl = (CardLayout)(card_layout_panel.getLayout());
+        cl.show(card_layout_panel, "lm_card");
+        recognize.Stop_recognition();
+        Logger_status.Log("Language modeling mode.", Logger_status.LogType.INFO);
+    }//GEN-LAST:event_lang_model_menu_itemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1197,6 +1233,7 @@ public class app_gui extends javax.swing.JFrame {
     private static javax.swing.JMenu edit_menu;
     private static javax.swing.JMenu file_menu;
     private static javax.swing.JComboBox<String> init_speaker_combo_box;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1205,6 +1242,8 @@ public class app_gui extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JMenuItem lang_model_menu_item;
+    private static javax.swing.JPanel lm_panel;
     private javax.swing.JLabel lw_lbl;
     public static javax.swing.JSlider lw_slider;
     public static javax.swing.JLabel lw_value_lbl;
