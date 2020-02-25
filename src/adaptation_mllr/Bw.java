@@ -37,7 +37,7 @@ public class Bw {
         cmd[13] = "-agc";
         cmd[14] = "none";
         cmd[15] = "-dictfn";
-        cmd[16] = rm.getDictionary_path();
+        cmd[16] = rm.getWav_dir_path()+"\\"+name+"\\vocab.dict";
         cmd[17] = "-ctlfn";
         cmd[18] = rm.getWav_dir_path()+"\\"+name+"\\test.fileids";
         cmd[19] = "-lsnfn";

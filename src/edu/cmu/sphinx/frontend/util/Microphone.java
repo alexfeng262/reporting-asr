@@ -11,6 +11,7 @@
  */
 package edu.cmu.sphinx.frontend.util;
 
+import ASR_tfm.Logger_status;
 import edu.cmu.sphinx.frontend.*;
 import edu.cmu.sphinx.util.props.*;
 
@@ -252,6 +253,7 @@ public class Microphone extends BaseDataProcessor {
                     = DataUtil.getNativeAudioFormat(desiredFormat,
                     getSelectedMixer());
             if (nativeFormat == null) {
+                Logger_status.Log("couldn't find suitable target audio format", Logger_status.LogType.ERROR);
                 logger.severe("couldn't find suitable target audio format");
             } else {
                 finalFormat = nativeFormat;

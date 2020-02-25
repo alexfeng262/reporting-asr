@@ -1130,6 +1130,8 @@ public class app_gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         String name = (String) speakers_combo_box.getSelectedItem();
         if(!Directories.is_empty_dir(name) && name != null ){
+            
+           
             mllr_log_txt_area.setText("");
             
             Sphinx_fe acoustic_feature = new Sphinx_fe(name);
@@ -1142,6 +1144,9 @@ public class app_gui extends javax.swing.JFrame {
             mllr_log_txt_area.append("\n\n********CREATING TRANSCRIPTION FILE************\n");
             create_transcription_file(name);
             
+            mllr_log_txt_area.append("\n\n********CREATING VOCABULARY FILE************\n");
+            create_vocab(name);
+            
             mllr_log_txt_area.append("\n\n********GENERATING ACOUSTIC FEATURES************\n");
             acoustic_feature.exec_sphinx_fe();
             
@@ -1153,6 +1158,7 @@ public class app_gui extends javax.swing.JFrame {
             
             mllr_log_txt_area.append("\n\n********FINISHED************\n");
             JOptionPane.showMessageDialog(this,"MLLR finished");
+            
         }
         else{
             JOptionPane.showMessageDialog(this,"Cannot perform MLLR. Must select a speaker");

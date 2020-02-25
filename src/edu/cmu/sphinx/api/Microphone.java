@@ -12,6 +12,7 @@
 
 package edu.cmu.sphinx.api;
 
+import ASR_tfm.Logger_status;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,6 +58,7 @@ public class Microphone {
         try {
             line.open();
         } catch (LineUnavailableException ex) {
+            
             Logger.getLogger(Microphone.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
