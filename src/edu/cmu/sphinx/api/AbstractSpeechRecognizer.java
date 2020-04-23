@@ -26,12 +26,12 @@ import edu.cmu.sphinx.result.Result;
  */
 public class AbstractSpeechRecognizer {
 
-    protected final Context context;
-    protected final Recognizer recognizer;
+    protected  Context context;
+    protected  Recognizer recognizer;
     
     protected ClusteredDensityFileData clusters;
 
-    protected final SpeechSourceProvider speechSourceProvider;
+    protected  SpeechSourceProvider speechSourceProvider;
 
     /**
      * Constructs recognizer object using provided configuration.

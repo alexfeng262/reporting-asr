@@ -9,15 +9,8 @@ import asr_utils.Resource_manager;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.Context;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
-import edu.cmu.sphinx.decoder.adaptation.Transform;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 //import edu.cmu.sphinx.api.LiveSpeechRecognizer;
@@ -66,7 +59,32 @@ public class App_recognizer extends Thread{
         dictionary_path = "file:"+props.getDictionary_path();
         config_xml = "file:"+props.getConfig_xml_path();
         Config_reloaded(global_prop);
-       
+    }
+    public void load(){
+        configuration = new Configuration();
+        
+        configuration.setAcousticModelPath(acoustic_model_path);
+        configuration.setDictionaryPath(dictionary_path);
+        configuration.setLanguageModelPath(language_model_path);
+        configuration.setSampleRate(16000);
+        Context context;
+        try{
+            context = new Context(config_xml,configuration);
+            //context.setGlobalProperty("languageWeight",12);
+            //@TODO:
+            //create configuration manager from xml
+            //set new global properties
+            //export to xml with configuration manager utils and replace de old.
+            
+            //System.out.println("Config reloaded");
+            //recognizer.set_context(context);
+            System.out.println("Config reloaded");
+            //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
+        }
+        catch(Exception ex){
+             System.out.println(ex.getMessage());
+        }
+        
     }
     private void Config_reloaded(Map<String, String> global_prop){
         Logger_status.Log("Loading Model",Logger_status.LogType.INFO);
@@ -96,9 +114,10 @@ public class App_recognizer extends Thread{
         }
         this.start();
         //app_gui.report_txt.append("Models ready....\n");
-        Logger_status.Log("Ready to listen. Press PLAY to start.",Logger_status.LogType.INFO);
+        Logger_status.Log("Preparado para escuchar. Presiona PLAY para empezar.",Logger_status.LogType.INFO);
         
     }
+    
     
     private void Config(){
         Logger_status.Log("Loading Model",Logger_status.LogType.INFO);
@@ -122,7 +141,7 @@ public class App_recognizer extends Thread{
         }
         this.start();
         //app_gui.report_txt.append("Models ready....\n");
-        Logger_status.Log("Ready to listen. Press PLAY to start.",Logger_status.LogType.INFO);
+        Logger_status.Log("Preparado para escuchar. Presiona PLAY para empezar.",Logger_status.LogType.INFO);
         
     }
     
@@ -131,25 +150,28 @@ public class App_recognizer extends Thread{
         
         while(!StopThread){
             
-            Logger_status.Log("Recognizing.",Logger_status.LogType.INFO);
+            Logger_status.Log("Reconociendo....",Logger_status.LogType.INFO);
             String utf = "holis";
-            String utterance = new String(recognizer.getResult().getHypothesis());
-            
             try {
+                String utterance = new String(recognizer.getResult().getHypothesis());
                 utf = new String(utterance.getBytes("ISO-8859-1"), "UTF-8");
+                if(utterance.equals("salir")){
+                    StopThread = true;
+                    closeRecognition();
+                    app_gui.enable_reload_model();
+                    Logger_status.Log("Parameters tuning enabled.",Logger_status.LogType.INFO);
+                }
+                else{
+                    app_gui.report_txt.append(utf+" ");
+                }
+                app_gui.report_txt.setCaretPosition(app_gui.report_txt.getDocument().getLength());
             } catch (UnsupportedEncodingException ex) {
                 Logger.getLogger(App_recognizer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(utterance.equals("salir")){
+            } catch(NullPointerException ex){
+                //Logger_status.Log("No se detecta micrófono",Logger_status.LogType.ERROR);
                 StopThread = true;
-                Stop_recognition();
-                app_gui.enable_reload_model();
-                Logger_status.Log("Parameters tuning enabled.",Logger_status.LogType.INFO);
             }
-            else{
-                app_gui.report_txt.append(utf+" ");
-            }
-            app_gui.report_txt.setCaretPosition(app_gui.report_txt.getDocument().getLength());
+            
         }
         
     }
@@ -198,35 +220,35 @@ public class App_recognizer extends Thread{
 //      
 //    }
 
-    public void Pause_recognition(){
+    public void stopRecognition(){
         //this.IsStart = false;
         recognizer.stopRecognition();
         //app_gui.report_txt.setEnabled(false);
-        Logger_status.Log("Recognizer stopped.",Logger_status.LogType.INFO);
+        Logger_status.Log("Reconocedor detenido.",Logger_status.LogType.INFO);
   
 
    
     }
-    public void Stop_recognition(){
+    public void closeRecognition(){
         recognizer.closeRecognition();
     }
     public void Start_recognition_reload(Map<String, String> global_prop){
         Config_reloaded(global_prop);
         
-        recognizer.startRecognitionNormal(true);
+        recognizer.openLineConnection(true);
     }
     
-    public void Init_start_recognition(){
+    public void initStartRecognition(){
         
-        recognizer.init_start_recognition();
+        recognizer.initStartRecognition();
     }
-    public void Start_recognition(){
+    public void startRecognition(){
       
         recognizer.startRecognition(true);
-        Logger_status.Log("Recognizing.",Logger_status.LogType.INFO);            
+        Logger_status.Log("Reconociendo....",Logger_status.LogType.INFO);            
     }
     
-    public void load_speaker_mllr(String name){
+    public void loadSpeakerMLLR(String name){
         Resource_manager rm = new Resource_manager();
         
         try {

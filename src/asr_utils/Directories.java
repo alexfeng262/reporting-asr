@@ -44,7 +44,7 @@ public class Directories {
         return dir.list(filter);
     }
     
-    public static int create_speaker_dir(String name){
+    public static int createSpeakerDir(String name){
         Resource_manager rm = new Resource_manager();
         
         File dir = new File(rm.getWav_dir_path()+"\\"+name);
@@ -61,14 +61,14 @@ public class Directories {
         }
     }
     
-    public static void delete_speaker_dir(String name){
+    public static void deleteSpeakerDir(String name){
         Resource_manager rm = new Resource_manager();
         
         File dir = new File(rm.getWav_dir_path()+"\\"+name);
         recursiveDelete(dir);
     }
     
-    public static boolean is_empty_dir(String name){
+    public static boolean isEmptyDir(String name){
         Resource_manager rm = new Resource_manager();
         
         File dir = new File(rm.getWav_dir_path()+"\\"+name);

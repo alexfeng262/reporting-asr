@@ -22,7 +22,16 @@ public class Resource_manager {
     private final String transcription_path;
     private final String base_dir_path;
     private final String wav_dir_path;
+    private final String audio_config_xml_path;
+    private final String icon_path;
 
+    public String getIcon_path() {
+        return icon_path;
+    }
+
+    public String getAudio_config_xml_path() {
+        return audio_config_xml_path;
+    }
     public String getWav_dir_path() {
         return wav_dir_path;
     }
@@ -66,21 +75,42 @@ public class Resource_manager {
         return dictionary_path;
     }
     
-
+/*
     public Resource_manager(){
         acoustic_model_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\es_acoustic_model";
         language_model_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\lm_3gram.bin";
         dictionary_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\vocab_phoneme.dict";
-        config_xml_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\config_xml\\config.xml";
+        config_xml_path = "C:\\Users\\alexf\\Documents\\NetBeansProjects\\reporting-asr\\resources\\config_xml\\config.xml";
+        audio_config_xml_path = "C:\\Users\\alexf\\Documents\\NetBeansProjects\\reporting-asr\\resources\\config_xml\\spectrogram.config.xml";
         corpus_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\corpus\\result.txt";
         fileids_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\test.fileids";
         transcription_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\test.transcription";
         base_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex";
         wav_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav";
+        icon_path = "file:C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\icon";
         
         bw_tool_path = "C:\\sphinx2\\sphinxtrain\\bin\\Release\\Win32\\bw.exe";
         sphinx_fe_tool_path = "C:\\sphinx2\\sphinxbase\\bin\\Release\\Win32\\sphinx_fe.exe";
         mllr_solve_tool_path = "C:\\sphinx2\\sphinxtrain\\bin\\Release\\Win32\\mllr_solve.exe";
+        
+    }*/
+  
+    public Resource_manager(){
+        acoustic_model_dir_path = "etc\\es_acoustic_model";
+        language_model_path = "etc\\linguist\\lm_3gram.bin";
+        dictionary_path = "etc\\linguist\\vocab_phoneme.dict";
+        config_xml_path = "etc\\config_xml\\config.xml";
+        corpus_path = "etc\\corpus\\result.txt";
+        fileids_path = "wav\\Alex\\test.fileids";
+        transcription_path = "wav\\Alex\\test.transcription";
+        base_dir_path = "wav\\Alex";
+        wav_dir_path = "wav";
+        icon_path = "file:etc\\icon";
+        audio_config_xml_path = "etc\\config_xml\\spectrogram.config.xml";
+    
+        bw_tool_path = "etc\\tools\\bw.exe";
+        sphinx_fe_tool_path = "etc\\tools\\sphinx_fe.exe";
+        mllr_solve_tool_path = "etc\\tools\\mllr_solve.exe";
         
     }
 

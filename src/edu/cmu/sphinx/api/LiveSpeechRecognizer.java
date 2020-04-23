@@ -25,6 +25,7 @@ import edu.cmu.sphinx.api.Context;
 import java.io.IOException;
 
 import edu.cmu.sphinx.frontend.util.StreamDataSource;
+import edu.cmu.sphinx.recognizer.Recognizer;
 
 
 /**
@@ -51,6 +52,20 @@ public class LiveSpeechRecognizer extends AbstractSpeechRecognizer {
         
     }
     
+    public void set_context(Context context){
+        //microphone.closeConnection();
+        //microphone = new Microphone(16000, 16, true, false);
+        recognizer = context.getInstance(Recognizer.class);
+        
+        context.getInstance(StreamDataSource.class)
+            .setInputStream(microphone.getStream());
+        
+        //speechSourceProvider = new SpeechSourceProvider();
+        //init_start_recognition();
+        recognizer.allocate();
+    }
+    
+    
     public LiveSpeechRecognizer(Configuration config) throws IOException
     { 
         super(config);
@@ -70,17 +85,17 @@ public class LiveSpeechRecognizer extends AbstractSpeechRecognizer {
     public void startRecognition(boolean clear) {
         microphone.startRecording();
     }
-    public void startRecognitionNormal(boolean clear) {
+    public void openLineConnection(boolean clear) {
         //recognizer.allocate();
         //recognizer.resetMonitors();
         microphone.openLineConnection();
         //microphone.startRecording();
     }
     
-    public void init_start_recognition() {
+    public void initStartRecognition() {
         recognizer.allocate();
         microphone.openLineConnection();
-        microphone.startRecording();
+        //microphone.startRecording();
     }
 
 
