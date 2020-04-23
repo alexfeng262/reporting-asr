@@ -309,7 +309,6 @@
                     <Property name="paintTicks" type="boolean" value="true"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="value" type="int" value="0"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="beam_sliderStateChanged"/>
@@ -339,7 +338,6 @@
                     <Property name="paintTicks" type="boolean" value="true"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="value" type="int" value="5"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="wip_sliderStateChanged"/>
@@ -370,7 +368,6 @@
                     <Property name="paintLabels" type="boolean" value="true"/>
                     <Property name="paintTicks" type="boolean" value="true"/>
                     <Property name="value" type="int" value="10"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="lw_sliderStateChanged"/>
@@ -400,7 +397,6 @@
                     <Property name="minorTickSpacing" type="int" value="5"/>
                     <Property name="paintTicks" type="boolean" value="true"/>
                     <Property name="value" type="int" value="0"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="pbeam_sliderStateChanged"/>
@@ -448,7 +444,6 @@
                 <Component class="javax.swing.JButton" name="reload_model_btn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cargar Modelo"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reload_model_btnActionPerformed"/>
@@ -467,14 +462,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton1"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>

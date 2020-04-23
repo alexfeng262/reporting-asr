@@ -412,7 +412,6 @@ public class app_gui extends javax.swing.JFrame {
         play_pause_btn = new javax.swing.JToggleButton();
         reload_model_btn = new javax.swing.JButton();
         clear_btn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         init_speaker_combo_box = new javax.swing.JComboBox<>();
         adaptation_card_panel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -498,7 +497,6 @@ public class app_gui extends javax.swing.JFrame {
         beam_slider.setPaintTicks(true);
         beam_slider.setToolTipText("");
         beam_slider.setValue(0);
-        beam_slider.setEnabled(false);
         beam_slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 beam_sliderStateChanged(evt);
@@ -518,7 +516,6 @@ public class app_gui extends javax.swing.JFrame {
         wip_slider.setPaintTicks(true);
         wip_slider.setToolTipText("");
         wip_slider.setValue(5);
-        wip_slider.setEnabled(false);
         wip_slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 wip_sliderStateChanged(evt);
@@ -539,7 +536,6 @@ public class app_gui extends javax.swing.JFrame {
         lw_slider.setPaintLabels(true);
         lw_slider.setPaintTicks(true);
         lw_slider.setValue(10);
-        lw_slider.setEnabled(false);
         lw_slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 lw_sliderStateChanged(evt);
@@ -559,7 +555,6 @@ public class app_gui extends javax.swing.JFrame {
         pbeam_slider.setMinorTickSpacing(5);
         pbeam_slider.setPaintTicks(true);
         pbeam_slider.setValue(0);
-        pbeam_slider.setEnabled(false);
         pbeam_slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 pbeam_sliderStateChanged(evt);
@@ -596,7 +591,6 @@ public class app_gui extends javax.swing.JFrame {
         jPanel1.add(play_pause_btn);
 
         reload_model_btn.setText("Cargar Modelo");
-        reload_model_btn.setEnabled(false);
         reload_model_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reload_model_btnActionPerformed(evt);
@@ -611,14 +605,6 @@ public class app_gui extends javax.swing.JFrame {
             }
         });
         jPanel1.add(clear_btn);
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -973,17 +959,19 @@ public class app_gui extends javax.swing.JFrame {
         global_prop.put(wipProp, wip_value_lbl.getText());
         global_prop.put(lwProp, lw_value_lbl.getText());
         global_prop.put(pBeam, pbeam_value_lbl.getText());
-        recognize = new App_recognizer(global_prop);
+        recognize.loadConfig(global_prop);
         
         //recognize.Start_recognition_reload(global_prop);
         play_pause_btn.setEnabled(true);
-        reload_model_btn.setEnabled(false);
+        init_speaker_combo_box.setEnabled(true);
+        init_speaker_combo_box.setSelectedIndex(0);
+        //reload_model_btn.setEnabled(false);
         //play_pause_btn.setSelected(false);
         //stop_btn.setEnabled(false);
-        beam_slider.setEnabled(false);
-        wip_slider.setEnabled(false);
-        lw_slider.setEnabled(false);
-        pbeam_slider.setEnabled(false);
+        //beam_slider.setEnabled(false);
+        //wip_slider.setEnabled(false);
+        //lw_slider.setEnabled(false);
+        //pbeam_slider.setEnabled(false);
     
        
     }//GEN-LAST:event_reload_model_btnActionPerformed
@@ -1009,7 +997,7 @@ public class app_gui extends javax.swing.JFrame {
             }
         }
         
-        recognize.initStartRecognition();
+        recognize.initRecognition();
         report_txt.setEnabled(false);
         play_pause_btn.setSelected(false);
         
@@ -1221,11 +1209,6 @@ public class app_gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_play_pause_btnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        recognize.load();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1277,7 +1260,6 @@ public class app_gui extends javax.swing.JFrame {
     private static javax.swing.JMenu edit_menu;
     private static javax.swing.JMenu file_menu;
     private static javax.swing.JComboBox<String> init_speaker_combo_box;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

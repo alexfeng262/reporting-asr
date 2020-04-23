@@ -52,7 +52,7 @@ public class LiveSpeechRecognizer extends AbstractSpeechRecognizer {
         
     }
     
-    public void set_context(Context context){
+        public void loadConfig(Context context){
         //microphone.closeConnection();
         //microphone = new Microphone(16000, 16, true, false);
         recognizer = context.getInstance(Recognizer.class);
@@ -85,14 +85,8 @@ public class LiveSpeechRecognizer extends AbstractSpeechRecognizer {
     public void startRecognition(boolean clear) {
         microphone.startRecording();
     }
-    public void openLineConnection(boolean clear) {
-        //recognizer.allocate();
-        //recognizer.resetMonitors();
-        microphone.openLineConnection();
-        //microphone.startRecording();
-    }
-    
-    public void initStartRecognition() {
+      
+    public void initRecognition() {
         recognizer.allocate();
         microphone.openLineConnection();
         //microphone.startRecording();

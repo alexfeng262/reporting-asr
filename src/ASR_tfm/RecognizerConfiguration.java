@@ -30,7 +30,6 @@ public class RecognizerConfiguration {
         Lw = Double.parseDouble(global_prop.get("languageWeight"));
         Pbeam = Double.parseDouble(global_prop.get("phoneticBeam"));
         
-        //return cm.getGlobalProperties();
         
     }
     
