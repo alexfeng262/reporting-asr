@@ -21,7 +21,7 @@ public class RecognizerConfiguration {
     
     private static void getGlobalProperties(Resource_manager props){
         ConfigurationManager cm;
-        cm = new ConfigurationManager(props.getConfig_xml_path());
+        cm = new ConfigurationManager(props.getDefault_config_xml_file_path());
         
         Map<String, String> global_prop = cm.getGlobalProperties();
         

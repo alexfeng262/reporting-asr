@@ -31,6 +31,6 @@ public class Logger_status {
                 log = "No message of type "+ type;
                 break;
         }
-        app_gui.status_bar.setText(log);
+        AppGui.status_bar.setText(log);
     }
 }

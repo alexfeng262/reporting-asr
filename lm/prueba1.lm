@@ -1,0 +1,44 @@
+[n]
+3
+
+[smoother]
+kylm.model.ngram.smoother.MKNSmoother
+
+[closed]
+true
+
+[max_length]
+4
+
+[vocab_cutoff]
+0
+
+[start_symbol]
+<s>
+
+[terminal_symbol]
+</s>
+
+[unknown_symbol]
+<unk>
+
+\data\
+ngram 1=4
+ngram 2=3
+ngram 3=2
+\1-grams: 
+-99.0000	<s>	-∞
+-0.4771	</s>
+-0.4771	informe
+-0.4771	medico
+
+\2-grams: 
+0.0000	<s> informe
+0.0000	informe medico
+0.0000	medico </s>	0.0000
+
+\3-grams: 
+0.0000	<s> informe medico
+0.0000	informe medico </s>
+
+\end\

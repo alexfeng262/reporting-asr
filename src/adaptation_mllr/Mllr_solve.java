@@ -23,9 +23,9 @@ public class Mllr_solve {
         
         cmd[0] = rm.getMllr_solve_tool_path();
         cmd[1] = "-meanfn";
-        cmd[2] = rm.getAcoustic_model_dir_path()+"\\means";
+        cmd[2] = rm.getDefault_acoustic_model_dir_path()+"\\means";
         cmd[3] = "-varfn";
-        cmd[4] = rm.getAcoustic_model_dir_path()+"\\variances";
+        cmd[4] = rm.getDefault_acoustic_model_dir_path()+"\\variances";
         cmd[5] = "-outmllrfn";
         cmd[6] = rm.getWav_dir_path()+"\\"+name+"\\mllr_matrix";
         cmd[7] = "-accumdir";

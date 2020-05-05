@@ -26,7 +26,7 @@ public class Sphinx_fe {
         
         cmd[0] = rm.getSphinx_fe_tool_path();
         cmd[1] = "-argfile";
-        cmd[2] = rm.getAcoustic_model_dir_path()+"\\feat.params";
+        cmd[2] = rm.getDefault_acoustic_model_dir_path()+"\\feat.params";
         cmd[3] = "-samprate";
         cmd[4] = "16000";
         cmd[5] = "-c";

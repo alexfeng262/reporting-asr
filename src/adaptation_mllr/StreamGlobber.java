@@ -5,7 +5,7 @@
  */
 package adaptation_mllr;
 
-import ASR_tfm.app_gui;
+import ASR_tfm.AppGui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +33,7 @@ class StreamGobbler extends Thread
             BufferedReader br = new BufferedReader(isr);
             String line=null;
             while ( (line = br.readLine()) != null)
-                app_gui.print_mllr_process(line);
+                AppGui.print_mllr_process(line);
                 //System.out.println(line);    
             } catch (IOException ioe)
               {

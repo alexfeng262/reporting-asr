@@ -174,7 +174,7 @@ public class Recognizer implements Configurable, ResultProducer {
      * @throws IllegalStateException if the recognizer is not in the <code>ALLOCATED</code> state
      */
     public void deallocate() throws IllegalStateException {
-        checkState(State.READY);
+        //checkState(State.READY);
         setState(State.DEALLOCATING);
         decoder.deallocate();
         setState(State.DEALLOCATED);

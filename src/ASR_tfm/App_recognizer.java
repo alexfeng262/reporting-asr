@@ -44,10 +44,10 @@ public class App_recognizer extends Thread{
 
     public App_recognizer(){
         Resource_manager props = new Resource_manager();
-        acoustic_model_path = "file:"+props.getAcoustic_model_dir_path();
-        language_model_path = "file:"+props.getLanguage_model_path();
-        dictionary_path = "file:"+props.getDictionary_path();
-        config_xml = "file:"+props.getConfig_xml_path();
+        acoustic_model_path = "file:"+props.getDefault_acoustic_model_dir_path();
+        language_model_path = "file:"+props.getDefault_language_model_file_path();
+        dictionary_path = "file:"+props.getDefault_dictionary_file_path();
+        config_xml = "file:"+props.getDefault_config_xml_file_path();
         Config();  
     }
     
@@ -105,18 +105,61 @@ public class App_recognizer extends Thread{
         
     }
     
+    private static String convertCapitalWord(String original){
+        if (original == null || original.length() == 0) {
+            return original;
+        }
+        return original.substring(0, 1).toUpperCase() + original.substring(1);
+    }
+    
     @Override
     public void run(){
-        
+        String previous_word = "";
+        boolean capital_letter = true;
         while(!StopThread){
             
             Logger_status.Log("Reconociendo....",Logger_status.LogType.INFO);
             String utf = "holis";
+            
             try {
                 String utterance = new String(recognizer.getResult().getHypothesis());
                 utf = new String(utterance.getBytes("ISO-8859-1"), "UTF-8");
                 
-                app_gui.report_txt.setCaretPosition(app_gui.report_txt.getDocument().getLength());
+                String[] words = utf.split(" ");
+                //String phrase = "";
+                
+                for(String word: words){
+                    int pos = AppGui.report_txt.getCaretPosition();
+                    if(capital_letter){
+                        word = convertCapitalWord(word);
+                        capital_letter = false;
+                    }
+                    if(previous_word.isEmpty() || pos==0){
+                        AppGui.report_txt.append(word + " ");   
+                    }
+                    else{
+                        if(word.matches("[0-9\\.]")&&previous_word.matches("[0-9\\.]")){
+                            AppGui.report_txt.replaceRange(word+" ", pos-1, pos);
+                        }
+                        else if(word.matches("[,\\)\\.]")){
+                            AppGui.report_txt.replaceRange(word+" ", pos-1, pos);
+                        }
+                        else if(previous_word.matches("[\\(]")){
+                            AppGui.report_txt.replaceRange(word + " ", pos-1, pos);
+                        }
+                        else if(word.matches("[//]")){
+                            AppGui.report_txt.replaceRange(word , pos-1, pos);
+                        }
+                        else{
+                            AppGui.report_txt.append(word + " ");
+                        }
+                    }
+                    if(word.matches("[\\.]"))
+                        capital_letter = true;
+                    AppGui.report_txt.setCaretPosition(AppGui.report_txt.getDocument().getLength());
+                    previous_word = word;
+                }
+
             } catch (UnsupportedEncodingException ex) {
                 Logger.getLogger(App_recognizer.class.getName()).log(Level.SEVERE, null, ex);
             } catch(NullPointerException ex){

@@ -23,9 +23,9 @@ public class Bw {
         Resource_manager rm = new Resource_manager();
         cmd[0] = rm.getBw_tool_path();
         cmd[1] = "-hmmdir";
-        cmd[2] = rm.getAcoustic_model_dir_path();
+        cmd[2] = rm.getDefault_acoustic_model_dir_path();
         cmd[3] = "-moddeffn";
-        cmd[4] = rm.getAcoustic_model_dir_path() + "\\mdef";
+        cmd[4] = rm.getDefault_acoustic_model_dir_path() + "\\mdef";
         cmd[5] = "-ts2cbfn";
         cmd[6] = ".ptm.";
         cmd[7] = "-feat";

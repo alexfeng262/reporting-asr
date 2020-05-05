@@ -5,7 +5,7 @@
  */
 package adaptation_mllr;
 
-import ASR_tfm.app_gui;
+import ASR_tfm.AppGui;
 import asr_utils.Resource_manager;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -52,15 +52,15 @@ public class Generate_files {
             BufferedWriter out = new BufferedWriter(stream_writer);
             for (String filename: txt_filenames){
                 out.write(speaker_dir + filename.replace(".txt", "") + "\n");
-                //System.out.println(filename.replace(".txt", ""));
+                //System.out.println(user_data_filename.replace(".txt", ""));
             }
             out.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(app_gui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(app_gui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(app_gui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
         }
     
     }
@@ -170,11 +170,11 @@ public class Generate_files {
             out.close();
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(app_gui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(app_gui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(app_gui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
