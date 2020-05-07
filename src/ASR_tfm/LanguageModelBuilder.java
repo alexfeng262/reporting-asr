@@ -98,30 +98,33 @@ public class LanguageModelBuilder {
                 String tok = token.word();
                 tok = tok.toLowerCase();
 
-                if(vocabObject.containsKey(tok))
+                if(vocabObject.containsKey(tok)){
                     tok = vocabObject.getString(tok);
-
+                }
+                
                 if(!abcObject.containsKey(tok)){
                     tok = tok.replaceAll(",+(?=\\d)",".");
                     tok = tok.replaceAll("^\\.+(?=\\d)","0.");
                     tok = tok.replaceAll("[^a-zA-ZáéíóúüñÁÉÍÓÚÑ0-9\\)\\(\\.\\%,\\-\\s//]", "");
                     tok = tok.replaceAll("x{2,}","");
+                    tok = tok.replaceAll("\\.{1,}",".");
                     tok = tok.replaceAll("\\-{1,}","-");
-                    tok = tok.replaceAll("(?<=[A-Za-záéíóú//\\-])\\.?(?=[0-9])|(?<=[0-9])\\.?(?=[A-Za-záéíóú//\\-])"," ");
-                    tok = tok.replaceAll("(?<=[A-Za-záéíóú//])\\.?(?=\\-)|(?<=\\-)\\.?(?=[A-Za-záéíóú//])"," ");
+                    tok = tok.replaceAll("(?<=[A-Za-záéíóú//\\-])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-])"," ");
+                    //tok = tok.replaceAll("(?<=[A-Za-záéíóú//])\\.?(?=[\\-\\.])|(?<=[\\-\\.])\\.?(?=[A-Za-záéíóú//])"," ");
                     tok = tok.replaceAll("(?=\\d)"," ");
                     tok = tok.replaceAll("(?=\\. \\d)"," ");
                 }
-
 
                 //System.out.println(tok);
                 tok = tok.trim();
 
                 if(!tok.isBlank())
-                    if(!(tok.matches("^h+$") || tok.matches("^c+$") || tok.matches("^q+$") || tok.matches("^v+$") ||
-                    tok.matches("^w+$") || tok.matches("^ñ+$")))
-                        strList.add(tok);    
-
+                    if(!(tok.matches("^h+h$") || tok.matches("^c+c$") || tok.matches("^q+q$") || tok.matches("^v+v$") ||
+                    tok.matches("^w+w$") || tok.matches("^ñ+ñ$"))){
+                        for(String word:tok.split(" ")){
+                            strList.add(word);
+                        }
+                    }
             }
 
             if(!strList.isEmpty())
@@ -133,8 +136,18 @@ public class LanguageModelBuilder {
             String sent1 = sent.replaceAll("(i\\.v\\.)|(i\\.? ?v\\.)|(i\\.v)","i.v.");
             sent1 = sent1.replaceAll("\\b(x x)\\b","");
             sent1 = sent1.replaceAll("([i|j]\\. d\\.)|(i\\.?d\\.)|(i\\.d)|(idx)|(j\\.? ?d\\.?)|([ij]\\. d)","id");
-            sent1 = sent1.replaceAll("1 8 f - fdg","18f-fdg");
+            sent1 = sent1.replaceAll("1 8 F - FDG","18F-FDG");
             sent1 = sent1.replaceAll("PET - CT","PET-CT");
+            sent1 = sent1.replaceAll("9 9 mTc - HDP","99mTc-HDP");
+            sent1 = sent1.replaceAll("9 9 mTc - DMSA","99mTc-DMSA");
+            sent1 = sent1.replaceAll("9 9 mTc - MAG 3","99mTc-MAG3");
+            sent1 = sent1.replaceAll("9 9 mTc - MAA","99mTc-MAA");
+            sent1 = sent1.replaceAll("9 9 mTc - DTPA","99mTc-DTPA");
+            sent1 = sent1.replaceAll("9 9 mTc - ECD","99mTc-ECD");
+            sent1 = sent1.replaceAll("1 2 3 i - ioflupano","123I-Ioflupano");
+            sent1 = sent1.replaceAll("1 2 3 i - MIBG","123I-MIBG");
+            sent1 = sent1.replaceAll("2 2 3 - ra","223-Ra");
+            sent1 = sent1.replaceAll("6 7 ga","67Ga");
             regex_sentences.add(sent1);
         }
 
@@ -200,7 +213,9 @@ public class LanguageModelBuilder {
             word = word.replace("ge","je");
             word = word.replace("h","");
             word = word.replace(".","");
-            
+            word = word.replace("-","");
+            word = word.replaceAll("[0-9]","");
+           
             String[] split_word = word.split("");
             String new_word = String.join(" ", split_word);
             new_word = new_word.replace("l l","ll");

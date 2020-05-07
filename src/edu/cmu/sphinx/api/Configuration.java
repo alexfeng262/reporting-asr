@@ -30,7 +30,6 @@ public class Configuration {
     private String languageModelPath;
     private String grammarPath;
     private String grammarName;
-    private Object languageWeight;
     private Map<String, String> newConfig;
     private int sampleRate = 16000;
     private boolean useGrammar = false;

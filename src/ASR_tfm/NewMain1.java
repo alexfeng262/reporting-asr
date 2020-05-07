@@ -34,10 +34,10 @@ public class NewMain1 {
      */
     public static void main(String[] args) {
         
-        String [] text = "a los 6 7 minutos".split(" ");
-        for(String word : text)
-            System.out.println(word);
-        //cleanCorpus();
+        //String [] text = "a los 6 7 minutos".split(" ");
+        //for(String word : text)
+         //   System.out.println(word);
+        cleanCorpus();
     }
     public static void cleanCorpus(){
         //Create ArrayList
@@ -69,42 +69,47 @@ public class NewMain1 {
             JsonObject abcObject = reader2.readObject();
             reader2.close();
             
-            String data = "18f-fdg-pet-tac Aumento a- de (18-7-6) la captación 18F-FDG en {ci}ntura D10 -- (h) escapular y 20/20/2020 pelviana, en probable";
+            String data = "99mTc-HDP ...... Aumento a- de (18-7-6) la captación 18F-FDG en {ci}ntura D10 -- (h) escapular y 20/20/2020 pelviana, en probable";
            
             //Preprocess token
             CoreDocument document = new CoreDocument(data);
             corenlp.annotate(document);
             for (CoreSentence sent : document.sentences()) {
-                List<String> strList = new ArrayList<>();
+            List<String> strList = new ArrayList<>();
 
-                for(CoreLabel token : sent.tokens()){
-                    String tok = token.word();
-                    tok = tok.toLowerCase();
-                    
-                    //correction
-                    if(vocabObject.containsKey(tok))
-                        tok = vocabObject.getString(tok);
-       
-                    //exception
-                    if(!abcObject.containsKey(tok)){
-                        tok = tok.replaceAll(",+(?=\\d)",".");
-                        tok = tok.replaceAll("^\\.+(?=\\d)","0.");
-                        tok = tok.replaceAll("[^a-zA-ZáéíóúüñÁÉÍÓÚÑ0-9\\)\\(\\.\\%,\\-\\s//]", "");
-                        tok = tok.replaceAll("x{2,}","");
-                        tok = tok.replaceAll("\\-{1,}","-");
-                        tok = tok.replaceAll("(?<=[A-Za-záéíóú//\\-])\\.?(?=[0-9])|(?<=[0-9])\\.?(?=[A-Za-záéíóú//\\-])"," ");
-                        tok = tok.replaceAll("(?=\\d)"," ");
-                        tok = tok.replaceAll("(?<=[A-Za-záéíóú//])\\.?(?=\\-)|(?<=\\-)\\.?(?=[A-Za-záéíóú//])"," ");
-                        tok = tok.replaceAll("(?=\\. \\d)"," ");
-                        tok = tok.trim();   
-                    }
-                    if(!tok.isBlank())
-                        if(!(tok.matches("^h+$") || tok.matches("^c+$") || tok.matches("^q+$") || tok.matches("^v+$") ||
-                            tok.matches("^w+$") || tok.matches("^ñ+$"))){
-                           strList.add(tok);    
+            for(CoreLabel token : sent.tokens()){
+                String tok = token.word();
+                tok = tok.toLowerCase();
+                
+                if(vocabObject.containsKey(tok)){
+                    tok = vocabObject.getString(tok);
+                }
+                
+                if(!abcObject.containsKey(tok)){
+                    tok = tok.replaceAll(",+(?=\\d)",".");
+                    tok = tok.replaceAll("^\\.+(?=\\d)","0.");
+                    tok = tok.replaceAll("[^a-zA-ZáéíóúüñÁÉÍÓÚÑ0-9\\)\\(\\.\\%,\\-\\s//]", "");
+                    tok = tok.replaceAll("x{2,}","");
+                    tok = tok.replaceAll("\\.{1,}",".");
+                    tok = tok.replaceAll("\\-{1,}","-");
+                    tok = tok.replaceAll("(?<=[A-Za-záéíóú//\\-])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-])"," ");
+                    //tok = tok.replaceAll("(?<=[A-Za-záéíóú//])\\.?(?=[\\-\\.])|(?<=[\\-\\.])\\.?(?=[A-Za-záéíóú//])"," ");
+                    tok = tok.replaceAll("(?=\\d)"," ");
+                    tok = tok.replaceAll("(?=\\. \\d)"," ");
+                }
+
+                //System.out.println(tok);
+                tok = tok.trim();
+                //System.out.println(tok);
+                if(!tok.isBlank())
+                    if(!(tok.matches("^h+$") || tok.matches("^c+$") || tok.matches("^q+$") || tok.matches("^v+$") ||
+                    tok.matches("^w+$") || tok.matches("^ñ+$"))){
+                        for(String word:tok.split(" ")){
+                            strList.add(word);
+                            
                         }
-                    System.out.println(tok);
-                }              
+                    }
+            }         
                 if(!strList.isEmpty())
                     all_sentences.add(String.join(" ", strList));
                 System.out.println(String.join(" ", strList));

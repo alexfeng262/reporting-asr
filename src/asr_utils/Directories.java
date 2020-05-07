@@ -48,7 +48,7 @@ public class Directories {
         Resource_manager rm = new Resource_manager();
         
         File dir = new File(rm.getWav_dir_path()+"\\"+name);
-        
+    
         if(!dir.isDirectory()){
             boolean created = dir.mkdir();
             if(created)
@@ -57,7 +57,7 @@ public class Directories {
                 return 1; // couldn't create directory
         }
         else{
-            return 2;  // Not a directory
+            return 2;  // directory already exists
         }
     }
     
@@ -79,6 +79,19 @@ public class Directories {
             return true;
         
         return false;
+    }
+    
+    public static String[] getAllLm(){
+        Resource_manager rm = new Resource_manager();
+        
+        File dir = new File(rm.getLm_dir_path());
+        FilenameFilter filter = new FilenameFilter() {
+            @Override
+            public boolean accept(File f, String name) {
+                return name.endsWith(".lm");
+            }
+        };
+        return dir.list(filter);
     }
     
 }

@@ -26,6 +26,7 @@ import java.io.IOException;
 
 import edu.cmu.sphinx.frontend.util.StreamDataSource;
 import edu.cmu.sphinx.recognizer.Recognizer;
+import javax.sound.sampled.LineUnavailableException;
 
 
 /**
@@ -41,7 +42,7 @@ public class LiveSpeechRecognizer extends AbstractSpeechRecognizer {
      * @param context
      * @throws IOException if model IO went wrong
      */
-    public LiveSpeechRecognizer(Context config) throws IOException
+    public LiveSpeechRecognizer(Context config) throws IOException, LineUnavailableException
     { 
         super(config);
         microphone = new Microphone(16000, 16, true, false);
@@ -66,7 +67,7 @@ public class LiveSpeechRecognizer extends AbstractSpeechRecognizer {
     }
     
     
-    public LiveSpeechRecognizer(Configuration config) throws IOException
+    public LiveSpeechRecognizer(Configuration config) throws IOException, LineUnavailableException
     { 
         super(config);
         microphone = new Microphone(16000, 16, true, false);

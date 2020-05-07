@@ -9,10 +9,12 @@ import asr_utils.Resource_manager;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.Context;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.LineUnavailableException;
 //import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 
 
@@ -32,6 +34,7 @@ public class App_recognizer extends Thread{
     private final String mllr_path = "resource:/mllr_matrix/alex_mllr";
     private final String acoustic_model_path  ;
     private final String language_model_path ;
+    private final String language_model_dir_path;
     //private final String language_model_path1 = "file:C:\\Users\\alexf\\Documents\\GitHub\\clean-repo\\LM\\lm_4gram.bin";
     private final String dictionary_path ;
    
@@ -43,24 +46,37 @@ public class App_recognizer extends Thread{
 
 
     public App_recognizer(){
-        Resource_manager props = new Resource_manager();
-        acoustic_model_path = "file:"+props.getDefault_acoustic_model_dir_path();
-        language_model_path = "file:"+props.getDefault_language_model_file_path();
-        dictionary_path = "file:"+props.getDefault_dictionary_file_path();
-        config_xml = "file:"+props.getDefault_config_xml_file_path();
+        Resource_manager rm = new Resource_manager();
+        acoustic_model_path = "file:"+rm.getDefault_acoustic_model_dir_path();
+        language_model_path = "file:"+rm.getDefault_language_model_file_path();
+        dictionary_path = "file:"+rm.getDefault_dictionary_file_path();
+        config_xml = "file:"+rm.getDefault_config_xml_file_path();
+        language_model_dir_path = "file:"+rm.getLm_dir_path();
         Config();  
     }
     
     public void loadConfig(Map<String, String> global_prop){
-        configuration = new Configuration();
         
-        configuration.setAcousticModelPath(acoustic_model_path);
-        configuration.setDictionaryPath(dictionary_path);
-        configuration.setLanguageModelPath(language_model_path);
-        configuration.setSampleRate(16000);
-        configuration.setNewConfig(global_prop);
-        Context context;
         try{
+            configuration = new Configuration();
+        
+            configuration.setAcousticModelPath(acoustic_model_path);
+
+            if(global_prop.get("languageModel").equals("Default")){
+                configuration.setLanguageModelPath(language_model_path);
+                configuration.setDictionaryPath(dictionary_path);
+            }
+            else{
+                //String lm_name = global_prop.get("languageModel");
+                String lm_path = language_model_dir_path + "\\"+global_prop.get("languageModel");
+                String dict_path = language_model_dir_path + "\\"+global_prop.get("languageModel").replace(".lm", ".dict");
+                configuration.setLanguageModelPath(lm_path);
+                configuration.setDictionaryPath(dict_path);
+            }
+
+            configuration.setSampleRate(16000);
+            configuration.setNewConfig(global_prop);
+            Context context;
             context = new Context(config_xml,configuration);
             //context.setGlobalProperty("languageWeight",12);
             //@TODO:
@@ -70,11 +86,13 @@ public class App_recognizer extends Thread{
             
             //System.out.println("Config reloaded");
             recognizer.loadConfig(context);
+            AppGui.showMessageGUI("Parámetros de configuración cargado exitósamente.", "info");
             System.out.println("Config reloaded");
             //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
         }
         catch(Exception ex){
-             System.out.println(ex.getMessage());
+            AppGui.showMessageGUI("No se ha podido cargar configuración del reconocedor.", "error");
+            System.out.println(ex.getMessage());
         }
         
     }
@@ -89,18 +107,25 @@ public class App_recognizer extends Thread{
         configuration.setSampleRate(16000);
         Context context;
         
-      
         try{
             context = new Context(config_xml,configuration);
             recognizer = new LiveSpeechRecognizer(context);
             //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
             
         }
-        catch(Exception ex){
-             System.out.println(ex.getMessage());
+        catch(IOException ex){
+            AppGui.showMessageGUI("No se ha podido cargar configuración del reconocedor.", "error");
+            System.out.println(ex.getMessage());
+        } catch (LineUnavailableException ex) {      
+            AppGui.showMessageGUI("No line matching interface TargetDataLine supporting format "
+                    + "PCM_SIGNED 16000.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian is supported.", "error");
+        } catch (IllegalArgumentException ex){
+            AppGui.showMessageGUI("No line matching interface TargetDataLine supporting format "
+                    + "PCM_SIGNED 16000.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian is supported.", "error");
         }
         this.start();
         //app_gui.report_txt.append("Models ready....\n");
+        
         Logger_status.Log("Preparado para escuchar. Presiona PLAY para empezar.",Logger_status.LogType.INFO);
         
     }
@@ -116,9 +141,9 @@ public class App_recognizer extends Thread{
     public void run(){
         String previous_word = "";
         boolean capital_letter = true;
+        Logger_status.Log("Preparado para escuchar. Presiona PLAY para empezar.",Logger_status.LogType.INFO);
         while(!StopThread){
-            
-            Logger_status.Log("Reconociendo....",Logger_status.LogType.INFO);
+
             String utf = "holis";
             
             try {
@@ -141,6 +166,9 @@ public class App_recognizer extends Thread{
                         if(word.matches("[0-9\\.]")&&previous_word.matches("[0-9\\.]")){
                             AppGui.report_txt.replaceRange(word+" ", pos-1, pos);
                         }
+                        else if(word.matches("[%]")&&previous_word.matches("[0-9]")){
+                            AppGui.report_txt.replaceRange(word+" ", pos-1, pos);
+                        }
                         else if(word.matches("[,\\)\\.]")){
                             AppGui.report_txt.replaceRange(word+" ", pos-1, pos);
                         }
@@ -161,9 +189,9 @@ public class App_recognizer extends Thread{
                 }
 
             } catch (UnsupportedEncodingException ex) {
-                Logger.getLogger(App_recognizer.class.getName()).log(Level.SEVERE, null, ex);
+                AppGui.showMessageGUI("Excepción de tipo UnsupportedEncodingException.", "error");
             } catch(NullPointerException ex){
-                //Logger_status.Log("No se detecta micrófono",Logger_status.LogType.ERROR);
+                AppGui.showMessageGUI("Excepción de tipo NullPointerException en App_recognizer.", "error");
                 StopThread = true;
             }
             
@@ -199,6 +227,7 @@ public class App_recognizer extends Thread{
         try {
             recognizer.loadTransform(rm.getWav_dir_path()+"\\"+name+"\\mllr_matrix", 1); // Load MLLR
         } catch (Exception ex) {
+            AppGui.showMessageGUI("Excepción al cargar MLLR", "error");
             Logger.getLogger(App_recognizer.class.getName()).log(Level.SEVERE, null, ex);
         }
     

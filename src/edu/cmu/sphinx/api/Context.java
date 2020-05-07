@@ -220,7 +220,7 @@ public class Context {
                     case "phoneticBeam":
                         setLocalProperty("fastmatchActiveList->relativeBeamWidth",newConfig.get(key));
                         break;
-                        
+                 
                     default: 
                         System.out.println("Property not available: " + key);
                 }

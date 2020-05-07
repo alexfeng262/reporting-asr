@@ -45,6 +45,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
@@ -52,8 +53,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.Timer;
+import javax.swing.plaf.ProgressBarUI;
 import train_sentence_generation.SentenceGenerator;
+import java.awt.datatransfer.StringSelection;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
 
 /**
  *
@@ -70,7 +76,8 @@ public class AppGui extends javax.swing.JFrame {
     private final String relBeamWidthProp = "relativeBeamWidth";
     private final String wipProp = "wordInsertionProbability";
     private final String lwProp = "languageWeight";
-    private final String pBeam = "phoneticBeam";
+    private final String pBeamProp = "phoneticBeam";
+    private final String lmProp = "languageModel";
     private static SentenceGenerator generate ;
     private static Timer timer;
     private int seconds;
@@ -106,6 +113,7 @@ public class AppGui extends javax.swing.JFrame {
 
     public AppGui() {
         initComponents();
+        jProgressBar2.setVisible(false);
         URL iconURL;
         try {
             iconURL = new URL(rm.getIcon_path()+"\\healthcare-and-medical.png");
@@ -127,6 +135,33 @@ public class AppGui extends javax.swing.JFrame {
         //String home = System.getProperty("user.dir");
         //System.out.println(home);
         
+    }
+
+    public static void showMessageGUI(String msg, String type){
+        String log = "";
+        int option_type = JOptionPane.ERROR_MESSAGE ;
+        if(null == type){
+            log = "ERROR";
+            msg = "tipo no existe";
+            option_type = JOptionPane.ERROR_MESSAGE;
+        }
+        else switch (type) {
+            case "info":
+                log = "INFORMACIÓN";
+                option_type = JOptionPane.INFORMATION_MESSAGE;
+                break;
+            case "warning":
+                log = "ALERTA";
+                option_type = JOptionPane.WARNING_MESSAGE;
+                break;
+            case "error":
+                log = "ERROR";
+                option_type = JOptionPane.ERROR_MESSAGE;
+                break;
+        }
+        JOptionPane.showMessageDialog(null, msg, 
+                log, 
+                option_type);
     }
      static public void getAudioFromFile(String filename) throws IOException {
         /* Supports alignment data.  The format of the alignment file
@@ -257,7 +292,8 @@ public class AppGui extends javax.swing.JFrame {
             //getAudioFromFile("C:\\Users\\alexf\\Desktop\\ASR\\training2\\audio1.wav");
         }
         catch (Exception e) {
-            e.printStackTrace();
+            //AppGui.showMessageGUI("Excepción de tipo LineUnavailableException", "error");
+            //e.printStackTrace();
         }
         
     
@@ -275,7 +311,7 @@ public class AppGui extends javax.swing.JFrame {
                     if (i > 0 &&  i < user_data_filename.length() - 1) {
                         ext = user_data_filename.substring(i+1).toLowerCase();
                     }
-                    System.out.println(ext);
+                    //System.out.println(ext);
                     if(ext.equals("wav")){
                         user_data_filename = file.getAbsolutePath(); 
                     }
@@ -385,12 +421,8 @@ public class AppGui extends javax.swing.JFrame {
         //pbeam_slider.setValue((int) (recognizerConfig.getLw()));
         pbeam_value_lbl.setText(formatter.format(recognizerConfig.getPbeam()));
         
-        String[] speakers = Directories.getAllSpeakers();
-        if(speakers.length != 0){
-            for(String s : speakers){
-                init_speaker_combo_box.addItem(s);
-            }
-        }
+        update_init_speakers();
+        update_init_lm();
     }
     
     public static void enable_reload_model(){
@@ -408,6 +440,7 @@ public class AppGui extends javax.swing.JFrame {
     
     public static void print_mllr_process(String log){
         mllr_log_txt_area.append(log+"\n");
+        mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
     }
     
     private void disableView(int view){
@@ -417,25 +450,62 @@ public class AppGui extends javax.swing.JFrame {
                 speaker_adapt_menu_item.setEnabled(true);
                 train_mllr_menu_item.setEnabled(true);
                 lang_model_menu_item.setEnabled(true);
+                jProgressBar2.setVisible(false);
                 break;
             case 1: // user adaptation
                 create_report_menu_item.setEnabled(true);
                 speaker_adapt_menu_item.setEnabled(false);
                 train_mllr_menu_item.setEnabled(true);
                 lang_model_menu_item.setEnabled(true);
+                jProgressBar2.setVisible(false);
                 break;
             case 2: // MLLR
                 create_report_menu_item.setEnabled(true);
                 speaker_adapt_menu_item.setEnabled(true);
                 train_mllr_menu_item.setEnabled(false);
                 lang_model_menu_item.setEnabled(true);
+                jProgressBar2.setVisible(false);
                 break;
             case 3: // language model
                 create_report_menu_item.setEnabled(true);
                 speaker_adapt_menu_item.setEnabled(true);
                 train_mllr_menu_item.setEnabled(true);
                 lang_model_menu_item.setEnabled(false);
+                jProgressBar2.setVisible(false);
                 break;
+        }
+    }
+    
+    private static void update_init_speakers(){
+        String[] speakers = Directories.getAllSpeakers();
+        //Report combo box
+        init_speaker_combo_box.removeAllItems();
+        init_speaker_combo_box.addItem("Default");
+        init_speaker_combo_box.setSelectedIndex(0);
+        
+        //MLLR combo box
+        speakers_combo_box.removeAllItems();
+        speakers_combo_box.addItem("(None)");
+        speakers_combo_box.setSelectedIndex(0);
+        
+        if(speakers.length != 0){
+            for(String s : speakers){
+                init_speaker_combo_box.addItem(s);
+                speakers_combo_box.addItem(s);
+            }
+        }
+        
+    }
+    
+    private static void update_init_lm(){
+        String[] lms = Directories.getAllLm();
+        lm_init_combo_box.removeAllItems();
+        lm_init_combo_box.addItem("Default");
+        lm_init_combo_box.setSelectedIndex(0);
+        if(lms.length != 0){
+            for(String s : lms){
+                lm_init_combo_box.addItem(s);
+            }
         }
     }
     
@@ -452,6 +522,7 @@ public class AppGui extends javax.swing.JFrame {
 
         status_jpanel = new javax.swing.JPanel();
         status_bar = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
         card_layout_panel = new javax.swing.JPanel();
         principal_card_panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -473,7 +544,12 @@ public class AppGui extends javax.swing.JFrame {
         play_pause_btn = new javax.swing.JToggleButton();
         reload_model_btn = new javax.swing.JButton();
         clear_btn = new javax.swing.JButton();
+        copy_btn = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         init_speaker_combo_box = new javax.swing.JComboBox<>();
+        lm_init_combo_box = new javax.swing.JComboBox<>();
         adaptation_card_panel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         adapt_text_area = new javax.swing.JTextArea();
@@ -520,18 +596,27 @@ public class AppGui extends javax.swing.JFrame {
         status_jpanel.setLayout(new java.awt.BorderLayout());
 
         status_bar.setBackground(new java.awt.Color(204, 204, 204));
-        status_bar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        status_bar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         status_bar.setText("Status bar");
         status_jpanel.add(status_bar, java.awt.BorderLayout.CENTER);
 
+        jProgressBar2.setForeground(new java.awt.Color(92, 184, 92));
+        jProgressBar2.setValue(50);
+        jProgressBar2.setFocusable(false);
+        jProgressBar2.setName(""); // NOI18N
+        jProgressBar2.setStringPainted(true);
+        jProgressBar2.setVerifyInputWhenFocusTarget(false);
+        status_jpanel.add(jProgressBar2, java.awt.BorderLayout.LINE_END);
+
         getContentPane().add(status_jpanel, java.awt.BorderLayout.PAGE_END);
 
+        card_layout_panel.setBackground(new java.awt.Color(255, 255, 255));
         card_layout_panel.setLayout(new java.awt.CardLayout());
 
         principal_card_panel.setLayout(new java.awt.GridBagLayout());
 
         report_txt.setColumns(20);
-        report_txt.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        report_txt.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         report_txt.setLineWrap(true);
         report_txt.setRows(5);
         report_txt.setWrapStyleWord(true);
@@ -550,9 +635,11 @@ public class AppGui extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
         principal_card_panel.add(jScrollPane1, gridBagConstraints);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Configuración"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Configuración", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jPanel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel4.setLayout(new java.awt.GridLayout(4, 4, 20, 5));
 
+        relativeBeamWidth_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         relativeBeamWidth_lbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         relativeBeamWidth_lbl.setText("Relative Beam Width");
         jPanel4.add(relativeBeamWidth_lbl);
@@ -570,9 +657,11 @@ public class AppGui extends javax.swing.JFrame {
         });
         jPanel4.add(beam_slider);
 
+        beam_value_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         beam_value_lbl.setText("50");
         jPanel4.add(beam_value_lbl);
 
+        wip_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         wip_lbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         wip_lbl.setText("Word Insertion Probability");
         jPanel4.add(wip_lbl);
@@ -589,9 +678,11 @@ public class AppGui extends javax.swing.JFrame {
         });
         jPanel4.add(wip_slider);
 
+        wip_value_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         wip_value_lbl.setText("50");
         jPanel4.add(wip_value_lbl);
 
+        lw_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lw_lbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lw_lbl.setText("Language Weight");
         jPanel4.add(lw_lbl);
@@ -609,9 +700,11 @@ public class AppGui extends javax.swing.JFrame {
         });
         jPanel4.add(lw_slider);
 
+        lw_value_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lw_value_lbl.setText("50");
         jPanel4.add(lw_value_lbl);
 
+        phoneticBeam_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         phoneticBeam_lbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         phoneticBeam_lbl.setText("Phonetic Beam");
         jPanel4.add(phoneticBeam_lbl);
@@ -628,6 +721,7 @@ public class AppGui extends javax.swing.JFrame {
         });
         jPanel4.add(pbeam_slider);
 
+        pbeam_value_lbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         pbeam_value_lbl.setText("50");
         jPanel4.add(pbeam_value_lbl);
 
@@ -643,6 +737,7 @@ public class AppGui extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 2, 5, 5));
 
+        play_pause_btn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         play_pause_btn.setText("Play");
         play_pause_btn.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -656,7 +751,8 @@ public class AppGui extends javax.swing.JFrame {
         });
         jPanel1.add(play_pause_btn);
 
-        reload_model_btn.setText("Cargar Modelo");
+        reload_model_btn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        reload_model_btn.setText("Cargar modelo");
         reload_model_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reload_model_btnActionPerformed(evt);
@@ -664,6 +760,7 @@ public class AppGui extends javax.swing.JFrame {
         });
         jPanel1.add(reload_model_btn);
 
+        clear_btn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         clear_btn.setText("Borrar texto");
         clear_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -672,6 +769,15 @@ public class AppGui extends javax.swing.JFrame {
         });
         jPanel1.add(clear_btn);
 
+        copy_btn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        copy_btn.setText("Copiar reporte");
+        copy_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copy_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(copy_btn);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
@@ -679,6 +785,16 @@ public class AppGui extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 16, 15);
         principal_card_panel.add(jPanel1, gridBagConstraints);
+
+        jPanel6.setLayout(new java.awt.GridLayout(2, 2, 10, 0));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Usuario");
+        jPanel6.add(jLabel1);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Modelo de lenguaje");
+        jPanel6.add(jLabel2);
 
         init_speaker_combo_box.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         init_speaker_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
@@ -689,16 +805,22 @@ public class AppGui extends javax.swing.JFrame {
                 init_speaker_combo_boxActionPerformed(evt);
             }
         });
+        jPanel6.add(init_speaker_combo_box);
+
+        lm_init_combo_box.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lm_init_combo_box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel6.add(lm_init_combo_box);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(7, 15, 0, 0);
-        principal_card_panel.add(init_speaker_combo_box, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(15, 15, 0, 15);
+        principal_card_panel.add(jPanel6, gridBagConstraints);
 
         card_layout_panel.add(principal_card_panel, "principal_card");
 
         adaptation_card_panel.setLayout(new java.awt.GridBagLayout());
 
         adapt_text_area.setColumns(20);
-        adapt_text_area.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        adapt_text_area.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         adapt_text_area.setLineWrap(true);
         adapt_text_area.setRows(5);
         adapt_text_area.setText("visualizamos aumento en la captación del radiotrazador en región fronto temporal derecha soma de la vértebra dorsal soma de la vértebra lumbar y foco lineal en región intertrocantérea del fémur derecho sugestivos de afectación metastásica ósea ");
@@ -801,8 +923,12 @@ public class AppGui extends javax.swing.JFrame {
 
         mllr_card_panel.setLayout(new java.awt.GridBagLayout());
 
+        mllr_log_txt_area.setEditable(false);
         mllr_log_txt_area.setColumns(20);
+        mllr_log_txt_area.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mllr_log_txt_area.setLineWrap(true);
         mllr_log_txt_area.setRows(5);
+        mllr_log_txt_area.setText("*****************Instrucciones de uso********************\n\nPaso 1: Seleccionar usuario.\nPaso 2: Pulsar botón \"Crear MLLR\" para iniciar proceso.\n\n********************** Logs *****************************\n");
         jScrollPane3.setViewportView(mllr_log_txt_area);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -843,7 +969,7 @@ public class AppGui extends javax.swing.JFrame {
 
         lm_text_area.setEditable(false);
         lm_text_area.setColumns(20);
-        lm_text_area.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        lm_text_area.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lm_text_area.setRows(5);
         lm_text_area.setText("*****************Instrucciones de uso********************\n\nPaso 1: Seleccionar corpus de texto.\nPaso 2: Pulsar botón \"Ejecutar\" para iniciar modelo de lenguaje.\nPaso 3: Introducir un nombre para el modelo de lenguaje.\n\nConfiguración por defecto:\nSmoothing: \t\tModified Kneser-Ney\nN-grams:\t\t3\nFormato del modelo:\tARPA\n*********************************************************\n********************** Logs *****************************\n\n");
         jScrollPane4.setViewportView(lm_text_area);
@@ -888,6 +1014,7 @@ public class AppGui extends javax.swing.JFrame {
         file_menu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         new_speaker_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        new_speaker_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         new_speaker_menu_item.setText("Nuevo usuario");
         new_speaker_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -897,6 +1024,7 @@ public class AppGui extends javax.swing.JFrame {
         file_menu.add(new_speaker_menu_item);
 
         del_speaker_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        del_speaker_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         del_speaker_menu_item.setText("Eliminar usuario");
         del_speaker_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -922,6 +1050,7 @@ public class AppGui extends javax.swing.JFrame {
         edit_menu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         selectAll_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        selectAll_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         selectAll_menu_item.setText("Seleccionar todo");
         selectAll_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -931,6 +1060,7 @@ public class AppGui extends javax.swing.JFrame {
         edit_menu.add(selectAll_menu_item);
 
         crop_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        crop_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         crop_menu_item.setText("Cortar");
         crop_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -946,6 +1076,7 @@ public class AppGui extends javax.swing.JFrame {
         view_menu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         create_report_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
+        create_report_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         create_report_menu_item.setText("Crear reporte");
         create_report_menu_item.setEnabled(false);
         create_report_menu_item.addActionListener(new java.awt.event.ActionListener() {
@@ -956,6 +1087,7 @@ public class AppGui extends javax.swing.JFrame {
         view_menu.add(create_report_menu_item);
 
         speaker_adapt_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_MASK));
+        speaker_adapt_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         speaker_adapt_menu_item.setText("Adaptación al usuario");
         speaker_adapt_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -965,6 +1097,7 @@ public class AppGui extends javax.swing.JFrame {
         view_menu.add(speaker_adapt_menu_item);
 
         train_mllr_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
+        train_mllr_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         train_mllr_menu_item.setText("Entrenar MLLR");
         train_mllr_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -974,6 +1107,7 @@ public class AppGui extends javax.swing.JFrame {
         view_menu.add(train_mllr_menu_item);
 
         lang_model_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_MASK));
+        lang_model_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lang_model_menu_item.setText("Modelar lenguaje");
         lang_model_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -986,6 +1120,7 @@ public class AppGui extends javax.swing.JFrame {
 
         jMenu1.setText("Ayuda");
         jMenu1.setEnabled(false);
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -1062,20 +1197,16 @@ public class AppGui extends javax.swing.JFrame {
         global_prop.put(relBeamWidthProp, beam_value_lbl.getText());
         global_prop.put(wipProp, wip_value_lbl.getText());
         global_prop.put(lwProp, lw_value_lbl.getText());
-        global_prop.put(pBeam, pbeam_value_lbl.getText());
+        global_prop.put(pBeamProp, pbeam_value_lbl.getText());
+        
+        String lm_item = (String) lm_init_combo_box.getSelectedItem();
+        global_prop.put(lmProp, lm_item);
         recognize.loadConfig(global_prop);
         
         //recognize.Start_recognition_reload(global_prop);
         play_pause_btn.setEnabled(true);
         init_speaker_combo_box.setEnabled(true);
         init_speaker_combo_box.setSelectedIndex(0);
-        //reload_model_btn.setEnabled(false);
-        //play_pause_btn.setSelected(false);
-        //stop_btn.setEnabled(false);
-        //beam_slider.setEnabled(false);
-        //wip_slider.setEnabled(false);
-        //lw_slider.setEnabled(false);
-        //pbeam_slider.setEnabled(false);
     
        
     }//GEN-LAST:event_reload_model_btnActionPerformed
@@ -1089,15 +1220,7 @@ public class AppGui extends javax.swing.JFrame {
         
         disableView(0);
         
-        String[] speakers = Directories.getAllSpeakers();
-        init_speaker_combo_box.removeAllItems();
-        init_speaker_combo_box.addItem("Default");
-        init_speaker_combo_box.setSelectedIndex(0);
-        if(speakers.length != 0){
-            for(String s : speakers){
-                init_speaker_combo_box.addItem(s);
-            }
-        }
+        update_init_speakers();
         
         recognize.initRecognition();
         report_txt.setEnabled(false);
@@ -1199,27 +1322,6 @@ public class AppGui extends javax.swing.JFrame {
         Logger_status.Log("Training MLLR mode.", Logger_status.LogType.INFO);
     }//GEN-LAST:event_train_mllr_menu_itemActionPerformed
 
-    private void new_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_speaker_menu_itemActionPerformed
-        //TODO: Actualizar listado de usuarios
-        String name = JOptionPane.showInputDialog(this, "Introduce el nombre del usuario");
-        if(name != null ){
-            int confirm = Directories.createSpeakerDir(name);
-            switch(confirm){
-                case 0:
-                    JOptionPane.showMessageDialog(this,"Usuario "+name+" creado correctamente.");
-                    break;
-                case 1:
-                    JOptionPane.showMessageDialog(this,"Algo ha ocurrido mal.");
-                    break;
-                case 2:
-                    JOptionPane.showMessageDialog(this,"No es un nombre de usuario válido");
-                    break;
-            }
-        
-        }
-         
-    }//GEN-LAST:event_new_speaker_menu_itemActionPerformed
-
     private void del_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_speaker_menu_itemActionPerformed
         // TODO: Actualizar listado de usuarios
         
@@ -1233,11 +1335,13 @@ public class AppGui extends javax.swing.JFrame {
                                                         speakers[0]);
             if (name!= null){
                 Directories.deleteSpeakerDir(name);
-                JOptionPane.showMessageDialog(this,"Usuario "+name+" eliminado correctamente.");
+                update_init_speakers();
+                showMessageGUI("Usuario "+name+" eliminado correctamente.", "info");
             }
         }
         else{
-            JOptionPane.showMessageDialog(this,"No hay usuarios para eliminar.");
+            showMessageGUI("No hay usuarios para eliminar.", "info");
+            
         }
         
     }//GEN-LAST:event_del_speaker_menu_itemActionPerformed
@@ -1245,39 +1349,84 @@ public class AppGui extends javax.swing.JFrame {
     private void create_mllr_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_mllr_btnActionPerformed
         // TODO add your handling code here:
         String name = (String) speakers_combo_box.getSelectedItem();
+        
+        
         if(!Directories.isEmptyDir(name) && name != null ){
-            
-           
+
             mllr_log_txt_area.setText("");
             
             Sphinx_fe acoustic_feature = new Sphinx_fe(name);
             Bw acum_count = new Bw(name);
             Mllr_solve mllr_matrix = new Mllr_solve(name);
-
-            mllr_log_txt_area.append("\n\n********CREATING ID FILES************\n");
-            create_fileid_file(name);
-
-            mllr_log_txt_area.append("\n\n********CREATING TRANSCRIPTION FILE************\n");
-            create_transcription_file(name);
             
-            mllr_log_txt_area.append("\n\n********CREATING VOCABULARY FILE************\n");
-            create_vocab(name);
+            jProgressBar2.setVisible(true);
             
-            mllr_log_txt_area.append("\n\n********GENERATING ACOUSTIC FEATURES************\n");
-            acoustic_feature.exec_sphinx_fe();
+            SwingWorker sw1 = new SwingWorker<Boolean, Integer>() {
+                @Override
+                protected Boolean doInBackground() throws Exception {
+                    publish(0);
+                    create_fileid_file(name);
+                    Thread.sleep(100);
+                    
+                    publish(1);
+                    create_transcription_file(name);
+                    Thread.sleep(100);
+                    
+                    publish(2);
+                    create_vocab(name);
+                    Thread.sleep(100);
+                    
+                    publish(3);
+                    acoustic_feature.exec_sphinx_fe();
+                    publish(4);
+                    acum_count.exec_bw();
+                    publish(5);
+                    mllr_matrix.exec_mllr_solve();
+                    return true;
+                }
+                
+                @Override
+                protected void process(List<Integer> chunks) {
+                    int value = chunks.get(0);
+                    switch(value){
+                        case 0:
+                            mllr_log_txt_area.append("\n\n********CREATING ID FILES************\n");
+                            mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
+                            break;
+                        case 1:
+                            mllr_log_txt_area.append("\n\n********CREATING TRANSCRIPTION FILE************\n");
+                            mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
+                            break;
+                        case 2:
+                            mllr_log_txt_area.append("\n\n********CREATING VOCABULARY FILE************\n");
+                            mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
+                            break;
+                        case 3:
+                            mllr_log_txt_area.append("\n\n********GENERATING ACOUSTIC FEATURES************\n");
+                            mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
+                            break;
+                        case 4:
+                            mllr_log_txt_area.append("\n\n********ACUMULATING STATISTIC COUNTS************\n");
+                            mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
+                            break;
+                        case 5:
+                            mllr_log_txt_area.append("\n\n********GENERATING MLLR MATRIX************\n");
+                            mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
+                            break;
+                    }
+                    jProgressBar2.setValue(value*100/5);
+                }
+                @Override
+                protected void done() {
+                    mllr_log_txt_area.append("\n\n********FINISHED************\n");
+                    showMessageGUI("Entrenamiento MLLR terminado.", "info");
+                } 
+            };
             
-            mllr_log_txt_area.append("\n\n********ACUMULATING STATISTIC COUNTS************\n");
-            acum_count.exec_bw();
-            
-            mllr_log_txt_area.append("\n\n********GENERATING MLLR MATRIX************\n");
-            mllr_matrix.exec_mllr_solve();
-            
-            mllr_log_txt_area.append("\n\n********FINISHED************\n");
-            JOptionPane.showMessageDialog(this,"Entrenamiento MLLR terminado.");
-            
+            sw1.execute();
         }
         else{
-            JOptionPane.showMessageDialog(this,"No se pudo completar el entrenamiento MLLR.");
+            showMessageGUI("No se pudo completar el entrenamiento MLLR.", "error");
         }
                
         
@@ -1290,7 +1439,8 @@ public class AppGui extends javax.swing.JFrame {
         
         if(id_item > 0){
             recognize.loadSpeakerMLLR(item);
-            Logger_status.Log("MLLR de usuario "+item+" cargado.", Logger_status.LogType.INFO);
+            showMessageGUI("MLLR de usuario "+item+" cargado.", "info");
+            //Logger_status.Log("MLLR de usuario "+item+" cargado.", Logger_status.LogType.INFO);
             init_speaker_combo_box.setEnabled(false);
         }
         
@@ -1313,42 +1463,123 @@ public class AppGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         open_corpus_file();
     }//GEN-LAST:event_select_corpus_btnActionPerformed
-
+    
     private void execute_lm_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execute_lm_btnActionPerformed
         // TODO : open dialog to choose name
         
-        long start = System.currentTimeMillis();
-        try{
+      
+        jProgressBar2.setVisible(true);
+        
+ 
             String name = JOptionPane.showInputDialog(this, "Introduce el nombre del modelo de lenguaje");
             if(!name.isBlank()){
-            lm_text_area.append("Loading language model builder.\n");
-            lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
-            LanguageModelBuilder lm = new LanguageModelBuilder(name, file_text_path);
-            
-            lm_text_area.append("Processing corpus. This process may take long time to finish.Please wait.....\n");
-            lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
-            List<String> sentences = lm.cleanCorpus();
-            
-            lm_text_area.append("Building vocabulary. This process may take long time to finish.Please wait.....\n");
-            lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
-            lm.buildVocab(sentences);
-            
-            lm_text_area.append("Building language model. This process may take long time to finish.Please wait.....\n");
-            lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
-            lm.buildLm();
-            
-            lm_text_area.append("Finished!\n");
-            lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
-        }
-        }catch(Exception ex){
-            lm_text_area.append("*********************************Exception error*******************************\n");
-            lm_text_area.append(ex.getMessage() + "\n");
-            lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
-        }
-        long end = System.currentTimeMillis();
-        lm_text_area.append("Time elapsed: "+(end-start)+"s \n");
-        lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
+                SwingWorker sw1 = new SwingWorker<String, Integer>() {
+                    @Override
+                    protected String doInBackground() throws Exception {
+                        try{
+                            publish(0);
+                            LanguageModelBuilder lm = new LanguageModelBuilder(name, file_text_path);
+                            Thread.sleep(100);
+
+                            publish(1);
+                            List<String> sentences = lm.cleanCorpus();
+
+                            publish(2);
+                            lm.buildVocab(sentences);
+
+                            publish(3);
+                            lm.buildLm();
+                        }catch(Exception ex){
+                            //publish(ex.getMessage());
+                            return ex.getMessage();
+                        }
+                        
+                        return null;
+                    }
+                    @Override
+                    protected void process(List<Integer> chunks) {
+                        int value = chunks.get(0);
+                        switch(value){
+                            case 0:
+                                lm_text_area.append("Cargando datos...\n");
+                                lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());  
+                                break;
+                            case 1:
+                                lm_text_area.append("Procesando corpus. This process may take long time to finish.Please wait.....\n");
+                                lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
+                                break;
+                            case 2:
+                                lm_text_area.append("Construyendo vocabulario. This process may take long time to finish.Please wait.....\n");
+                                lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
+                                break;
+                            case 3:
+                                lm_text_area.append("Estimando modelo de lenguaje. This process may take long time to finish.Please wait.....\n");
+                                lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
+                                break;
+                        }
+                        
+                        jProgressBar2.setValue(value*100/3);
+                    }
+                    @Override
+                    protected void done() {
+                        try {
+                            String result = get();
+                            if(result == null){
+                                showMessageGUI("El modelo de lenguaje ha sido creado exitosamente.", "info");
+                                lm_text_area.append("Finished!\n");
+                                lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
+                            }
+                            else{
+                                lm_text_area.append("*********************************Exception error*******************************\n");
+                                lm_text_area.append(result + "\n");
+                                lm_text_area.append("*******************************************************************************\n");
+                                lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
+                                showMessageGUI("Algo inesperado ha ocurrido.", "error");
+                            }
+                      
+                        } catch (InterruptedException | ExecutionException ex) {
+                            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                };
+                sw1.execute();
+            }   
+        
     }//GEN-LAST:event_execute_lm_btnActionPerformed
+
+    private void copy_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copy_btnActionPerformed
+        // TODO add your handling code here:
+        String med_report = report_txt.getText();
+        StringSelection stringSelection = new StringSelection(med_report);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
+        showMessageGUI("El reporte se ha copiado al portapapeles.","info");
+    }//GEN-LAST:event_copy_btnActionPerformed
+
+    private void new_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_speaker_menu_itemActionPerformed
+        //TODO: Actualizar listado de usuarios
+        String name = JOptionPane.showInputDialog(this, "Introduce el nombre del usuario");
+        if(name != null ){
+            int confirm = Directories.createSpeakerDir(name);
+            switch(confirm){
+                case 0:
+                update_init_speakers();
+                showMessageGUI("Usuario "+name+" creado correctamente.", "info");
+                break;
+                case 1:
+                showMessageGUI("No se ha podido crear el usuario "+name, "error");
+                //JOptionPane.showMessageDialog(this,"Algo ha ocurrido mal.");
+                break;
+                case 2:
+                showMessageGUI("El usuario "+name+" ya existe.", "error");
+                //JOptionPane.showMessageDialog(this,"No es un nombre de usuario válido");
+                break;
+            }
+
+        }
+
+    }//GEN-LAST:event_new_speaker_menu_itemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1361,7 +1592,7 @@ public class AppGui extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -1396,6 +1627,7 @@ public class AppGui extends javax.swing.JFrame {
     public static javax.swing.JLabel beam_value_lbl;
     private javax.swing.JPanel card_layout_panel;
     public static javax.swing.JButton clear_btn;
+    private javax.swing.JButton copy_btn;
     private javax.swing.JButton create_mllr_btn;
     private javax.swing.JMenuItem create_report_menu_item;
     private javax.swing.JMenuItem crop_menu_item;
@@ -1404,6 +1636,8 @@ public class AppGui extends javax.swing.JFrame {
     private static javax.swing.JButton execute_lm_btn;
     private static javax.swing.JMenu file_menu;
     private static javax.swing.JComboBox<String> init_speaker_combo_box;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -1411,11 +1645,14 @@ public class AppGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    public static javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JMenuItem lang_model_menu_item;
+    public static javax.swing.JComboBox<String> lm_init_combo_box;
     private static javax.swing.JPanel lm_panel;
     public static javax.swing.JTextArea lm_text_area;
     private javax.swing.JLabel lw_lbl;

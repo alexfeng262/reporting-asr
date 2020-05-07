@@ -11,10 +11,12 @@
 
 package edu.cmu.sphinx.api;
 
+import javax.sound.sampled.LineUnavailableException;
+
 
 public class SpeechSourceProvider {
 
-    Microphone getMicrophone() {
+    Microphone getMicrophone() throws LineUnavailableException {
         return new Microphone(16000, 16, true, false);
     }
 }

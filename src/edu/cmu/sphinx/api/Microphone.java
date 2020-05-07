@@ -12,6 +12,7 @@
 
 package edu.cmu.sphinx.api;
 
+import ASR_tfm.AppGui;
 import ASR_tfm.Logger_status;
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -27,19 +28,17 @@ public class Microphone {
     private final TargetDataLine line;
     private final InputStream inputStream;
 
-    public Microphone(
+    public Microphone (
             float sampleRate,
             int sampleSize,
             boolean signed,
-            boolean bigEndian) {
+            boolean bigEndian) throws LineUnavailableException, IllegalArgumentException {
         AudioFormat format =
             new AudioFormat(sampleRate, sampleSize, 1, signed, bigEndian);
-        try {
+        
             line = AudioSystem.getTargetDataLine(format);
             line.open();
-        } catch (LineUnavailableException e) {
-            throw new IllegalStateException(e);
-        }
+
         inputStream = new AudioInputStream(line);
     }
 

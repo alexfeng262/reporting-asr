@@ -1,0 +1,82 @@
+[n]
+3
+
+[smoother]
+kylm.model.ngram.smoother.MKNSmoother
+
+[closed]
+true
+
+[max_length]
+17
+
+[vocab_cutoff]
+0
+
+[start_symbol]
+<s>
+
+[terminal_symbol]
+</s>
+
+[unknown_symbol]
+<unk>
+
+\data\
+ngram 1=16
+ngram 2=16
+ngram 3=15
+\1-grams: 
+-99.0000	<s>	-∞
+-1.2041	</s>
+-1.2041	borde
+-1.2041	de
+-0.9031	el
+-1.2041	ellos
+-1.2041	en
+-1.2041	es
+-1.2041	está
+-1.2041	externo
+-1.2041	hipocaptante
+-1.2041	inferior
+-1.2041	izquierdo
+-1.2041	mayor
+-1.2041	situado
+-1.2041	y
+
+\2-grams: 
+0.0000	<s> el
+0.0000	borde inferior
+0.0000	de ellos
+-0.3010	el borde
+-0.3010	el mayor
+0.0000	ellos es
+0.0000	en el
+0.0000	es hipocaptante
+0.0000	está situado
+0.0000	externo izquierdo
+0.0000	hipocaptante y
+0.0000	inferior externo
+0.0000	izquierdo </s>	0.0000
+0.0000	mayor de
+0.0000	situado en
+0.0000	y está
+
+\3-grams: 
+0.0000	<s> el mayor
+0.0000	borde inferior externo
+0.0000	de ellos es
+0.0000	el borde inferior
+0.0000	el mayor de
+0.0000	ellos es hipocaptante
+0.0000	en el borde
+0.0000	es hipocaptante y
+0.0000	está situado en
+0.0000	externo izquierdo </s>
+0.0000	hipocaptante y está
+0.0000	inferior externo izquierdo
+0.0000	mayor de ellos
+0.0000	situado en el
+0.0000	y está situado
+
+\end\
