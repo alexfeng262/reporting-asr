@@ -17,7 +17,6 @@ import edu.cmu.sphinx.frontend.window.RaisedCosineWindower;
 import edu.cmu.sphinx.tools.audio.AudioData;
 import edu.cmu.sphinx.tools.audio.AudioPanel;
 import edu.cmu.sphinx.tools.audio.AudioPlayer;
-import edu.cmu.sphinx.tools.audio.AudioTool;
 import edu.cmu.sphinx.tools.audio.CepstrumPanel;
 import edu.cmu.sphinx.tools.audio.Downsampler;
 import edu.cmu.sphinx.tools.audio.SpectrogramPanel;
@@ -55,11 +54,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.Timer;
-import javax.swing.plaf.ProgressBarUI;
 import train_sentence_generation.SentenceGenerator;
 import java.awt.datatransfer.StringSelection;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
+import java.time.Duration;
+import java.time.Instant;
 
 /**
  *
@@ -67,9 +67,6 @@ import java.awt.datatransfer.Clipboard;
  */
 public class AppGui extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
     private App_recognizer recognize;
     public static RecognizerConfiguration recognizerConfig;
     
@@ -83,10 +80,9 @@ public class AppGui extends javax.swing.JFrame {
     private int seconds;
     private int minutes;
     static final Resource_manager rm = new Resource_manager();
-    //*********************************************************8
+    //*********************************************************
     static final String CONTEXT = "AudioTool";
-    static final String PREFS_CONTEXT = "/edu/cmu/sphinx/tools/audio/"
-            + CONTEXT;
+    static final String PREFS_CONTEXT = "/edu/cmu/sphinx/tools/audio/"+CONTEXT;
     
     static final String FILENAME_PREFERENCE = "filename";
     static final String MICROPHONE = "microphone";
@@ -132,8 +128,6 @@ public class AppGui extends javax.swing.JFrame {
         recognizerConfig = new RecognizerConfiguration();
         loadRecognizerConfiguration();
         load_audio_interface();
-        //String home = System.getProperty("user.dir");
-        //System.out.println(home);
         
     }
 
@@ -200,6 +194,7 @@ public class AppGui extends javax.swing.JFrame {
             populateAudio(filename);
         }
     }
+     
     static public void populateAudio(String filename) {
         try {
             AudioData newAudio = Utils.readAudioFile(filename);
@@ -246,35 +241,17 @@ public class AppGui extends javax.swing.JFrame {
         }
     }
     private static void load_audio_interface(){
-        //FrontEnd frontEnd;
-        //FrontEnd cepstrumFrontEnd;
-        //StreamDataSource dataSource;
-        //StreamDataSource cepstrumDataSource;
         
         prefs = Preferences.userRoot().node(PREFS_CONTEXT);
         user_data_filename = prefs.get(FILENAME_PREFERENCE, "untitled.raw");
-        //file = new File("C:\\Users\\alexf\\Desktop\\ASR\\training2\\audio1.wav");
-        
-        
+
         try {
-            //URL url;
-           
-            //url = AudioTool.class.getClassLoader().getResource("config_xml/spectrogram.config.xml");
             
             ConfigurationManager cm = new ConfigurationManager(rm.getDefault_audio_config_xml_file_path());
-            
             fileChooser = new JFileChooser(rm.getWav_dir_path());
-            
-            
             recorder = (edu.cmu.sphinx.frontend.util.Microphone) cm.lookup(MICROPHONE);
             recorder.initialize();
             audio = new AudioData();
-
-            //frontEnd = (FrontEnd) cm.lookup(FRONT_END);
-            //dataSource = (StreamDataSource) cm.lookup(DATA_SOURCE);
-            //cepstrumFrontEnd = (FrontEnd) cm.lookup(CESPTRUM_FRONT_END);
-            //cepstrumDataSource = (StreamDataSource) cm.lookup(CEPSTRUM_DATA_SOURCE);
-
 
             PropertySheet ps = cm.getPropertySheet(WINDOWER);
             float windowShiftInMs = ps.getFloat(RaisedCosineWindower.PROP_WINDOW_SHIFT_MS);
@@ -284,19 +261,13 @@ public class AppGui extends javax.swing.JFrame {
             audioPanel = new AudioPanel(audio,
                     1.0f / windowShiftInSamples,
                     0.004f);
+            
             audio_player_scroll.setViewportView(audioPanel);
-            //jPanel3.add(audioPanel);
             audioPanel.setAlignmentX(0.0f);
             player = new AudioPlayer(audio);
             player.start();
-            //getAudioFromFile("C:\\Users\\alexf\\Desktop\\ASR\\training2\\audio1.wav");
         }
-        catch (Exception e) {
-            //AppGui.showMessageGUI("Excepción de tipo LineUnavailableException", "error");
-            //e.printStackTrace();
-        }
-        
-    
+        catch (Exception e) {}
     }
     private static void saveAudioFile(){
         getFilename("Save As...", JFileChooser.SAVE_DIALOG);
@@ -311,7 +282,7 @@ public class AppGui extends javax.swing.JFrame {
                     if (i > 0 &&  i < user_data_filename.length() - 1) {
                         ext = user_data_filename.substring(i+1).toLowerCase();
                     }
-                    //System.out.println(ext);
+
                     if(ext.equals("wav")){
                         user_data_filename = file.getAbsolutePath(); 
                     }
@@ -328,9 +299,9 @@ public class AppGui extends javax.swing.JFrame {
                     out.close();
                     save_as_menu_item.setEnabled(false);
                     adapt_text_area.setText(generate.generateSentences());
-                    //Logger_status.Log("Audio file saved.", Logger_status.LogType.INFO);
+
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    showMessageGUI("Archivo no encontrado.", "error");
                 }
     
     }
@@ -357,10 +328,7 @@ public class AppGui extends javax.swing.JFrame {
             lm_text_area.append("File "+ file_text_path + " loaded.\n");
             lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
             execute_lm_btn.setEnabled(true);
-        }
-        //TODO: falta completar
-        //Logger_status.Log("Audio file saved.", Logger_status.LogType.INFO);
-              
+        }     
     
     }
     /* Gets the audio that's in the recorder.  This should only be called after recorder.stopRecording is called. */
@@ -1132,7 +1100,6 @@ public class AppGui extends javax.swing.JFrame {
         NumberFormat formatter;
         formatter = new DecimalFormat("0.#E0");
         double rbw = recognizerConfig.getRelBeamWidth();
-        //double rbw = Double.parseDouble(beam_value_lbl.getText());
         double exp = beam_slider.getValue();
         rbw = rbw/Math.pow(10, exp);
 
@@ -1170,9 +1137,7 @@ public class AppGui extends javax.swing.JFrame {
         recognize.closeRecognition();
         disableView(1);
         edit_menu.setEnabled(true);
-        
-        
-        
+
         Logger_status.Log("Modo adaptación del usuario", Logger_status.LogType.INFO);
     }//GEN-LAST:event_speaker_adapt_menu_itemActionPerformed
 
@@ -1217,21 +1182,16 @@ public class AppGui extends javax.swing.JFrame {
         cl.show(card_layout_panel, "principal_card");
        
         edit_menu.setEnabled(false);
-        
         disableView(0);
-        
         update_init_speakers();
-        
         recognize.initRecognition();
         report_txt.setEnabled(false);
         play_pause_btn.setSelected(false);
         
-        Logger_status.Log("Modo reconocimiento", Logger_status.LogType.INFO);
+        Logger_status.Log("Modo reconocimiento.", Logger_status.LogType.INFO);
     }//GEN-LAST:event_create_report_menu_itemActionPerformed
 
     private void sent_gen_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sent_gen_btnActionPerformed
-        // TODO add your handling code here:
-        
         adapt_text_area.setText(generate.generateSentences());
         
     }//GEN-LAST:event_sent_gen_btnActionPerformed
@@ -1465,14 +1425,11 @@ public class AppGui extends javax.swing.JFrame {
     }//GEN-LAST:event_select_corpus_btnActionPerformed
     
     private void execute_lm_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execute_lm_btnActionPerformed
-        // TODO : open dialog to choose name
         
-      
         jProgressBar2.setVisible(true);
-        
- 
             String name = JOptionPane.showInputDialog(this, "Introduce el nombre del modelo de lenguaje");
             if(!name.isBlank()){
+                Instant start = Instant.now();
                 SwingWorker sw1 = new SwingWorker<String, Integer>() {
                     @Override
                     protected String doInBackground() throws Exception {
@@ -1505,20 +1462,20 @@ public class AppGui extends javax.swing.JFrame {
                                 lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());  
                                 break;
                             case 1:
-                                lm_text_area.append("Procesando corpus. This process may take long time to finish.Please wait.....\n");
+                                lm_text_area.append("Procesando corpus. Este proceso puede tardar mucho tiempo en finalizar. Por favor espere.....\n");
                                 lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
                                 break;
                             case 2:
-                                lm_text_area.append("Construyendo vocabulario. This process may take long time to finish.Please wait.....\n");
+                                lm_text_area.append("Construyendo vocabulario. Este proceso puede tardar mucho tiempo en finalizar. Por favor espere.....\n");
                                 lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
                                 break;
                             case 3:
-                                lm_text_area.append("Estimando modelo de lenguaje. This process may take long time to finish.Please wait.....\n");
+                                lm_text_area.append("Estimando modelo de lenguaje. Este proceso puede tardar mucho tiempo en finalizar. Por favor espere.....\n");
                                 lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
                                 break;
                         }
                         
-                        jProgressBar2.setValue(value*100/3);
+                        jProgressBar2.setValue(value*100/4);
                     }
                     @Override
                     protected void done() {
@@ -1526,8 +1483,9 @@ public class AppGui extends javax.swing.JFrame {
                             String result = get();
                             if(result == null){
                                 showMessageGUI("El modelo de lenguaje ha sido creado exitosamente.", "info");
-                                lm_text_area.append("Finished!\n");
+                                lm_text_area.append("Finalizado!\n");
                                 lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
+                                jProgressBar2.setValue(100);
                             }
                             else{
                                 lm_text_area.append("*********************************Exception error*******************************\n");
@@ -1536,7 +1494,10 @@ public class AppGui extends javax.swing.JFrame {
                                 lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
                                 showMessageGUI("Algo inesperado ha ocurrido.", "error");
                             }
-                      
+                            Instant end = Instant.now();
+                            Duration timeElapsed = Duration.between(start, end); 
+                            lm_text_area.append("Tiempo transcurrido: "+timeElapsed.toMinutes()+" minutos \n");
+                            lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
                         } catch (InterruptedException | ExecutionException ex) {
                             Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -1544,6 +1505,7 @@ public class AppGui extends javax.swing.JFrame {
                     }
                 };
                 sw1.execute();
+                
             }   
         
     }//GEN-LAST:event_execute_lm_btnActionPerformed
@@ -1558,7 +1520,7 @@ public class AppGui extends javax.swing.JFrame {
     }//GEN-LAST:event_copy_btnActionPerformed
 
     private void new_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_speaker_menu_itemActionPerformed
-        //TODO: Actualizar listado de usuarios
+  
         String name = JOptionPane.showInputDialog(this, "Introduce el nombre del usuario");
         if(name != null ){
             int confirm = Directories.createSpeakerDir(name);

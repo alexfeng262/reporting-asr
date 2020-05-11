@@ -69,7 +69,7 @@ public class NewMain1 {
             JsonObject abcObject = reader2.readObject();
             reader2.close();
             
-            String data = "99mTc-HDP ...... Aumento a- de (18-7-6) la captación 18F-FDG en {ci}ntura D10 -- (h) escapular y 20/20/2020 pelviana, en probable";
+            String data = "76Gamagrafia";
            
             //Preprocess token
             CoreDocument document = new CoreDocument(data);

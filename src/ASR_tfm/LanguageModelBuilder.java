@@ -97,10 +97,9 @@ public class LanguageModelBuilder {
             for(CoreLabel token : sent.tokens()){
                 String tok = token.word();
                 tok = tok.toLowerCase();
-
-                if(vocabObject.containsKey(tok)){
+                
+                if(vocabObject.containsKey(tok))
                     tok = vocabObject.getString(tok);
-                }
                 
                 if(!abcObject.containsKey(tok)){
                     tok = tok.replaceAll(",+(?=\\d)",".");
@@ -121,7 +120,9 @@ public class LanguageModelBuilder {
                 if(!tok.isBlank())
                     if(!(tok.matches("^h+h$") || tok.matches("^c+c$") || tok.matches("^q+q$") || tok.matches("^v+v$") ||
                     tok.matches("^w+w$") || tok.matches("^ñ+ñ$"))){
-                        for(String word:tok.split(" ")){
+                        for(String word:tok.split("\\s+")){
+                            if(vocabObject.containsKey(word))
+                                word = vocabObject.getString(word); 
                             strList.add(word);
                         }
                     }
@@ -135,7 +136,7 @@ public class LanguageModelBuilder {
         for(String sent : all_sentences){
             String sent1 = sent.replaceAll("(i\\.v\\.)|(i\\.? ?v\\.)|(i\\.v)","i.v.");
             sent1 = sent1.replaceAll("\\b(x x)\\b","");
-            sent1 = sent1.replaceAll("([i|j]\\. d\\.)|(i\\.?d\\.)|(i\\.d)|(idx)|(j\\.? ?d\\.?)|([ij]\\. d)","id");
+            sent1 = sent1.replaceAll("([I|j] \\. d \\.)|(I \\.?d \\.)|(I \\. d)|(idx)|(j \\.? ?d \\.?)|([Ij] \\. d)","id");
             sent1 = sent1.replaceAll("1 8 F - FDG","18F-FDG");
             sent1 = sent1.replaceAll("PET - CT","PET-CT");
             sent1 = sent1.replaceAll("9 9 mTc - HDP","99mTc-HDP");
@@ -144,8 +145,8 @@ public class LanguageModelBuilder {
             sent1 = sent1.replaceAll("9 9 mTc - MAA","99mTc-MAA");
             sent1 = sent1.replaceAll("9 9 mTc - DTPA","99mTc-DTPA");
             sent1 = sent1.replaceAll("9 9 mTc - ECD","99mTc-ECD");
-            sent1 = sent1.replaceAll("1 2 3 i - ioflupano","123I-Ioflupano");
-            sent1 = sent1.replaceAll("1 2 3 i - MIBG","123I-MIBG");
+            sent1 = sent1.replaceAll("1 2 3 I - ioflupano","123I-Ioflupano");
+            sent1 = sent1.replaceAll("1 2 3 I - MIBG","123I-MIBG");
             sent1 = sent1.replaceAll("2 2 3 - ra","223-Ra");
             sent1 = sent1.replaceAll("6 7 ga","67Ga");
             regex_sentences.add(sent1);

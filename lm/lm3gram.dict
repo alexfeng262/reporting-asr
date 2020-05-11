@@ -7,8 +7,8 @@
 / k o m a n d o b a rr a
 0 z e r o
 1 u n o
-123I-Ioflupano i i o f l u p a n o
-123I-MIBG i m i b g
+123I-Ioflupano z i e n t o b e i n t i t r e s i o f l u p a n o
+123I-MIBG z i e n t o b e i n t i t r e s e m e i b e j e
 18F-FDG k o m a n d o d i e s z i o ch o e f e
 2 d o s
 223-Ra r a
@@ -24,10 +24,12 @@
 7 s i e t e
 8 o ch o
 9 n u e b e
-99mTc-DMSA m t k d m s a
-99mTc-DTPA m t k d t p a
-99mTc-ECD m t k e k d
-99mTc-MAA m t k m a a
+99mTc-DMSA n o b e n t a y n u e b e d e e m e e s e a
+99mTc-DTPA n o b e n t a y n u e b e d e t e p e a
+99mTc-ECD n o b e n t a y n u e b e e z e d e
+99mTc-HDP m t k d p
+99mTc-MAA n o b e n t a y n u e b e e m e a a
+99mTc-MAG3 m t k m a g
 ATPO k o m a n d o a t e p e o
 Alzheimer a l z e i m e r
 BSGC k o m a n d o b e e s e j e z e
@@ -52,7 +54,6 @@ D6 k o m a n d o d e s e i s
 D7 k o m a n d o d e s i e t e
 D8 k o m a n d o d e o ch o
 D9 k o m a n d o d e n u e b e
-DHP d p
 DMSA d m s a
 DTPA d t p a
 DaTSCAN d a t s k a n
@@ -62,7 +63,12 @@ F f
 FDG f d g
 FE k o m a n d o e f e e
 FEVI f e b i
+HDP k o m a n d o a ch e d e p e
+I r o m a n o u n o
 IECA k o m a n d o i e k a
+II r o m a n o d o s
+III r o m a n o t r e s
+IV k o m a n o k u a t r o
 Kg k i l o g r a m o s
 L1 k o m a n d o e l e u n o
 L2 k o m a n d o e l e d o s
@@ -73,6 +79,7 @@ LID k o m a n d o e l e i d e
 LSD k o m a n d o e l e e s e d e
 LSI k o m a n d o e l e e s e i
 MAA m a a
+MAG m a g
 MIBG m i b g
 MIBI m i b i
 MSI k o m a n d o e m e e s e i
@@ -82,7 +89,7 @@ OCFA a k r o n i m o o z e e f e a
 OSNA k o m a n d o o s n a
 PAAF p a a f
 PET k o m a n d o p e t
-PET-CT p e t z e t e
+PET-CT p e z e t e
 PSA k o m a n d o p e e s e a
 PTHi k o m a n d o p e t e a ch e i
 RM k o m a n d o e rr e e m e
@@ -99,6 +106,10 @@ TC k o m a n d o t e z e
 TNM k o m a n d o t e e n e e m e
 TSH k o m a n d o t e e s e a ch e
 TSHr k o m a n d o t e e s e a ch e e rr e
+V r o m a n o z i n k o
+VI r o m a n o s e i s
+VII r o m a n o s i e t e
+VIII r o m a n o o ch o
 a a
 aa a a
 aaa a a a
@@ -110,7 +121,6 @@ abarca a b a r k a
 abarcan a b a r k a n
 abarcando a b a r k a n d o
 abarcar a b a r k a r
-abd a b d
 abdomen a b d o m e n
 abdominal a b d o m i n a l
 abdominales a b d o m i n a l e s
@@ -118,6 +128,7 @@ abdominopélvica a b d o m i n o p e l b i k a
 abdominopélvicas a b d o m i n o p e l b i k a s
 abdominopélvico a b d o m i n o p e l b i k o
 abdominopélvicos a b d o m i n o p e l b i k o s
+abductores a b d u k t o r e s
 abdómino a b d o m i n o
 aberrante a b e rr a n t e
 abierta a b i e r t a
@@ -137,8 +148,6 @@ abogado a b o g a d o
 abolida a b o l i d a
 abomba a b o m b a
 abombamiento a b o m b a m i e n t o
-abominal a b o m i n a l
-abominales a b o m i n a l e s
 abordaje a b o r d a j e
 abordar a b o r d a r
 abraxane a b r a x a n e
@@ -165,8 +174,6 @@ abundante a b u n d a n t e
 abundantes a b u n d a n t e s
 abvd a b b d
 abvdx a b b d x
-abódmino a b o d m i n o
-abómino a b o m i n o
 ac a k
 acaba a k a b a
 acabado a k a b a d o
@@ -203,7 +210,6 @@ acentuada a z e n t u a d a
 acentuadas a z e n t u a d a s
 acentuado a z e n t u a d o
 acentuados a z e n t u a d o s
-acentuá a z e n t u a
 acentúa a z e n t u a
 acentúan a z e n t u a n
 acepta a z e p t a
@@ -220,8 +226,6 @@ aceptar a z e p t a r
 aceptará a z e p t a r a
 aceptaría a z e p t a r i a
 acerca a z e r k a
-acetaabular a z e t a a b u l a r
-acetabula a z e t a b u l a
 acetabular a z e t a b u l a r
 acetabulares a z e t a b u l a r e s
 acetato a z e t a t o
@@ -230,7 +234,6 @@ acetábulos a z e t a b u l o s
 aci a z i
 acinar a z i n a r
 acinares a z i n a r e s
-acinary a z i n a r y
 acinesa a z i n e s a
 acinesia a z i n e s i a
 acinesias a z i n e s i a s
@@ -263,7 +266,6 @@ acompañado a k o m p a gn a d o
 acompañados a k o m p a gn a d o s
 acompañamos a k o m p a gn a m o s
 acompañan a k o m p a gn a n
-acompañanate a k o m p a gn a n a t e
 acompañando a k o m p a gn a n d o
 acompañante a k o m p a gn a n t e
 acompañantes a k o m p a gn a n t e s
@@ -303,13 +305,11 @@ acreditación a k r e d i t a z i o n
 acromegalia a k r o m e g a l i a
 acromial a k r o m i a l
 acromiclaviculares a k r o m i k l a b i k u l a r e s
-acromico a k r o m i k o
-acromino a k r o m i n o
-acromio a k r o m i o
 acromioclavicualra a k r o m i o k l a b i k u a l r a
 acromioclavicular a k r o m i o k l a b i k u l a r
 acromioclaviculares a k r o m i o k l a b i k u l a r e s
 acromion a k r o m i o n
+acromático a k r o m a t i k o
 acropaquia a k r o p a k i a
 acropaquias a k r o p a k i a s
 acs a k s
@@ -322,7 +322,6 @@ activa a k t i b a
 activación a k t i b a z i o n
 activad a k t i b a d
 activada a k t i b a d a
-activadad a k t i b a d a d
 activadas a k t i b a d a s
 activado a k t i b a d o
 activados a k t i b a d o s
@@ -393,12 +392,9 @@ acústico a k u s t i k o
 ad a d
 adapta a d a p t a
 adaptación a d a p t a z i o n
-adayacente a d a y a z e n t e
-adbómino a d b o m i n o
 adc a d k
 addenbrook a d d e n b r o o k
 addison a d d i s o n
-adductores a d d u k t o r e s
 ade a d e
 adecuada a d e k u a d a
 adecuadamente a d e k u a d a m e n t e
@@ -416,11 +412,9 @@ adelgazada a d e l g a z a d a
 adelgazado a d e l g a z a d o
 adelgazamiento a d e l g a z a m i e n t o
 adelgazar a d e l g a z a r
-ademas a d e m a s
 además a d e m a s
 adenectomía a d e n e k t o m i a
 adenitis a d e n i t i s
-adenoaptías a d e n o a p t i a s
 adenocarcinoma a d e n o k a r z i n o m a
 adenocarcinomas a d e n o k a r z i n o m a s
 adenoescamoso a d e n o e s k a m o s o
@@ -440,7 +434,6 @@ adenomegalias a d e n o m e g a l i a s
 adenomiomatosa a d e n o m i o m a t o s a
 adenopatía a d e n o p a t i a
 adenopatías a d e n o p a t i a s
-adenopática a d e n o p a t i k a
 adenopáticas a d e n o p a t i k a s
 adenopático a d e n o p a t i k o
 adenopáticos a d e n o p a t i k o s
@@ -450,7 +443,6 @@ adherida a d e r i d a
 adherido a d e r i d o
 adheridos a d e r i d o s
 adiadococinesia a d i a d o k o z i n e s i a
-adicioal a d i z i o a l
 adicional a d i z i o n a l
 adicionales a d i z i o n a l e s
 adicionalmente a d i z i o n a l m e n t e
@@ -475,14 +467,12 @@ adjunte a d j u n t e
 adjunten a d j u n t e n
 adjunto a d j u n t o
 adjuntos a d j u n t o s
-adjuntra a d j u n t r a
 adjuntándose a d j u n t a n d o s e
 adjuntéis a d j u n t e i s
 adk a d k
 adkc a d k k
 administra a d m i n i s t r a
 administraciones a d m i n i s t r a z i o n e s
-administració a d m i n i s t r a z i o
 administración a d m i n i s t r a z i o n
 administrada a d m i n i s t r a d a
 administradas a d m i n i s t r a d a s
@@ -505,14 +495,11 @@ administrativos a d m i n i s t r a t i b o s
 administre a d m i n i s t r e
 administren a d m i n i s t r e n
 administro a d m i n i s t r o
-administrrado a d m i n i s t rr a d o
 administrándolo a d m i n i s t r a n d o l o
 administrándose a d m i n i s t r a n d o s e
 administráramos a d m i n i s t r a r a m o s
 administrársela a d m i n i s t r a r s e l a
 administró a d m i n i s t r o
-admionistración a d m i o n i s t r a z i o n
-admisntración a d m i s n t r a z i o n
 admitiría a d m i t i r i a
 admón a d m o n
 ado a d o
@@ -555,14 +542,12 @@ advertía a d b e r t i a
 advierte a d b i e r t e
 advierten a d b i e r t e n
 ady a d y
-adyaccentes a d y a k z e n t e s
 adyacente a d y a z e n t e
 adyacentes a d y a z e n t e s
 adyuvancia a d y u b a n z i a
 adyuvante a d y u b a n t e
 adyuvantes a d y u b a n t e s
 aeorogenes a e o r o j e n e s
-aereolar a e r e o l a r
 aerosol a e r o s o l
 aerosoles a e r o s o l e s
 aerostática a e r o s t a t i k a
@@ -621,7 +606,6 @@ agitación a j i t a z i o n
 agitada a j i t a d a
 agniografica a g n i o g r a f i k a
 agnosias a g n o s i a s
-agnósico a g n o s i k o
 agnóstica a g n o s t i k a
 agnóstico a g n o s t i k o
 agonistas a g o n i s t a s
@@ -783,7 +767,6 @@ alineaciones a l i n e a z i o n e s
 alineación a l i n e a z i o n
 alineada a l i n e a d a
 alineadas a l i n e a d a s
-alineadasd a l i n e a d a s d
 alineado a l i n e a d o
 alineados a l i n e a d o s
 alineamiento a l i n e a m i e n t o
@@ -910,13 +893,11 @@ ampolla a m p o ll a
 ampollas a m p o ll a s
 ampular a m p u l a r
 ampuloma a m p u l o m a
-amputacion a m p u t a z i o n
 amputación a m p u t a z i o n
 amputada a m p u t a d a
 amputado a m p u t a d o
 amr a m r
 ams a m s
-amteroapical a m t e r o a p i k a l
 amx a m x
 amígdala a m i g d a l a
 amígdalas a m i g d a l a s
@@ -952,7 +933,6 @@ anas a n a s
 anastomosis a n a s t o m o s i s
 anastomótica a n a s t o m o t i k a
 anastrozol a n a s t r o z o l
-anatomo a n a t o m o
 anatomopatológica a n a t o m o p a t o l o j i k a
 anatomopatológicas a n a t o m o p a t o l o j i k a s
 anatomopatológico a n a t o m o p a t o l o j i k o
@@ -963,7 +943,6 @@ anatómicamente a n a t o m i k a m e n t e
 anatómicas a n a t o m i k a s
 anatómico a n a t o m i k o
 anatómicos a n a t o m i k o s
-anatómo a n a t o m o
 anca a n k a
 ancha a n ch a
 ancho a n ch o
@@ -973,9 +952,6 @@ anciano a n z i a n o
 andar a n d a r
 androgénico a n d r o j e n i k o
 andrés a n d r e s
-anecoica a n e k o i k a
-anecoicas a n e k o i k a s
-anecoico a n e k o i k o
 anecóica a n e k o i k a
 anecóicas a n e k o i k a s
 anecóico a n e k o i k o
@@ -989,7 +965,6 @@ anestesiada a n e s t e s i a d a
 anestesista a n e s t e s i s t a
 anestésica a n e s t e s i k a
 anestésico a n e s t e s i k o
-anetro a n e t r o
 aneurisma a n e u r i s m a
 aneurismática a n e u r i s m a t i k a
 aneurismático a n e u r i s m a t i k o
@@ -1069,12 +1044,10 @@ antecedenta a n t e z e d e n t a
 antecedente a n t e z e d e n t e
 antecedentes a n t e z e d e n t e s
 antecedentesdel a n t e z e d e n t e s d e l
-anteo a n t e o
 anteoapical a n t e o a p i k a l
 anteorapical a n t e o r a p i k a l
 anteponer a n t e p o n e r
 antereo a n t e r e o
-anterio a n t e r i o
 anteriobasal a n t e r i o b a s a l
 anterior a n t e r i o r
 anteriorde a n t e r i o r d e
@@ -1150,10 +1123,8 @@ antirresortivo a n t i rr e s o r t i b o
 antirretroviral a n t i rr e t r o b i r a l
 antisomatostatina a n t i s o m a t o s t a t i n a
 antisépticos a n t i s e p t i k o s
-antitg a n t i t g
 antitirodeo a n t i t i r o d e o
 antitiroglobulina a n t i t i r o g l o b u l i n a
-antitiroideos a n t i t i r o i d e o s
 antiálgica a n t i a l j i k a
 antiálgicas a n t i a l j i k a s
 antiálgico a n t i a l j i k o
@@ -1191,7 +1162,6 @@ anuló a n u l o
 anuria a n u r i a
 anxmx a n x m x
 análisis a n a l i s i s
-análiticos a n a l i t i k o s
 análogo a n a l o g o
 análogos a n a l o g o s
 anárquica a n a r k i k a
@@ -1203,7 +1173,6 @@ anómala a n o m a l a
 anómalas a n o m a l a s
 anómalo a n o m a l o
 anómalos a n o m a l o s
-aoroto a o r o t o
 aorta a o r t a
 aortica a o r t i k a
 aortico a o r t i k o
@@ -1387,7 +1356,6 @@ aquel a k e l
 aquella a k e ll a
 aquellas a k e ll a s
 aquellos a k e ll o s
-aqui a k i
 aquidisquinesia a k i d i s k i n e s i a
 aquidisquinética a k i d i s k i n e t i k a
 aquila a k i l a
@@ -1426,7 +1394,6 @@ arga a r g a
 argentina a r j e n t i n a
 aria a r i a
 arimidex a r i m i d e x
-arios a r i o s
 aripiprazol a r i p i p r a z o l
 arirpa a r i r p a
 aritenoidea a r i t e n o i d e a
@@ -1458,7 +1425,6 @@ arritmogénico a rr i t m o j e n i k o
 arritmogénicos a rr i t m o j e n i k o s
 arritmógeno a rr i t m o j e n o
 arrixaca a rr i x a k a
-art a r t
 artefacta a r t e f a k t a
 artefactada a r t e f a k t a d a
 artefactadas a r t e f a k t a d a s
@@ -1480,7 +1446,6 @@ arteriovenosa a r t e r i o b e n o s a
 arteriovenoso a r t e r i o b e n o s o
 artero a r t e r o
 artic a r t i k
-articualr a r t i k u a l r
 articulaciones a r t i k u l a z i o n e s
 articulación a r t i k u l a z i o n
 articular a r t i k u l a r
@@ -1488,11 +1453,8 @@ articulara a r t i k u l a r a
 articulares a r t i k u l a r e s
 articularios a r t i k u l a r i o s
 articularis a r t i k u l a r i s
-articularnde a r t i k u l a r n d e
-articulción a r t i k u l z i o n
 articuláis a r t i k u l a i s
 artificiales a r t i f i z i a l e s
-artirtis a r t i r t i s
 artopatica a r t o p a t i k a
 artopaticas a r t o p a t i k a s
 artopaticos a r t o p a t i k o s
@@ -1500,7 +1462,6 @@ artopatía a r t o p a t i a
 artralgias a r t r a l j i a s
 artritis a r t r i t i s
 artrocentesis a r t r o z e n t e s i s
-artrodesis a r t r o d e s i s
 artrogammagrafía a r t r o g a m m a g r a f i a
 artrolisis a r t r o l i s i s
 artromialgias a r t r o m i a l j i a s
@@ -1524,7 +1485,6 @@ as a s
 asa a s a
 asas a s a s
 asbesto a s b e s t o
-ascedente a s z e d e n t e
 ascendente a s z e n d e n t e
 ascendentes a s z e n d e n t e s
 ascenso a s z e n s o
@@ -1546,7 +1506,6 @@ asentando a s e n t a n d o
 aseo a s e o
 aseptica a s e p t i k a
 asertivo a s e r t i b o
-asi a s i
 asienta a s i e n t a
 asientan a s i e n t a n
 asiento a s i e n t o
@@ -1600,7 +1559,6 @@ aspirad a s p i r a d
 aspirada a s p i r a d a
 aspirado a s p i r a d o
 aspirar a s p i r a r
-asplastamiento a s p l a s t a m i e n t o
 asta a s t a
 astas a s t a s
 astenia a s t e n i a
@@ -1610,7 +1568,6 @@ astragalina a s t r a g a l i n a
 astragalinas a s t r a g a l i n a s
 astragalino a s t r a g a l i n o
 astragalinos a s t r a g a l i n o s
-astragalo a s t r a g a l o
 astragaloescafoidea a s t r a g a l o e s k a f o i d e a
 astragaloescafoideas a s t r a g a l o e s k a f o i d e a s
 astragaloescafoideo a s t r a g a l o e s k a f o i d e o
@@ -1655,7 +1612,6 @@ ateroesclerosis a t e r o e s k l e r o s i s
 ateroma a t e r o m a
 ateromatosis a t e r o m a t o s i s
 atetectasia a t e t e k t a s i a
-atg a t g
 atienza a t i e n z a
 atipia a t i p i a
 atipias a t i p i a s
@@ -1757,8 +1713,6 @@ ausencias a u s e n z i a s
 ausente a u s e n t e
 australia a u s t r a l i a
 auto a u t o
-autoinmune a u t o i n m u n e
-autoinmunidad a u t o i n m u n i d a d
 autolimitó a u t o l i m i t o
 autologos a u t o l o g o s
 automático a u t o m a t i k o
@@ -1831,7 +1785,6 @@ axis a x i s
 axonal a x o n a l
 ay a y
 ayer a y e r
-ayor a y o r
 ayuda a y u d a
 ayudad a y u d a d
 ayudado a y u d a d o
@@ -1851,7 +1804,6 @@ aérea a e r e a
 aéreas a e r e a s
 aéreo a e r e o
 aéste a e s t e
-añ a gn
 añade a gn a d e
 añaden a gn a d e n
 añadida a gn a d i d a
@@ -1862,7 +1814,6 @@ añadir a gn a d i r
 añadirse a gn a d i r s e
 año a gn o
 años a gn o s
-añó a gn o
 aórtica a o r t i k a
 aórticas a o r t i k a s
 aórtico a o r t i k o
@@ -2016,7 +1967,6 @@ bifurcarse b i f u r k a r s e
 bihemisférica b i e m i s f e r i k a
 biimo b i i m o
 bil b i l
-bilat b i l a t
 bilateral b i l a t e r a l
 bilaterales b i l a t e r a l e s
 bilateralidad b i l a t e r a l i d a d
@@ -2092,9 +2042,9 @@ bloqueado b l o k e a d o
 bloqueadores b l o k e a d o r e s
 bloqueamos b l o k e a m o s
 bloqueando b l o k e a n d o
-bloqueante b l o k e a n t e
 bloqueantes b l o k e a n t e s
 bloquear b l o k e a r
+bloquearte b l o k e a r t e
 bloqueo b l o k e o
 bloqueos b l o k e o s
 blástica b l a s t i k a
@@ -2190,7 +2140,6 @@ broncograma b r o n k o g r a m a
 broncogénico b r o n k o j e n i k o
 bronconeumonía b r o n k o n e u m o n i a
 broncopatía b r o n k o p a t i a
-broncopulmonar b r o n k o p u l m o n a r
 broncos b r o n k o s
 bronquial b r o n k i a l
 bronquiales b r o n k i a l e s
@@ -2211,8 +2160,6 @@ brusco b r u s k o
 brutal b r u t a l
 bsa b s a
 bscg b s k g
-bserva b s e r b a
-btiene b t i e n e
 bucal b u k a l
 bucales b u k a l e s
 buco b u k o
@@ -2254,7 +2201,6 @@ bífida b i f i d a
 búlgara b u l g a r a
 búsqueda b u s k e d a
 c z e
-ca k a
 cabalga k a b a l g a
 caballero k a b a ll e r o
 cabazitaxel k a b a z i t a x e l
@@ -2269,7 +2215,6 @@ cabezas k a b e z a s
 cable k a b l e
 cabo k a b o
 cabría k a b r i a
-cacica k a z i k a
 cacro k a k r o
 cada k a d a
 cadena k a d e n a
@@ -2328,7 +2273,6 @@ caliectasia k a l i e k t a s i a
 caliectasias k a l i e k t a s i a s
 caliente k a l i e n t e
 calientes k a l i e n t e s
-calificaciones k a l i f i k a z i o n e s
 calle k a ll e
 callo k a ll o
 callos k a ll o s
@@ -2341,7 +2285,6 @@ calora k a l o r a
 calores k a l o r e s
 calota k a l o t a
 calprotectina k a l p r o t e k t i n a
-calvicular k a l b i k u l a r
 calviculoesternal k a l b i k u l o e s t e r n a l
 calvo k a l b o
 cama k a m a
@@ -2358,7 +2301,6 @@ cambio k a m b i o
 cambios k a m b i o s
 cambiosa k a m b i o s a
 cambió k a m b i o
-camibios k a m i b i o s
 camilla k a m i ll a
 camina k a m i n a
 caminar k a m i n a r
@@ -2409,7 +2351,6 @@ capsulo k a p s u l o
 capta k a p t a
 captaba k a p t a b a
 captaciaón k a p t a z i a o n
-captacion k a p t a z i o n
 captaciones k a p t a z i o n e s
 captación k a p t a z i o n
 captaciónnormales k a p t a z i o n n o r m a l e s
@@ -2426,15 +2367,12 @@ captar k a p t a r
 captaron k a p t a r o n
 capten k a p t e n
 captopril k a p t o p r i l
-captoril k a p t o r i l
-captpril k a p t p r i l
 captura k a p t u r a
 capturas k a p t u r a s
 captó k a p t o
 caquexia k a k e x i a
 car k a r
 cara k a r a
-caracter k a r a k t e r
 caracterizable k a r a k t e r i z a b l e
 caracterizables k a r a k t e r i z a b l e s
 caracterización k a r a k t e r i z a z i o n
@@ -2471,8 +2409,6 @@ carcinomas k a r z i n o m a s
 carcinomatosa k a r z i n o m a t o s a
 carcinomatosis k a r z i n o m a t o s i s
 carcinosarcoma k a r z i n o s a r k o m a
-cardiaca k a r d i a k a
-cardiaco k a r d i a k o
 cardialgia k a r d i a l j i a
 cardias k a r d i a s
 cardimegalia k a r d i m e g a l i a
@@ -2536,15 +2472,12 @@ carmena k a r m e n a
 caro k a r o
 carola k a r o l a
 carona k a r o n a
-carotidea k a r o t i d e a
-carotideo k a r o t i d e o
 carotideos k a r o t i d e o s
 carotídea k a r o t i d e a
 carotídeas k a r o t i d e a s
 carotídeo k a r o t i d e o
 carotídeos k a r o t i d e o s
 carpiana k a r p i a n a
-carpianan k a r p i a n a n
 carpianas k a r p i a n a s
 carpiano k a r p i a n o
 carpianos k a r p i a n o s
@@ -2572,7 +2505,6 @@ carácter k a r a k t e r
 carótida k a r o t i d a
 carótidas k a r o t i d a s
 carótideo k a r o t i d e o
-carótido k a r o t i d o
 casa k a s a
 cascara k a s k a r a
 cascularización k a s k u l a r i z a z i o n
@@ -2635,7 +2567,6 @@ cauterio k a u t e r i o
 cautos k a u t o s
 cava k a b a
 cavas k a b a s
-caviculares k a b i k u l a r e s
 cavidad k a b i d a d
 cavidades k a b i d a d e s
 cavitación k a b i t a z i o n
@@ -2665,7 +2596,6 @@ cd k d
 cddp k d d p
 cdis k d i s
 cdp k d p
-cdt k d t
 ce z e
 cea z e a
 cecal z e k a l
@@ -2696,7 +2626,6 @@ cell z e ll
 celular z e l u l a r
 celulares z e l u l a r e s
 celularidad z e l u l a r i d a d
-celulas z e l u l a s
 celulitis z e l u l i t i s
 celulíticas z e l u l i t i k a s
 celíaca z e l i a k a
@@ -2753,7 +2682,6 @@ cerebrales z e r e b r a l e s
 cerebro z e r e b r o
 cerecemos z e r e z e m o s
 cereras z e r e r a s
-cerivcales z e r i b k a l e s
 cero z e r o
 cerrada z e rr a d a
 cerramos z e rr a m o s
@@ -2761,7 +2689,6 @@ cerró z e rr o
 certeza z e r t e z a
 ceruletide z e r u l e t i d e
 cervera z e r b e r a
-cervicakes z e r b i k a k e s
 cervical z e r b i k a l
 cervicales z e r b i k a l e s
 cervicalgia z e r b i k a l j i a
@@ -2813,8 +2740,6 @@ cib z i b
 cicatrical z i k a t r i k a l
 cicatricales z i k a t r i k a l e s
 cicatrices z i k a t r i z e s
-cicatricial z i k a t r i z i a l
-cicatriciales z i k a t r i z i a l e s
 cicatriz z i k a t r i z
 cicatriza z i k a t r i z a
 cicatrización z i k a t r i z a z i o n
@@ -2822,7 +2747,6 @@ ciclo z i k l o
 ciclofosfamida z i k l o f o s f a m i d a
 ciclos z i k l o s
 ciclosporina z i k l o s p o r i n a
-cie z i e
 ciego z i e g o
 cien z i e n
 cierre z i e rr e
@@ -2838,7 +2762,6 @@ cifra z i f r a
 cifras z i f r a s
 cifótica z i f o t i k a
 cigomático z i g o m a t i k o
-cii z i i
 ciliar z i l i a r
 cilindro z i l i n d r o
 cilindros z i l i n d r o s
@@ -2880,7 +2803,6 @@ circunvoluciones z i r k u n b o l u z i o n e s
 circunvolución z i r k u n b o l u z i o n
 cirrosis z i rr o s i s
 cirrótico z i rr o t i k o
-cirugia z i r u j i a
 cirugía z i r u j i a
 cirugías z i r u j i a s
 cirujana z i r u j a n a
@@ -2899,7 +2821,6 @@ cistitis z i s t i t i s
 cisto z i s t o
 cistoadenoma z i s t o a d e n o m a
 cistocele z i s t o z e l e
-cistogammagrafía z i s t o g a m m a g r a f i a
 cistografía z i s t o g r a f i a
 cistografías z i s t o g r a f i a s
 cistolelectomía z i s t o l e l e k t o m i a
@@ -2985,18 +2906,13 @@ clasta k l a s t a
 claudicación k l a u d i k a z i o n
 claustrofobia k l a u s t r o f o b i a
 clav k l a b
-clavicual k l a b i k u a l
-clavicuales k l a b i k u a l e s
-clavicualr k l a b i k u a l r
 clavicular k l a b i k u l a r
 claviculares k l a b i k u l a r e s
 claviculo k l a b i k u l o
 clavo k l a b o
 clavos k l a b o s
 clavícula k l a b i k u l a
-clavícular k l a b i k u l a r
 clavículas k l a b i k u l a s
-clavículo k l a b i k u l o
 clavíula k l a b i u l a
 cleboprida k l e b o p r i d a
 cleboril k l e b o r i l
@@ -3004,7 +2920,6 @@ cli k l i
 cliente k l i e n t e
 clientes k l i e n t e s
 clinicamente k l i n i k a m e n t e
-clinico k l i n i k o
 clip k l i p
 clips k l i p s
 clivaje k l i b a j e
@@ -3021,7 +2936,6 @@ clínicamente k l i n i k a m e n t e
 clínicas k l i n i k a s
 clínico k l i n i k o
 clínicos k l i n i k o s
-clíno k l i n o
 clítoris k l i t o r i s
 cm z e n t i m e t r o s
 cmc k m k
@@ -3143,7 +3057,6 @@ colestasis k o l e s t a s i s
 colesterol k o l e s t e r o l
 colgante k o l g a n t e
 coli k o l i
-colica k o l i k a
 colide k o l i d e
 colideo k o l i d e o
 colimador k o l i m a d o r
@@ -3191,7 +3104,6 @@ colónica k o l o n i k a
 colónicas k o l o n i k a s
 colónico k o l o n i k o
 colónicos k o l o n i k o s
-com k o m
 coma k o m a
 combinación k o m b i n a z i o n
 combinada k o m b i n a d a
@@ -3237,7 +3149,6 @@ comodidad k o m o d i d a d
 comorbilidad k o m o r b i l i d a d
 comorbilidades k o m o r b i l i d a d e s
 comotirads k o m o t i r a d s
-comp k o m p
 compara k o m p a r a
 comparación k o m p a r a z i o n
 comparada k o m p a r a d a
@@ -3284,7 +3195,6 @@ compensatorios k o m p e n s a t o r i o s
 competa k o m p e t a
 competitividad k o m p e t i t i b i d a d
 competo k o m p e t o
-complato k o m p l a t o
 compleja k o m p l e j a
 complejas k o m p l e j a s
 complejidad k o m p l e j i d a d
@@ -3408,7 +3318,6 @@ comuniquéis k o m u n i k e i s
 comí k o m i
 común k o m u n
 con k o n
-conadenocarcinoma k o n a d e n o k a r z i n o m a
 concavidad k o n k a b i d a d
 conceder k o n z e d e r
 concentra k o n z e n t r a
@@ -3418,7 +3327,6 @@ concentrado k o n z e n t r a d o
 concentrados k o n z e n t r a d o s
 concentrar k o n z e n t r a r
 concepción k o n z e p z i o n
-concer k o n z e r
 conciencia k o n z i e n z i a
 concierta k o n z i e r t a
 conciliar k o n z i l i a r
@@ -3456,7 +3364,6 @@ concultas k o n k u l t a s
 concurrente k o n k u rr e n t e
 concurrentes k o n k u rr e n t e s
 concéntrica k o n k e n t r i k a
-condensacion k o n d e n s a z i o n
 condensaciones k o n d e n s a z i o n e s
 condensación k o n d e n s a z i o n
 condensan k o n d e n s a n
@@ -3497,7 +3404,6 @@ condroestrenales k o n d r o e s t r e n a l e s
 condromalacia k o n d r o m a l a z i a
 condromalasia k o n d r o m a l a s i a
 condromatosis k o n d r o m a t o s i s
-condrop k o n d r o p
 condropatía k o n d r o p a t i a
 condrosarcoma k o n d r o s a r k o m a
 conducción k o n d u k z i o n
@@ -3599,10 +3505,8 @@ congénita k o n j e n i t a
 congénitas k o n j e n i t a s
 congénito k o n j e n i t o
 coni k o n i
-conicde k o n i k d e
 conicidad k o n i z i d a d
 conización k o n i z a z i o n
-conjuncion k o n j u n z i o n
 conjunción k o n j u n z i o n
 conjunta k o n j u n t a
 conjuntamente k o n j u n t a m e n t e
@@ -3621,11 +3525,6 @@ conocidos k o n o z i d o s
 conociendo k o n o z i e n d o
 conocimiento k o n o z i m i e n t o
 conozco k o n o z k o
-conparativa k o n p a r a t i b a
-conque k o n k e
-conrrecion k o n rr e z i o n
-conrreponde k o n rr e p o n d e
-conrtrol k o n r t r o l
 consciencia k o n s z i e n z i a
 consciente k o n s z i e n t e
 consecuencia k o n s e k u e n z i a
@@ -3828,7 +3727,6 @@ contracción k o n t r a k z i o n
 contracilidad k o n t r a z i l i d a d
 contractibilidad k o n t r a k t i b i l i d a d
 contractilida k o n t r a k t i l i d a
-contractilidad k o n t r a k t i l i d a d
 contractura k o n t r a k t u r a
 contracturas k o n t r a k t u r a s
 contradbradicinéticoicción k o n t r a d b r a d i z i n e t i k o i k z i o n
@@ -3876,10 +3774,8 @@ contusiona k o n t u s i o n a
 contusionas k o n t u s i o n a s
 contusiones k o n t u s i o n e s
 contusiono k o n t u s i o n o
-contusivo k o n t u s i b o
 contusión k o n t u s i o n
 contuso k o n t u s o
-conun k o n u n
 convencemos k o n b e n z e m o s
 convencer k o n b e n z e r
 convencerla k o n b e n z e r l a
@@ -3910,7 +3806,6 @@ coordinada k o o r d i n a d a
 coordinéis k o o r d i n e i s
 copia k o p i a
 copias k o p i a s
-copmo k o p m o
 copp k o p p
 coprocultivo k o p r o k u l t i b o
 cor k o r
@@ -3925,7 +3820,6 @@ corbellos k o r b e ll o s
 cordial k o r d i a l
 cordoma k o r d o m a
 corigía k o r i j i a
-cormo k o r m o
 cornete k o r n e t e
 coroideo k o r o i d e o
 coroideos k o r o i d e o s
@@ -4014,7 +3908,6 @@ corroborarlo k o rr o b o r a r l o
 corta k o r t a
 corte k o r t e
 cortes k o r t e s
-cortex k o r t e x
 corteza k o r t e z a
 corti k o r t i
 cortical k o r t i k a l
@@ -4043,7 +3936,6 @@ cosa k o s a
 cosas k o s a s
 cosatal k o s a t a l
 cosificar k o s i f i k a r
-cosrtal k o s r t a l
 costa k o s t a
 costado k o s t a d o
 costal k o s t a l
@@ -4109,11 +4001,9 @@ cptopril k p t o p r i l
 cque k k e
 cr k r
 crab k r a b
-cracateristicas k r a k a t e r i s t i k a s
 craneal k r a n e a l
 craneales k r a n e a l e s
 cranealmente k r a n e a l m e n t e
-craneo k r a n e o
 craneocaudal k r a n e o k a u d a l
 craneotomía k r a n e o t o m i a
 crea k r e a
@@ -4128,7 +4018,6 @@ creciente k r e z i e n t e
 crecientes k r e z i e n t e s
 creciera k r e z i e r a
 crecimiento k r e z i m i e n t o
-credta k r e d t a
 cree k r e e
 creemos k r e e m o s
 creen k r e e n
@@ -4137,7 +4026,6 @@ crema k r e m a
 cremallera k r e m a ll e r a
 cremas k r e m a s
 creo k r e o
-creoque k r e o k e
 crespo k r e s p o
 cresta k r e s t a
 crestas k r e s t a s
@@ -4180,19 +4068,13 @@ crónicas k r o n i k a s
 crónico k r o n i k o
 crónicos k r o n i k o s
 cs k s
-cse k s e
-csi k s i
 csin k s i n
 csnmx k s n m x
-ct k t
-ctas k t a s
-ctfusionado k t f u s i o n a d o
-ctmediante k t m e d i a n t e
 cts k t s
 ctubre k t u b r e
 ctx k t x
-cuadado k u a d a d o
 cuadra k u a d r a
+cuadrado k u a d r a d o
 cuadran k u a d r a n
 cuadrante k u a d r a n t e
 cuadrantectomía k u a d r a n t e k t o m i a
@@ -4285,7 +4167,6 @@ cums k u m s
 cunado k u n a d o
 cune k u n e
 cuneaba k u n e a b a
-cuneana k u n e a n a
 cuneiforme k u n e i f o r m e
 cuneiformes k u n e i f o r m e s
 cuneo k u n e o
@@ -4424,7 +4305,6 @@ dará d a r a
 daría d a r i a
 daríamos d a r i a m o s
 dasatinib d a s a t i n i b
-dat d a t
 dato d a t o
 datolan d a t o l a n
 datos d a t o s
@@ -4434,7 +4314,6 @@ dc d k
 dcb d k b
 dce d z e
 dcf d k f
-dcho d ch o
 dcion d z i o n
 dcl d k l
 dcld d k l d
@@ -4569,38 +4448,18 @@ deforma d e f o r m a
 deformación d e f o r m a z i o n
 deformado d e f o r m a d o
 deformidad d e f o r m i d a d
-degdenerativo d e g d e n e r a t i b o
-degeenrativo d e j e e n r a t i b o
-degenarativa d e j e n a r a t i b a
-degenarativo d e j e n a r a t i b o
-degenativa d e j e n a t i b a
 degenativo d e j e n a t i b o
 degeneración d e j e n e r a z i o n
 degeneraiva d e j e n e r a i b a
-degeneraltivos d e j e n e r a l t i b o s
-degenerartivo d e j e n e r a r t i b o
-degeneratifvos d e j e n e r a t i f b o s
 degenerativa d e j e n e r a t i b a
 degenerativas d e j e n e r a t i b a s
 degenerativo d e j e n e r a t i b o
-degenerativoo d e j e n e r a t i b o o
 degenerativos d e j e n e r a t i b o s
-degenerativp d e j e n e r a t i b p
-degeneratriva d e j e n e r a t r i b a
-degeneratva d e j e n e r a t b a
-degenereativa d e j e n e r e a t i b a
-degenrativa d e j e n r a t i b a
-degenrativo d e j e n r a t i b o
-degenrativos d e j e n r a t i b o s
-degenreativas d e j e n r e a t i b a s
-degerativa d e j e r a t i b a
-degerativo d e j e r a t i b o
 deglución d e g l u z i o n
 deglutida d e g l u t i d a
 deglutir d e g l u t i r
 deglutorio d e g l u t o r i o
 deglutorios d e g l u t o r i o s
-degnerativo d e g n e r a t i b o
 deguimiento d e g i m i e n t o
 deis d e i s
 deja d e j a
@@ -4657,11 +4516,9 @@ delimitándose d e l i m i t a n d o s e
 delineadas d e l i n e a d a s
 delirante d e l i r a n t e
 delo d e l o
-delpolo d e l p o l o
 deltoidea d e l t o i d e a
 deltoideo d e l t o i d e o
 deltoides d e l t o i d e s
-delvalor d e l b a l o r
 demanda d e m a n d a
 demasiado d e m a s i a d o
 demasiados d e m a s i a d o s
@@ -4699,8 +4556,6 @@ den d e n
 denegada d e n e g a d a
 denegado d e n e g a d o
 denegamos d e n e g a m o s
-denerativa d e n e r a t i b a
-denerativas d e n e r a t i b a s
 denervación d e n e r b a z i o n
 denia d e n i a
 denominación d e n o m i n a z i o n
@@ -4740,7 +4595,6 @@ deposita d e p o s i t a
 depositada d e p o s i t a d a
 depositarse d e p o s i t a r s e
 deposito d e p o s i t o
-depositos d e p o s i t o s
 depot d e p o t
 deprax d e p r a x
 depresiones d e p r e s i o n e s
@@ -4756,7 +4610,6 @@ deprivar d e p r i b a r
 depurado d e p u r a d o
 depósito d e p o s i t o
 depósitos d e p o s i t o s
-der d e r
 derecha d e r e ch a
 derechapt d e r e ch a p t
 derechas d e r e ch a s
@@ -4924,7 +4777,6 @@ desestructuradas d e s e s t r u k t u r a d a s
 desestructurado d e s e s t r u k t u r a d o
 deseáis d e s e a i s
 desfase d e s f a s e
-desferenciación d e s f e r e n z i a z i o n
 desfibrilador d e s f i b r i l a d o r
 desgarro d e s g a rr o
 desgaste d e s g a s t e
@@ -5029,12 +4881,10 @@ detectarlo d e t e k t a r l o
 detectaron d e t e k t a r o n
 detectarse d e t e k t a r s e
 detecte d e t e k t e
-detectectora d e t e k t e k t o r a
 detectemos d e t e k t e m o s
 detecten d e t e k t e n
 detecto d e t e k t o
 detector d e t e k t o r
-detectora d e t e k t o r a
 detectores d e t e k t o r e s
 detectá d e t e k t a
 detectándose d e t e k t a n d o s e
@@ -5096,7 +4946,6 @@ diafesis d i a f e s i s
 diafisaria d i a f i s a r i a
 diafisarias d i a f i s a r i a s
 diafisario d i a f i s a r i o
-diafisária d i a f i s a r i a
 diaforesis d i a f o r e s i s
 diafragma d i a f r a g m a
 diafragmática d i a f r a g m a t i k a
@@ -5118,7 +4967,6 @@ diagnósticas d i a g n o s t i k a s
 diagnóstico d i a g n o s t i k o
 diagnósticos d i a g n o s t i k o s
 diagósticos d i a g o s t i k o s
-diametros d i a m e t r o s
 diana d i a n a
 diaria d i a r i a
 diariamente d i a r i a m e n t e
@@ -5270,7 +5118,6 @@ directos d i r e k t o s
 dirgida d i r j i d a
 dirige d i r i j e
 dirigen d i r i j e n
-dirigica d i r i j i k a
 dirigida d i r i j i d a
 dirigidas d i r i j i d a s
 dirigido d i r i j i d o
@@ -5291,7 +5138,6 @@ discernir d i s z e r n i r
 discinesia d i s z i n e s i a
 discinesias d i s z i n e s i a s
 discinesiasy d i s z i n e s i a s y
-discinetia d i s z i n e t i a
 discinética d i s z i n e t i k a
 discinétical d i s z i n e t i k a l
 discinéticas d i s z i n e t i k a s
@@ -5334,7 +5180,6 @@ discutirá d i s k u t i r a
 disección d i s e k z i o n
 disejecutivo d i s e j e k u t i b o
 disemiinación d i s e m i i n a z i o n
-diseminacion d i s e m i n a z i o n
 diseminación d i s e m i n a z i o n
 diseminada d i s e m i n a d a
 diseminadas d i s e m i n a d a s
@@ -5508,7 +5353,6 @@ dm d m
 dmid d m i d
 dmnid d m n i d
 dms d m s
-dmsa d m s a
 dna d n a
 dnas d n a s
 do d o
@@ -5516,7 +5360,6 @@ doble d o b l e
 dobutamida d o b u t a m i d a
 dobutamina d o b u t a m i n a
 dobón d o b o n
-docal d o k a l
 doce d o z e
 doceavo d o z e a b o
 docetaxel d o z e t a x e l
@@ -5550,7 +5393,6 @@ dominancias d o m i n a n z i a s
 dominando d o m i n a n d o
 dominante d o m i n a n t e
 dominantes d o m i n a n t e s
-dominate d o m i n a t e
 domine d o m i n e
 dominen d o m i n e n
 domingo d o m i n g o
@@ -5575,12 +5417,10 @@ dopaminérgicas d o p a m i n e r j i k a s
 dopaminérgico d o p a m i n e r j i k o
 dopaminérgicos d o p a m i n e r j i k o s
 doppler d o p p l e r
-dorigida d o r i j i d a
 dormir d o r m i r
 dorsal d o r s a l
 dorsales d o r s a l e s
 dorsalgia d o r s a l j i a
-dorsao d o r s a o
 dorso d o r s o
 dorsolumbalgia d o r s o l u m b a l j i a
 dos d o s
@@ -5603,7 +5443,6 @@ doy d o y
 doña d o gn a
 dp d p
 dpd d p d
-dprso d p r s o
 dpta d p t a
 dr d r
 dra d r a
@@ -5628,8 +5467,6 @@ dse d s e
 dsiminuye d s i m i n u y e
 dsr d s r
 dt d t
-dta d t a
-dtpa d t p a
 dtps d t p s
 du d u
 dubois d u b o i s
@@ -5689,16 +5526,13 @@ dímero d i m e r o
 dímeros d i m e r o s
 dóppler d o p p l e r
 e e
-ea e a
 eap e a p
 eatl e a t l
 eb e b
 ec e k
 ecatabulo e k a t a b u l o
 ecatasia e k a t a s i a
-ecd e k d
 ecm e k m
-eco e k o
 ecocardio e k o k a r d i o
 ecodirigida e k o d i r i j i d a
 ecodoppler e k o d o p p l e r
@@ -5711,8 +5545,6 @@ ecogeniciad e k o j e n i z i a d
 ecogenicidad e k o j e n i z i d a d
 ecogenicidades e k o j e n i z i d a d e s
 ecogra e k o g r a
-ecografico e k o g r a f i k o
-ecografría e k o g r a f r i a
 ecografrías e k o g r a f r i a s
 ecografía e k o g r a f i a
 ecografías e k o g r a f i a s
@@ -5759,7 +5591,6 @@ edematosa e d e m a t o s a
 edematoso e d e m a t o s o
 edición e d i z i o n
 edr e d r
-edta e d t a
 ee e e
 eecc e e k k
 eeii e e i i
@@ -6010,6 +5841,7 @@ endobronquia e n d o b r o n k i a
 endobronquial e n d o b r o n k i a l
 endobronquiales e n d o b r o n k i a l e s
 endoc e n d o k
+endocardiaca e n d o k a r d i a k a
 endocarditis e n d o k a r d i t i s
 endocervical e n d o z e r b i k a l
 endocrina e n d o k r i n a
@@ -6018,7 +5850,6 @@ endocrinología e n d o k r i n o l o j i a
 endocrinos e n d o k r i n o s
 endocrinóloga e n d o k r i n o l o g a
 endocrinólogo e n d o k r i n o l o g o
-endocárdica e n d o k a r d i k a
 endocérvix e n d o k e r b i x
 endomedular e n d o m e d u l a r
 endometrial e n d o m e t r i a l
@@ -6026,7 +5857,6 @@ endometrio e n d o m e t r i o
 endometrioide e n d o m e t r i o i d e
 endometriosis e n d o m e t r i o s i s
 endoprótesis e n d o p r o t e s i s
-endoscopia e n d o s k o p i a
 endoscopía e n d o s k o p i a
 endoscópica e n d o s k o p i k a
 endoscópicamente e n d o s k o p i k a m e n t e
@@ -6147,7 +5977,6 @@ entregamos e n t r e g a m o s
 entregan e n t r e g a n
 entrego e n t r e g o
 entremezclan e n t r e m e z k l a n
-entres e n t r e s
 entrevista e n t r e b i s t a
 entuertos e n t u e r t o s
 entérica e n t e r i k a
@@ -6256,9 +6085,9 @@ era e r a
 eran e r a n
 erb e r b
 erbb e r b b
-erc e r k
 ercio e r z i o
 erdheim e r d e i m
+ere e r e
 erechas e r e ch a s
 erector e r e k t o r
 erectora e r e k t o r a
@@ -6276,7 +6105,6 @@ eritrorcitaria e r i t r o r z i t a r i a
 erlotinib e r l o t i n i b
 erosiva e r o s i b a
 erosión e r o s i o n
-err e rr
 erradicador e rr a d i k a d o r
 errata e rr a t a
 erro e rr o
@@ -6288,7 +6116,6 @@ errónea e rr o n e a
 erróneamente e rr o n e a m e n t e
 erróneo e rr o n e o
 erróneos e rr o n e o s
-erterno e r t e r n o
 eruptiva e r u p t i b a
 es e s
 esa e s a
@@ -6306,7 +6133,6 @@ escaleno e s k a l e n o
 escalenos e s k a l e n o s
 escalofrío e s k a l o f r i o
 escalofríos e s k a l o f r i o s
-escalon e s k a l o n
 escalones e s k a l o n e s
 escalón e s k a l o n
 escamosa e s k a m o s a
@@ -6365,7 +6191,6 @@ escrotales e s k r o t a l e s
 escudero e s k u d e r o
 escápula e s k a p u l a
 escápulas e s k a p u l a s
-escápulo e s k a p u l o
 escénica e s k e n i k a
 ese e s e
 esencial e s e n z i a l
@@ -6389,8 +6214,6 @@ esmerilado e s m e r i l a d o
 eso e s o
 esofagitis e s o f a j i t i s
 esoftalmos e s o f t a l m o s
-esofáfica e s o f a f i k a
-esofáfico e s o f a f i k o
 esofágica e s o f a j i k a
 esofágico e s o f a j i k o
 esos e s o s
@@ -6478,7 +6301,6 @@ espodilolitis e s p o d i l o l i t i s
 espolón e s p o l o n
 espondilitis e s p o n d i l i t i s
 espondillolisis e s p o n d i ll o l i s i s
-espondilo e s p o n d i l o
 espondiloartritis e s p o n d i l o a r t r i t i s
 espondiloartropatía e s p o n d i l o a r t r o p a t i a
 espondiloartrosis e s p o n d i l o a r t r o s i s
@@ -6490,7 +6312,6 @@ espondilítica e s p o n d i l i t i k a
 espongiarios e s p o n j i a r i o s
 espongiforme e s p o n j i f o r m e
 espongiformes e s p o n j i f o r m e s
-espontanea e s p o n t a n e a
 espontaneé e s p o n t a n e e
 espontánea e s p o n t a n e a
 espontáneamente e s p o n t a n e a m e n t e
@@ -6508,7 +6329,6 @@ espóndilos e s p o n d i l o s
 esq e s k
 esque e s k e
 esquela e s k e l a
-esqueletica e s k e l e t i k a
 esqueleto e s k e l e t o
 esqueletos e s k e l e t o s
 esquelética e s k e l e t i k a
@@ -6540,7 +6360,6 @@ estaciones e s t a z i o n e s
 estación e s t a z i o n
 estadiaje e s t a d i a j e
 estadifica e s t a d i f i k a
-estadificacion e s t a d i f i k a z i o n
 estadificación e s t a d i f i k a z i o n
 estadificada e s t a d i f i k a d a
 estadificar e s t a d i f i k a r
@@ -6655,7 +6474,6 @@ estrecho e s t r e ch o
 estreiada e s t r e i a d a
 estrenal e s t r e n a l
 estreno e s t r e n o
-estres e s t r e s
 estreñimiento e s t r e gn i m i e n t o
 estriada e s t r i a d a
 estriado e s t r i a d o
@@ -6718,13 +6536,13 @@ estéis e s t e i s
 estén e s t e n
 estéril e s t e r i l
 estímulo e s t i m u l o
-estímulol e s t i m u l o l
 estímulos e s t i m u l o s
 estómago e s t o m a g o
 esófago e s o f a g o
 esóstosis e s o s t o s i s
 etanercept e t a n e r z e p t
 etc e t k
+eterno e t e r n o
 etilcisteinato e t i l z i s t e i n a t o
 etilismo e t i l i s m o
 etioliogía e t i o l i o j i a
@@ -6804,11 +6622,10 @@ evaluarlo e b a l u a r l o
 evaluarlos e b a l u a r l o s
 evaluarse e b a l u a r s e
 evaluará e b a l u a r a
-evalueis e b a l u e i s
 evaluá e b a l u a
+evaluéis e b a l u e i s
 evalúa e b a l u a
 evalúan e b a l u a n
-evaulará e b a u l a r a
 eve e b e
 evento e b e n t o
 eventración e b e n t r a z i o n
@@ -7028,7 +6845,6 @@ extenderse e x t e n d e r s e
 extendida e x t e n d i d a
 extendido e x t e n d i d o
 extendidos e x t e n d i d o s
-extendiendose e x t e n d i e n d o s e
 extendiéndose e x t e n d i e n d o s e
 exteno e x t e n o
 extensa e x t e n s a
@@ -7059,7 +6875,6 @@ extirparon e x t i r p a r o n
 extirpe e x t i r p e
 extirpándose e x t i r p a n d o s e
 extirpó e x t i r p o
-extr e x t r
 extra e x t r a
 extracapsulares e x t r a k a p s u l a r e s
 extracciones e x t r a k z i o n e s
@@ -7124,7 +6939,6 @@ ey e y
 eyección e y e k z i o n
 ezetrol e z e t r o l
 ezquierda e z k i e r d a
-f e f e
 fa f a
 fabra f a b r a
 fabrica f a b r i k a
@@ -7186,29 +7000,20 @@ falso f a l s o
 falsos f a l s o s
 falta f a l t a
 faltan f a l t a n
-falágica f a l a j i k a
-falágicas f a l a j i k a s
-falánfica f a l a n f i k a
 falángica f a l a n j i k a
 falángicas f a l a n j i k a s
-falángiica f a l a n j i i k a
-famacológica f a m a k o l o j i k a
-famacológico f a m a k o l o j i k o
 familia f a m i l i a
 familiar f a m i l i a r
 familiares f a m i l i a r e s
 fanges f a n j e s
 fao f a o
 far f a r
-faramacológico f a r a m a k o l o j i k o
 faringe f a r i n j e
 faringitis f a r i n j i t i s
-faringo f a r i n g o
 faringoamigdalina f a r i n g o a m i g d a l i n a
 faringolaringeo f a r i n g o l a r i n j e o
 farma f a r m a
 farmacia f a r m a z i a
-farmaciológico f a r m a z i o l o j i k o
 farmaco f a r m a k o
 farmacoactivo f a r m a k o a k t i b o
 farmacología f a r m a k o l o j i a
@@ -7216,8 +7021,6 @@ farmacológica f a r m a k o l o j i k a
 farmacológico f a r m a k o l o j i k o
 farmacológicos f a r m a k o l o j i k o s
 farmacéutica f a r m a k e u t i k a
-farmacólógico f a r m a k o l o j i k o
-farmácológico f a r m a k o l o j i k o
 faríngea f a r i n j e a
 faríngeas f a r i n j e a s
 faríngeo f a r i n j e o
@@ -7245,10 +7048,8 @@ fcolina f k o l i n a
 fctm f k t m
 fda f d a
 fdf f d f
-fdg f d g
 fe f e
 fea f e a
-feb f e b
 febero f e b e r o
 febr f e b r
 febrero f e b r e r o
@@ -7270,7 +7071,6 @@ felisa f e l i s a
 femenino f e m e n i n o
 femoiral f e m o i r a l
 femoral f e m o r a l
-femoralderecha f e m o r a l d e r e ch a
 femorales f e m o r a l e s
 femoro f e m o r o
 femoropatelar f e m o r o p a t e l a r
@@ -7285,7 +7085,6 @@ fenómenos f e n o m e n o s
 fenómero f e n o m e r o
 feocromocitoma f e o k r o m o z i t o m a
 feocromocitomas f e o k r o m o z i t o m a s
-fermorales f e r m o r a l e s
 fernández f e r n a n d e z
 ferrer f e rr e r
 ferrocianuro f e rr o z i a n u r o
@@ -7296,7 +7095,6 @@ festinación f e s t i n a z i o n
 festinante f e s t i n a n t e
 fev f e b
 fevd f e b d
-fevi f e b i
 ff f f
 ffl f f l
 fg f g
@@ -7335,7 +7133,6 @@ ficat f i k a t
 ficha f i ch a
 ficticia f i k t i z i a
 ficticio f i k t i z i o
-fid f i d
 fidedignos f i d e d i g n o s
 fiducial f i d u z i a l
 fiebre f i e b r e
@@ -7343,7 +7140,6 @@ figo f i g o
 figura f i g u r a
 figuraba f i g u r a b a
 figuran f i g u r a n
-fii f i i
 fija f i j a
 fijación f i j a z i o n
 fijadora f i j a d o r a
@@ -7589,17 +7385,14 @@ fronto f r o n t o
 frontocigomática f r o n t o z i g o m a t i k a
 frontoparietal f r o n t o p a r i e t a l
 frontoparietales f r o n t o p a r i e t a l e s
-frontotemporal f r o n t o t e m p o r a l
 frr f rr
 fructosa f r u k t o s a
-frénico f r e n i k o
 fría f r i a
 frías f r i a s
 frío f r i o
 fríos f r i o s
 fu f u
 fua f u a
-fucional f u z i o n a l
 fucnional f u k n i o n a l
 fue f u e
 fuente f u e n t e
@@ -7618,7 +7411,6 @@ fulvestrant f u l b e s t r a n t
 fumador f u m a d o r
 fumadora f u m a d o r a
 fumar f u m a r
-funcinal f u n z i n a l
 funciona f u n z i o n a
 funcional f u n z i o n a l
 funcionales f u n z i o n a l e s
@@ -7640,7 +7432,6 @@ fundamentalmente f u n d a m e n t a l m e n t e
 fundamentalmernta f u n d a m e n t a l m e r n t a
 fundus f u n d u s
 fungoide f u n g o i d e
-funiconal f u n i k o n a l
 fura f u r a
 furest f u r e s t
 furosemida f u r o s e m i d a
@@ -7691,29 +7482,24 @@ ga g a
 gabriela g a b r i e l a
 gafas g a f a s
 galante g a l a n t e
+galeno g a l e n o
 galiano g a l i a n o
 galicia g a l i z i a
 galio g a l i o
-gallio g a ll i o
 gallolyticus g a ll o l y t i k u s
 galnglio g a l n g l i o
 galofré g a l o f r e
 galán g a l a n
 gama g a m a
 gamagrafía g a m a g r a f i a
-gamagrafías g a m a g r a f i a s
 gamma g a m m a
 gammacámara g a m m a k a m a r a
 gammadetector g a m m a d e t e k t o r
 gammadetectora g a m m a d e t e k t o r a
 gammaghrafía g a m m a g r a f i a
 gammaglobulina g a m m a g l o b u l i n a
-gammagrafia g a m m a g r a f i a
-gammagrafico g a m m a g r a f i k o
 gammagrafía g a m m a g r a f i a
 gammagrafías g a m m a g r a f i a s
-gammagrafícamente g a m m a g r a f i k a m e n t e
-gammagráfcia g a m m a g r a f z i a
 gammagráfica g a m m a g r a f i k a
 gammagráficamente g a m m a g r a f i k a m e n t e
 gammagráficas g a m m a g r a f i k a s
@@ -7743,7 +7529,6 @@ garaje g a r a j e
 garantiza g a r a n t i z a
 garantía g a r a n t i a
 garcía g a r k i a
-garves g a r b e s
 garzón g a r z o n
 gas g a s
 gasa g a s a
@@ -7776,7 +7561,6 @@ gaussiano g a u s s i a n o
 gavela g a b e l a
 gaves g a b e s
 gavila g a b i l a
-gc g k
 gcp g k p
 gel j e l
 gelatinoso j e l a t i n o s o
@@ -7803,6 +7587,7 @@ generan j e n e r a n
 generando j e n e r a n d o
 generar j e n e r a r
 generativa j e n e r a t i b a
+generativas j e n e r a t i b a s
 generativo j e n e r a t i b o
 generativos j e n e r a t i b o s
 genes j e n e s
@@ -7853,7 +7638,6 @@ glandulares g l a n d u l a r e s
 glandulo g l a n d u l o
 gleaso g l e a s o
 gleason g l e a s o n
-gleno g l e n o
 glenohumeral g l e n o u m e r a l
 glenohumerales g l e n o u m e r a l e s
 glenoidea g l e n o i d e a
@@ -7874,7 +7658,6 @@ glióticos g l i o t i k o s
 global g l o b a l
 globales g l o b a l e s
 globalmente g l o b a l m e n t e
-globamente g l o b a m e n t e
 globo g l o b o
 globoso g l o b o s o
 globular g l o b u l a r
@@ -7908,14 +7691,12 @@ glycolisis g l y k o l i s i s
 glycolys g l y k o l y s
 glycolysis g l y k o l y s i s
 glándula g l a n d u l a
-glándular g l a n d u l a r
 glándulas g l a n d u l a s
 glóbulo g l o b u l o
 glútea g l u t e a
 glúteo g l u t e o
 glúteos g l u t e o s
 gml g m l
-gmmagrafia g m m a g r a f i a
 gmsi g m s i
 gn g n
 gnósicas g n o s i k a s
@@ -7945,7 +7726,6 @@ grado g r a d o
 grados g r a d o s
 gradual g r a d u a l
 graduare g r a d u a r e
-grafía g r a f i a
 gral g r a l
 gram g r a m
 grama g r a m a
@@ -7974,7 +7754,6 @@ gravas g r a b a s
 grave g r a b e
 gravedad g r a b e d a d
 graves g r a b e s
-gravez g r a b e z
 gripal g r i p a l
 gripe g r i p e
 gris g r i s
@@ -8027,7 +7806,6 @@ gástrica g a s t r i k a
 gástricas g a s t r i k a s
 gástrico g a s t r i k o
 gástricos g a s t r i k o s
-génea j e n e a
 génico j e n i k o
 gómez g o m e z
 h a ch e
@@ -8110,7 +7888,6 @@ haloperidol a l o p e r i d o l
 hamangioma a m a n j i o m a
 hamartoma a m a r t o m a
 han a n
-hand a n d
 hapatomegalia a p a t o m e g a l i a
 haremos a r e m o s
 hariamos a r i a m o s
@@ -8138,15 +7915,12 @@ hcuv k u b
 hd d
 hda d a
 hdb d b
-hdp d p
 he e
 hebilla e b i ll a
 heces e z e s
-hech e ch
 hecha e ch a
 hecho e ch o
 hechos e ch o s
-heliciodal e l i z i o d a l
 helicoidal e l i k o i d a l
 hem e m
 hemangioendotelioma e m a n j i o e n d o t e l i o m a
@@ -8178,7 +7952,6 @@ hematóloga e m a t o l o g a
 hematólogo e m a t o l o g o
 hematólogos e m a t o l o g o s
 hemcromatosis e m k r o m a t o s i s
-hemi e m i
 hemiabdomen e m i a b d o m e n
 hemiagenesia e m i a j e n e s i a
 hemiarcada e m i a r k a d a
@@ -8215,7 +7988,6 @@ hemipared e m i p a r e d
 hemiparesia e m i p a r e s i a
 hemiparkinsonismo e m i p a r k i n s o n i s m o
 hemipedículo e m i p e d i k u l o
-hemipelvis e m i p e l b i s
 hemipubis e m i p u b i s
 hemipélvis e m i p e l b i s
 hemiriñones e m i r i gn o n e s
@@ -8278,7 +8050,6 @@ hep e p
 heparina e p a r i n a
 heparinizar e p a r i n i z a r
 hepatectomía e p a t e k t o m i a
-hepatico e p a t i k o
 hepaticoyeyunostomia e p a t i k o y e y u n o s t o m i a
 hepatitis e p a t i t i s
 hepato e p a t o
@@ -8321,10 +8092,9 @@ herpático e r p a t i k o
 herradura e rr a d u r a
 heso e s o
 hesos e s o s
+heteo e t e o
 heteroecogenicidad e t e r o e k o j e n i z i d a d
 heterogeneidad e t e r o j e n e i d a d
-heterogeneo e t e r o j e n e o
-heterogenicidad e t e r o j e n i z i d a d
 heterogénea e t e r o j e n e a
 heterogéneamente e t e r o j e n e a m e n t e
 heterogéneas e t e r o j e n e a s
@@ -8333,7 +8103,6 @@ heterogéneos e t e r o j e n e o s
 heterotópica e t e r o t o p i k a
 heterotópicas e t e r o t o p i k a s
 heterotópico e t e r o t o p i k o
-hetro e t r o
 hft f t
 hg g
 hgu g u
@@ -8385,7 +8154,6 @@ hilar i l a r
 hili i l i
 hiliar i l i a r
 hiliares i l i a r e s
-hilio i l i o
 hiliomediastínicas i l i o m e d i a s t i n i k a s
 hilo i l o
 hilos i l o s
@@ -8397,7 +8165,6 @@ hiopecoicos i o p e k o i k o s
 hipe i p e
 hipec i p e k
 hipecoica i p e k o i k a
-hipecoico i p e k o i k o
 hiper i p e r
 hiperactividad i p e r a k t i b i d a d
 hiperaflujo i p e r a f l u j o
@@ -8562,7 +8329,6 @@ hipocoecoicos i p o k o e k o i k o s
 hipocondrio i p o k o n d r i o
 hipocondrío i p o k o n d r i o
 hipoconesia i p o k o n e s i a
-hipocpatante i p o k p a t a n t e
 hipocrómica i p o k r o m i k a
 hipocámpica i p o k a m p i k a
 hipocámpico i p o k a m p i k o
@@ -8583,10 +8349,8 @@ hipoecoicas i p o e k o i k a s
 hipoecoico i p o e k o i k o
 hipoecoicos i p o e k o i k o s
 hipoecoicosm i p o e k o i k o s m
-hipoecoics i p o e k o i k s
 hipoecoiecas i p o e k o i e k a s
 hipoecoios i p o e k o i o s
-hipoecóicas i p o e k o i k a s
 hipoeocoica i p o e o k o i k a
 hipoesplenismo i p o e s p l e n i s m o
 hipoestesia i p o e s t e s i a
@@ -8676,7 +8440,6 @@ hipóxicas i p o x i k a s
 hipóxico i p o x i k o
 his i s
 histerectomía i s t e r e k t o m i a
-histerico i s t e r i k o
 histiocitoma i s t i o z i t o m a
 histiocitosis i s t i o z i t o s i s
 histología i s t o l o j i a
@@ -8756,7 +8519,6 @@ hormonal o r m o n a l
 hormonales o r m o n a l e s
 hormonalmente o r m o n a l m e n t e
 hormonas o r m o n a s
-hormono o r m o n o
 hormonogénesis o r m o n o j e n e s i s
 hormonorrefractario o r m o n o rr e f r a k t a r i o
 hormonoterapia o r m o n o t e r a p i a
@@ -8786,7 +8548,6 @@ hrs r s
 hs s
 hsa s a
 ht t
-hta t a
 htd t d
 hto t o
 htrv t r b
@@ -8827,7 +8588,6 @@ húmero u m e r o
 húmeros u m e r o s
 húngaro u n g a r o
 hürthle u r t l e
-i i
 i.v. i u b e
 ia i a
 iam i a m
@@ -8853,16 +8613,98 @@ ictericia i k t e r i z i a
 ictus i k t u s
 iculografía i k u l o g r a f i a
 id k o m a n d o i d e
+id- i d
+idI i d i
 ida i d a
+idactividad i d a k t i b i d a d
+idactualmente i d a k t u a l m e n t e
+idadenopatía i d a d e n o p a t i a
+idadenopatías i d a d e n o p a t i a s
+idafectación i d a f e k t a z i o n
+idaflojamiento i d a f l o j a m i e n t o
+idagenesia i d a j e n e s i a
+idal i d a l
+idalgodistrofia i d a l g o d i s t r o f i a
+idalta i d a l t a
+idalteraciones i d a l t e r a z i o n e s
+idalteración i d a l t e r a z i o n
+idante i d a n t e
+idanulación i d a n u l a z i o n
+idaplastamiento i d a p l a s t a m i e n t o
+idartritis i d a r t r i t i s
+idartrosis i d a r t r o s i s
+idasimetría i d a s i m e t r i a
+idatenuación i d a t e n u a z i o n
+idatrofia i d a t r o f i a
+idaumento i d a u m e n t o
+idaunque i d a u n k e
+idausencia i d a u s e n z i a
+idbaja i d b a j a
+idbloqueo i d b l o k e o
+idbocio i d b o z i o
+idbuen i d b u e n
+idbuena i d b u e n a
+idbursitis i d b u r s i t i s
+idcambios i d k a m b i o s
+idcaptación i d k a p t a z i o n
+idcardiopatía i d k a r d i o p a t i a
+idcicatriz i d z i k a t r i z
+idcisto i d z i s t o
+idcompatible i d k o m p a t i b l e
+idcon i d k o n
+idconcordante i d k o n k o r d a n t e
+idconfirmar i d k o n f i r m a r
+idcontinua i d k o n t i n u a
+idcontrol i d k o n t r o l
+idcoxartrosis i d k o x a r t r o s i s
+idcoxoartrosis i d k o x o a r t r o s i s
+iddado i d d a d o
+idde i d d e
+iddefecto i d d e f e k t o
+iddefectos i d d e f e k t o s
+iddeficiente i d d e f i z i e n t e
+iddegeneración i d d e j e n e r a z i o n
+iddemencia i d d e m e n z i a
+iddentro i d d e n t r o
+iddescartada i d d e s k a r t a d a
+iddescartado i d d e s k a r t a d o
+iddescartar i d d e s k a r t a r
+iddesconocemos i d d e s k o n o z e m o s
+iddesde i d d e s d e
+iddetección i d d e t e k z i o n
+iddeterioro i d d e t e r i o r o
+iddiferencia i d d i f e r e n z i a
+iddifícil i d d i f i z i l
+iddilatación i d d i l a t a z i o n
+iddiscordancia i d d i s k o r d a n z i a
+iddiscreta i d d i s k r e t a
+iddiscreto i d d i s k r e t o
+iddiseminación i d d i s e m i n a z i o n
+iddisminución i d d i s m i n u z i o n
+iddudas i d d u d a s
+iddudosa i d d u d o s a
+iddudosas i d d u d o s a s
+iddudoso i d d u d o s o
+ide i d e
 idea i d e a
 ideal i d e a l
 ideales i d e a l e s
 idealisib i d e a l i s i b
 ideatoria i d e a t o r i a
+idecatasia i d e k a t a s i a
+idecografía i d e k o g r a f i a
+idectasia i d e k t a s i a
+idefecto i d e f e k t o
+idel i d e l
 idelalisib i d e l a l i s i b
+idemisión i d e m i s i o n
+idempeoramiento i d e m p e o r a m i e n t o
+iden i d e n
 idenbtifica i d e n b t i f i k a
+idencondromatosis i d e n k o n d r o m a t o s i s
+idenfermadas i d e n f e r m a d a s
+idenfermedad i d e n f e r m e d a d
 idenitifica i d e n i t i f i k a
-identfica i d e n t f i k a
 identidad i d e n t i d a d
 identifcar i d e n t i f k a r
 identifica i d e n t i f i k a
@@ -8891,11 +8733,195 @@ identifiicamos i d e n t i f i i k a m o s
 identifique i d e n t i f i k e
 identifiquemos i d e n t i f i k e m o s
 identifiquen i d e n t i f i k e n
-iderecho i d e r e ch o
+identro i d e n t r o
+ides i d e s
+idescoliosis i d e s k o l i o s i s
+idesde i d e s d e
+idestas i d e s t a s
+ideste i d e s t e
+idestenosis i d e s t e n o s i s
+idestos i d e s t o s
+idestudio i d e s t u d i o
+idestudios i d e s t u d i o s
+idevolución i d e b o l u z i o n
+idexiste i d e x i s t e
+idexistiendo i d e x i s t i e n d o
+idexploración i d e x p l o r a z i o n
+idextensa i d e x t e n s a
+idextensión i d e x t e n s i o n
+idfalso i d f a l s o
+idfase i d f a s e
+idfisuras i d f i s u r a s
+idfoco i d f o k o
+idfracaso i d f r a k a s o
+idfracción i d f r a k z i o n
+idfractura i d f r a k t u r a
+idfunción i d f u n z i o n
+idg i d g
+idgammagrafía i d g a m m a g r a f i a
+idganglio i d g a n g l i o
+idglándula i d g l a n d u l a
+idgran i d g r a n
+idgraves i d g r a b e s
+idha i d a
+idhallazgo i d a ll a z g o
+idhallazgos i d a ll a z g o s
+idhallus i d a ll u s
+idhallux i d a ll u x
+idhemorragia i d e m o rr a j i a
+idhidronefrosis i d i d r o n e f r o s i s
+idhiper i d i p e r
+idhipercaptación i d i p e r k a p t a z i o n
+idhiperfunción i d i p e r f u n z i o n
+idhiperplasia i d i p e r p l a s i a
+idhipertiroidismo i d i p e r t i r o i d i s m o
+idhipertrofia i d i p e r t r o f i a
+idhipocaptación i d i p o k a p t a z i o n
+idhipofunción i d i p o f u n z i o n
+idhipoperfusión i d i p o p e r f u s i o n
+idhipotiroidismo i d i p o t i r o i d i s m o
+ididposible i d i d p o s i b l e
+idima i d i m a
+idimagen i d i m a j e n
+idimportante i d i m p o r t a n t e
+idimpresiona i d i m p r e s i o n a
+idimágenes i d i m a j e n e s
+idin i d i n
+idindeterminado i d i n d e t e r m i n a d o
+idinfarto i d i n f a r t o
+idinfartos i d i n f a r t o s
+idinfección i d i n f e k z i o n
+idinformación i d i n f o r m a z i o n
+idinjerto i d i n j e r t o
+idinsuficiencia i d i n s u f i z i e n z i a
+idinterferencia i d i n t e r f e r e n z i a
 idiopática i d i o p a t i k a
 idiopático i d i o p a t i k o
+idisquemia i d i s k e m i a
+idla i d l a
+idlas i d l a s
+idlesiones i d l e s i o n e s
+idlesión i d l e s i o n
+idleve i d l e b e
+idligera i d l i j e r a
+idligeramente i d l i j e r a m e n t e
+idligero i d l i j e r o
+idlocalización i d l o k a l i z a z i o n
+idlos i d l o s
+idlóbulo i d l o b u l o
+idmasa i d m a s a
+idmasas i d m a s a s
+idmejoría i d m e j o r i a
+idmenor i d m e n o r
+idmetástasis i d m e t a s t a s i s
+idmini i d m i n i
+idmiocardio i d m i o k a r d i o
+idmiocardiopatía i d m i o k a r d i o p a t i a
+idmorfología i d m o r f o l o j i a
+idmorrenal i d m o rr e n a l
+idmovilización i d m o b i l i z a z i o n
+idmultinodular i d m u l t i n o d u l a r
+idmuy i d m u y
+idmínima i d m i n i m a
+idmúltiples i d m u l t i p l e s
+idn i d n
+idnecrosis i d n e k r o s i s
+idnegativo i d n e g a t i b o
+idno i d n o
+idnormal i d n o r m a l
+idnos i d n o s
+idnuevo i d n u e b o
+idnódulo i d n o d u l o
+idnódulos i d n o d u l o s
 ido i d o
+idobstrucción i d o b s t r u k z i o n
+idos i d o s
+idosteoartritis i d o s t e o a r t r i t i s
+idosteomalacia i d o s t e o m a l a z i a
+idosteomielitis i d o s t e o m i e l i t i s
+idpaget i d p a j e t
+idpara i d p a r a
+idparacronismo i d p a r a k r o n i s m o
+idparatiroides i d p a r a t i r o i d e s
+idparcial i d p a r z i a l
+idpatología i d p a t o l o j i a
+idpatrón i d p a t r o n
+idpelvis i d p e l b i s
+idpequeña i d p e k e gn a
+idpequeño i d p e k e gn o
+idpequeños i d p e k e gn o s
+idperfusión i d p e r f u s i o n
+idpermanece i d p e r m a n e z e
+idpersiste i d p e r s i s t e
+idpersistencia i d p e r s i s t e n z i a
+idpielonefrítis i d p i e l o n e f r i t i s
+idpielón i d p i e l o n
+idpodría i d p o d r i a
+idpoliartritis i d p o l i a r t r i t i s
+idpor i d p o r
+idposible i d p o s i b l e
+idpositividad i d p o s i t i b i d a d
+idpositivo i d p o s i t i b o
+idprobable i d p r o b a b l e
+idprobables i d p r o b a b l e s
+idproblema i d p r o b l e m a
+idproceso i d p r o z e s o
+idprogresión i d p r o g r e s i o n
+idprueba i d p r u e b a
+idpráctica i d p r a k t i k a
+idprótesis i d p r o t e s i s
+idpuede i d p u e d e
+idpueden i d p u e d e n
+idquiste i d k i s t e
+idr i d r
+idrastreo i d r a s t r e o
+idrechazo i d r e ch a z o
+idrecidiva i d r e z i d i b a
+idrecomendamos i d r e k o m e n d a m o s
+idreflujo i d r e f l u j o
+idremisión i d r e m i s i o n
+idremite i d r e m i t e
+idremodelación i d r e m o d e l a z i o n
+idrenograma i d r e n o g r a m a
+idreperfusión i d r e p e r f u s i o n
+idrespuesta i d r e s p u e s t a
+idresto i d r e s t o
+idrestos i d r e s t o s
+idresuelto i d r e s u e l t o
+idretención i d r e t e n z i o n
+idretraso i d r e t r a s o
+idrevisión i d r e b i s i o n
+idrizartrosis i d r i z a r t r o s i s
+idriñón i d r i gn o n
+idsacroileitis i d s a k r o i l e i t i s
+idsangrado i d s a n g r a d o
+idse i d s e
+idsecuela i d s e k u e l a
+idsensible i d s e n s i b l e
+idsi i d s i
+idsignos i d s i g n o s
+idsin i d s i n
+idsituación i d s i t u a z i o n
 idsoiecoico i d s o i e k o i k o
+idsospecha i d s o s p e ch a
+idsospechoso i d s o s p e ch o s o
+idsugestivo i d s u j e s t i b o
+idsí i d s i
+idt i d t
+idtamaño i d t a m a gn o
+idtanto i d t a n t o
+idteniendo i d t e n i e n d o
+idterritorio i d t e rr i t o r i o
+idtiroides i d t i r o i d e s
+idtiroiditis i d t i r o i d i t i s
+idtodos i d t o d o s
+idtransito i d t r a n s i t o
+idtrastorno i d t r a s t o r n o
+idtromboembolismo i d t r o m b o e m b o l i s m o
+idtumor i d t u m o r
+idunilobular i d u n i l o b u l a r
+idvaciamiento i d b a z i a m i e n t o
+idvalorar i d b a l o r a r
 idx k o m a n d o i d e e k i s
 idz i d z
 idéntica i d e n t i k a
@@ -8904,7 +8930,6 @@ idéntico i d e n t i k o
 idénticos i d e n t i k o s
 idónea i d o n e a
 idóneo i d o n e o
-ieca i e k a
 iecas i e k a s
 if i f
 ifd i f d
@@ -8923,17 +8948,14 @@ iguales i g u a l e s
 igualmente i g u a l m e n t e
 igualándose i g u a l a n d o s e
 ihq i k
-ii i i
 iia i i a
 iib i i b
-iii i i i
 iiia i i i a
 iiib i i i b
 iiic i i i k
 iiie i i i e
 iintenso i i n t e n s o
 ile i l e
-ileal i l e a l
 ileales i l e a l e s
 ilegible i l e j i b l e
 ileitis i l e i t i s
@@ -8955,8 +8977,6 @@ iliacas i l i a k a s
 iliaco i l i a k o
 iliacos i l i a k o s
 iliar i l i a r
-ilica i l i k a
-ilieitis i l i e i t i s
 ilio i l i o
 iliobturatriz i l i o b t u r a t r i z
 iliocecal i l i o z e k a l
@@ -8975,10 +8995,6 @@ iliopúbicas i l i o p u b i k a s
 ilipubiana i l i p u b i a n a
 ilp i l p
 ilíaca i l i a k a
-ilíacas i l i a k a s
-ilíaco i l i a k o
-ilíca i l i k a
-ilícas i l i k a s
 im i m
 ima i m a
 imag i m a g
@@ -8990,7 +9006,6 @@ imatinib i m a t i n i b
 imbrican i m b r i k a n
 imc i m k
 imd i m d
-imedio i m e d i o
 imen i m e n
 imibg i m i b g
 imp i m p
@@ -9252,7 +9267,6 @@ inexistencia i n e x i s t e n z i a
 inexistente i n e x i s t e n t e
 inexpresiva i n e x p r e s i b a
 inf i n f
-infalamtorio i n f a l a m t o r i o
 infamatoria i n f a m a t o r i a
 infancia i n f a n z i a
 infartada i n f a r t a d a
@@ -9271,10 +9285,8 @@ infectado i n f e k t a d o
 infecto i n f e k t o
 infeiore i n f e i o r e
 infeiro i n f e i r o
-infeiror i n f e i r o r
 infeo i n f e o
 inferencia i n f e r e n z i a
-inferio i n f e r i o
 inferioapical i n f e r i o a p i k a l
 inferior i n f e r i o r
 inferiores i n f e r i o r e s
@@ -9282,9 +9294,6 @@ inferiormente i n f e r i o r m e n t e
 inferiorposterior i n f e r i o r p o s t e r i o r
 inferiors i n f e r i o r s
 inferir i n f e r i r
-inferiro i n f e r i r o
-inferiror i n f e r i r o r
-infero i n f e r o
 inferoanterior i n f e r o a n t e r i o r
 inferoapical i n f e r o a p i k a l
 inferobasal i n f e r o b a s a l
@@ -9310,7 +9319,6 @@ infiltradas i n f i l t r a d a s
 infiltrado i n f i l t r a d o
 infiltrados i n f i l t r a d o s
 infiltrando i n f i l t r a n d o
-infiltrante i n f i l t r a n t e
 infiltrar i n f i l t r a r
 infiltrara i n f i l t r a r a
 infiltraras i n f i l t r a r a s
@@ -9324,7 +9332,6 @@ inflamaciones i n f l a m a z i o n e s
 inflamación i n f l a m a z i o n
 inflamada i n f l a m a d a
 inflamadas i n f l a m a d a s
-inflamatiorias i n f l a m a t i o r i a s
 inflamatoria i n f l a m a t o r i a
 inflamatorias i n f l a m a t o r i a s
 inflamatorio i n f l a m a t o r i o
@@ -9621,7 +9628,6 @@ interaortocava i n t e r a o r t o k a b a
 interaortocavas i n t e r a o r t o k a b a s
 interapofisaria i n t e r a p o f i s a r i a
 interapofisarias i n t e r a p o f i s a r i a s
-interapofisiaria i n t e r a p o f i s i a r i a
 interarticular i n t e r a r t i k u l a r
 interarticulares i n t e r a r t i k u l a r e s
 interc i n t e r k
@@ -9750,7 +9756,6 @@ intervalo i n t e r b a l o
 intervenciones i n t e r b e n z i o n e s
 intervencionismo i n t e r b e n z i o n i s m o
 intervencionista i n t e r b e n z i o n i s t a
-intervencioón i n t e r b e n z i o o n
 intervención i n t e r b e n z i o n
 intervenid i n t e r b e n i d
 intervenida i n t e r b e n i d a
@@ -9887,7 +9892,6 @@ intrínseco i n t r i n s e k o
 intuye i n t u y e
 inusual i n u s u a l
 inusualmente i n u s u a l m e n t e
-inutos i n u t o s
 inv i n b
 invade i n b a d e
 invaden i n b a d e n
@@ -9921,10 +9925,8 @@ involutivo i n b o l u t i b o
 involutivos i n b o l u t i b o s
 inválida i n b a l i d a
 inyecciones i n y e k z i o n e s
-inyecció i n y e k z i o
 inyección i n y e k z i o n
 inyeccióni i n y e k z i o n i
-inyeción i n y e z i o n
 inyecta i n y e k t a
 inyectables i n y e k t a b l e s
 inyectada i n y e k t a d a
@@ -9951,21 +9953,18 @@ ioflupano i o f l u p a n o
 iofupano i o f u p a n o
 iolupano i o l u p a n o
 ion i o n
-ionferior i o n f e r i o r
 ionizantes i o n i z a n t e s
 iosoecoico i o s o e k o i k o
 ip i p
 ipi i p i
 ipilimumab i p i l i m u m a b
 ipisilateral i p i s i l a t e r a l
-ipor i p o r
 ipsilateral i p s i l a t e r a l
 ipsilaterales i p s i l a t e r a l e s
 iq i k
 iqx i k x
 ir i r
 ira i r a
-irc i r k
 irm i r m
 irradia i rr a d i a
 irradiación i rr a d i a z i o n
@@ -10016,7 +10015,6 @@ isoecogénicos i s o e k o j e n i k o s
 isoecoica i s o e k o i k a
 isoecoicas i s o e k o i k a s
 isoecoico i s o e k o i k o
-isoecoicos i s o e k o i k o s
 isoeicoicos i s o e i k o i k o s
 isofuncionante i s o f u n z i o n a n t e
 isofuncionantes i s o f u n z i o n a n t e s
@@ -10081,10 +10079,7 @@ itmsmo i t m s m o
 itp i t p
 itrio i t r i o
 itsmo i t s m o
-itu i t u
 itus i t u s
-iuntra i u n t r a
-iv i b
 iva i b a
 ivb i b b
 ivc i b k
@@ -10093,15 +10088,11 @@ ivi i b i
 ivo i b o
 ivorra i b o rr a
 iz i z
-izd i z d
-izdo i z d o
-izq i z k
 izqda i z k d a
 izqdas i z k d a s
 izqdo i z k d o
 izqn i z k n
 izqnxmx i z k n x m x
-izquerda i z k e r d a
 izquierda i z k i e r d a
 izquierdas i z k i e r d a s
 izquierdda i z k i e r d d a
@@ -10123,6 +10114,8 @@ januvia j a n u b i a
 jarabes j a r a b e s
 javier j a b i e r
 jaén j a e n
+jd j d
+jdx j d x
 jeje j e j e
 jeringa j e r i n g a
 jeringas j e r i n g a s
@@ -10180,7 +10173,6 @@ kcydex k k y d e x
 kempf k e m p f
 keppra k e p p r a
 kevs k e b s
-kg k g
 kgs k g s
 ki k i
 kikuchi k i k u ch i
@@ -10227,7 +10219,6 @@ lagrimas l a g r i m a s
 laineadas l a i n e a d a s
 lal l a l
 lambda l a m b d a
-lamda l a m d a
 lamentablemente l a m e n t a b l e m e n t e
 lamentamos l a m e n t a m o s
 lamg l a m g
@@ -10254,7 +10245,6 @@ larga l a r g a
 largo l a r g o
 largos l a r g o s
 laringe l a r i n j e
-laringea l a r i n j e a
 laringoscopia l a r i n g o s k o p i a
 laringotraqueobronquial l a r i n g o t r a k e o b r o n k i a l
 laringuectomía l a r i n g u e k t o m i a
@@ -10266,7 +10256,6 @@ las l a s
 lat l a t
 latencia l a t e n z i a
 latente l a t e n t e
-later l a t e r
 latera l a t e r a
 lateral l a t e r a l
 laterales l a t e r a l e s
@@ -10279,13 +10268,11 @@ lateralizadas l a t e r a l i z a d a s
 lateralizado l a t e r a l i z a d o
 lateralizados l a t e r a l i z a d o s
 lateralmente l a t e r a l m e n t e
-lateralo l a t e r a l o
 laterizado l a t e r i z a d o
 latero l a t e r o
 laterocervical l a t e r o z e r b i k a l
 laterocervicales l a t e r o z e r b i k a l e s
 lateroconal l a t e r o k o n a l
-latewro l a t e u r o
 latido l a t i d o
 latidos l a t i d o s
 latina l a t i n a
@@ -10306,7 +10293,6 @@ lcitn l z i t n
 lcr l k r
 lcs l k s
 lculo l k u l o
-ld l d
 ldcg l d k g
 ldcgb l d k g b
 lde l d e
@@ -10366,10 +10352,8 @@ lesionado l e s i o n a d o
 lesional l e s i o n a l
 lesionales l e s i o n a l e s
 lesiones l e s i o n e s
-lesionesosteo l e s i o n e s o s t e o
 lesión l e s i o n
 lespanyoleto l e s p a n y o l e t o
-leteral l e t e r a l
 letra l e t r a
 letrozol l e t r o z o l
 leucaoaraiosis l e u k a o a r a i o s i s
@@ -10422,17 +10406,13 @@ lhi l i
 lhipometabolismo l i p o m e t a b o l i s m o
 lhn l n
 lhrh l r
-li l i
 libre l i b r e
 libres l i b r e s
 lic l i k
-lice l i z e
 licext l i z e x t
 lici l i z i
 licinf l i z i n f
 licint l i z i n t
-lics l i k s
-lid l i d
 lie l i e
 lig l i g
 ligamento l i g a m e n t o
@@ -10627,7 +10607,6 @@ llii ll i i
 lliria ll i r i a
 lloren ll o r e n
 llorente ll o r e n t e
-llíria ll i r i a
 lma l m a
 lmd l m d
 lmp l m p
@@ -10727,12 +10706,9 @@ lote l o t e
 lpm l p m
 lque l k e
 ls l s
-lsd l s d
 lt l t
 ltc l t k
-ltd l t d
 ltder l t d e r
-lti l t i
 ltl l t l
 lts l t s
 lu l u
@@ -10780,7 +10756,6 @@ lyndsay l y n d s a y
 lzonas l z o n a s
 lágrima l a g r i m a
 lámina l a m i n a
-látero l a t e r o
 láterobasal l a t e r o b a s a l
 lígula l i g u l a
 líimites l i i m i t e s
@@ -10813,8 +10788,9 @@ lúpulo l u p u l o
 m e m e
 mCi m i l i k u r i o s
 mTc m t k
+mTc-DMSA m t k d m s a
+mTc-DTPA m t k d t p a
 ma m a
-maa m a a
 mac m a k
 macada m a k a d a
 macados m a k a d o s
@@ -10834,7 +10810,6 @@ macroscópicas m a k r o s k o p i k a s
 macroscópico m a k r o s k o p i k o
 macrófagos m a k r o f a g o s
 macular m a k u l a r
-macánico m a k a n i k o
 madre m a d r e
 madrid m a d r i d
 maduras m a d u r a s
@@ -10842,7 +10817,6 @@ madurez m a d u r e z
 maduro m a d u r o
 maeso m a e s o
 maetzu m a e t z u
-mag m a g
 magnificada m a g n i f i k a d a
 magnificado m a g n i f i k a d o
 magnitud m a g n i t u d
@@ -10986,7 +10960,6 @@ marcarlo m a r k a r l o
 marcarlos m a r k a r l o s
 marcarse m a r k a r s e
 marcas m a r k a s
-marcda m a r k d a
 marcelino m a r z e l i n o
 marcha m a r ch a
 marcje m a r k j e
@@ -11045,9 +11018,6 @@ mastoidea m a s t o i d e a
 mastoideo m a s t o i d e o
 mastoides m a s t o i d e s
 mastoiditis m a s t o i d i t i s
-matacarpiana m a t a k a r p i a n a
-matacarpo m a t a k a r p o
-matatarso m a t a t a r s o
 materia m a t e r i a
 material m a t e r i a l
 materna m a t e r n a
@@ -11080,7 +11050,6 @@ mcf m k f
 mcfp m k f p
 mcg m i k r o g r a m o s
 mcgr m k g r
-mci m z i
 mcii m z i i
 mciu m z i u
 mcleod m k l e o d
@@ -11091,28 +11060,19 @@ mcui m k u i
 md m d
 mdcf m d k f
 mde m d e
-mdias m d i a s
 me m e
 meatal m e a t a l
 meato m e a t o
 meatoplastia m e a t o p l a s t i a
 mecanicamente m e k a n i k a m e n t e
-mecanicas m e k a n i k a s
-mecanico m e k a n i k o
 mecanismo m e k a n i s m o
 meckel m e k k e l
 meckell m e k k e ll
-mecácico m e k a z i k o
-mecácnio m e k a k n i o
-mecámico m e k a m i k o
-mecáncio m e k a n z i o
 mecánica m e k a n i k a
 mecánicamente m e k a n i k a m e n t e
 mecánicas m e k a n i k a s
-mecánicio m e k a n i z i o
 mecánico m e k a n i k o
 mecánicos m e k a n i k o s
-mecánicó m e k a n i k o
 med m e d
 medal m e d a l
 medalla m e d a ll a
@@ -11150,7 +11110,6 @@ mediastíno m e d i a s t i n o
 mediastínoscopia m e d i a s t i n o s k o p i a
 mediata m e d i a t a
 mediatinico m e d i a t i n i k o
-mediatínicas m e d i a t i n i k a s
 medible m e d i b l e
 medica m e d i k a
 medicación m e d i k a z i o n
@@ -11278,7 +11237,6 @@ mesocolon m e s o k o l o n
 mesogastrio m e s o g a s t r i o
 mesogástrica m e s o g a s t r i k a
 mesogástrico m e s o g a s t r i k o
-mesogástrio m e s o g a s t r i o
 mesorrectal m e s o rr e k t a l
 mesorrecto m e s o rr e k t o
 mesosigma m e s o s i g m a
@@ -11291,26 +11249,17 @@ met m e t
 meta m e t a
 metab m e t a b
 metabolic m e t a b o l i k
-metabolica m e t a b o l i k a
-metabolicas m e t a b o l i k a s
-metabolico m e t a b o l i k o
-metabolicos m e t a b o l i k o s
 metabolismo m e t a b o l i s m o
 metabolopatía m e t a b o l o p a t i a
 metabólica m e t a b o l i k a
 metabólicamente m e t a b o l i k a m e n t e
 metabólicas m e t a b o l i k a s
-metabólicasde m e t a b o l i k a s d e
 metabólico m e t a b o l i k o
 metabólicos m e t a b o l i k o s
-metacapianas m e t a k a p i a n a s
-metacapriana m e t a k a p r i a n a
 metacarpiana m e t a k a r p i a n a
 metacarpianas m e t a k a r p i a n a s
 metacarpiano m e t a k a r p i a n o
 metacarpianos m e t a k a r p i a n o s
-metacarpiarnas m e t a k a r p i a r n a s
-metacarpina m e t a k a r p i n a
 metacarpo m e t a k a r p o
 metacarpofalángica m e t a k a r p o f a l a n j i k a
 metacarpofalángicas m e t a k a r p o f a l a n j i k a s
@@ -11334,16 +11283,13 @@ metanefrinas m e t a n e f r i n a s
 metaplasia m e t a p l a s i a
 metarcarpiana m e t a r k a r p i a n a
 metarcarpofalángica m e t a r k a r p o f a l a n j i k a
-metartarso m e t a r t a r s o
 metas m e t a s
-metastasectomía m e t a s t a s e k t o m i a
 metastasectomías m e t a s t a s e k t o m i a s
 metastatectomía m e t a s t a t e k t o m i a
 metastatización m e t a s t a t i z a z i o n
 metastásica m e t a s t a s i k a
 metastásicas m e t a s t a s i k a s
 metastásico m e t a s t a s i k o
-metastásicos m e t a s t a s i k o s
 metastástica m e t a s t a s t i k a
 metastática m e t a s t a t i k a
 metastático m e t a s t a t i k o
@@ -11359,11 +11305,8 @@ metatarsofalángica m e t a t a r s o f a l a n j i k a
 metatarsofalángicas m e t a t a r s o f a l a n j i k a s
 metatarsos m e t a t a r s o s
 metatarsálgia m e t a t a r s a l j i a
-metataso m e t a t a s o
-metatrasiana m e t a t r a s i a n a
 metayodo m e t a y o d o
 metayodobencilguanidina m e t a y o d o b e n z i l g u a n i d i n a
-metecarpiana m e t e k a r p i a n a
 metformina m e t f o r m i n a
 meticulosa m e t i k u l o s a
 metilprednisolona m e t i l p r e d n i s o l o n a
@@ -11384,22 +11327,16 @@ metálico m e t a l i k o
 metálicos m e t a l i k o s
 metásica m e t a s i k a
 metásis m e t a s i s
-metástasica m e t a s t a s i k a
-metástasicas m e t a s t a s i k a s
-metástasico m e t a s t a s i k o
 metástasis m e t a s t a s i s
 mexico m e x i k o
 meyer m e y e r
 mezcla m e z k l a
 mezclara m e z k l a r a
-meánico m e a n i k o
 mg m i l i g r a m o s
 mgr m g r
 mi m i
 mialgias m i a l j i a s
 mib m i b
-mibg m i b g
-mibi m i b i
 mibitc m i b i t k
 mic m i k
 micardiopatía m i k a r d i o p a t i a
@@ -11502,7 +11439,6 @@ mima m i m a
 mimo m i m o
 mimpara m i m p a r a
 mimética m i m e t i k a
-min m i n
 mina m i n a
 minerales m i n e r a l e s
 mini m i n i
@@ -11719,9 +11655,6 @@ ms m s
 msder m s d e r
 msizquierdo m s i z k i e r d o
 mt m t
-mtc m t k
-mtcdmsa m t k d m s a
-mtcdtpa m t k d t p a
 mtcf m t k f
 mtchdp m t ch d p
 mtchm m t ch m
@@ -11729,8 +11662,6 @@ mtchmpao m t ch m p a o
 mtcmaa m t k m a a
 mtcmag m t k m a g
 mtcmibi m t k m i b i
-mtcnanocoloides m t k n a n o k o l o i d e s
-mtcpertecnetato m t k p e r t e k n e t a t o
 mtecnecio m t e k n e z i o
 mtf m t f
 mtt m t t
@@ -11817,7 +11748,6 @@ muñeca m u gn e k a
 muñecas m u gn e k a s
 muñoz m u gn o z
 muñón m u gn o n
-mx m x
 mxnx m x n x
 myc m y k
 myocet m y o z e t
@@ -11839,7 +11769,6 @@ médico m e d i k o
 médicos m e d i k o s
 médula m e d u l a
 médulas m e d u l a s
-médulo m e d u l o
 método m e t o d o
 métodos m e t o d o s
 mínima m i n i m a
@@ -12073,7 +12002,6 @@ nietos n i e t o s
 nieve n i e b e
 nift n i f t
 nigoestriada n i g o e s t r i a d a
-nigor n i g o r
 nigorestriada n i g o r e s t r i a d a
 nigro n i g r o
 nigroestratal n i g r o e s t r a t a l
@@ -12122,14 +12050,12 @@ nodales n o d a l e s
 nodulaciones n o d u l a z i o n e s
 nodular n o d u l a r
 nodulares n o d u l a r e s
-nodularidad n o d u l a r i d a d
 nodularidades n o d u l a r i d a d e s
 nodulectomia n o d u l e k t o m i a
 nodulectomías n o d u l e k t o m i a s
 nodulillar n o d u l i ll a r
 nodulito n o d u l i t o
 nodulitos n o d u l i t o s
-nodulo n o d u l o
 nogroestriada n o g r o e s t r i a d a
 noguera n o g u e r a
 nolotil n o l o t i l
@@ -12224,7 +12150,6 @@ noviembre n o b i e m b r e
 novo n o b o
 np n p
 npo n p o
-nps n p s
 nras n r a s
 nreg n r e g
 nt n t
@@ -12262,7 +12187,6 @@ nutricio n u t r i z i o
 nutricional n u t r i z i o n a l
 nutricionales n u t r i z i o n a l e s
 nvel n b e l
-nx n x
 nxm n x m
 nxmo n x m o
 nxmx n x m x
@@ -12274,7 +12198,6 @@ nítido n i t i d o
 nítidos n i t i d o s
 nód n o d
 nódlos n o d l o s
-nódular n o d u l a r
 nódulo n o d u l o
 nódulos n o d u l o s
 nótese n o t e s e
@@ -12368,7 +12291,6 @@ observó o b s e r b o
 obsrucción o b s r u k z i o n
 obstante o b s t a n t e
 obstantes o b s t a n t e s
-obstrctivo o b s t r k t i b o
 obstrucciones o b s t r u k z i o n e s
 obstrucción o b s t r u k z i o n
 obstructiva o b s t r u k t i b a
@@ -12431,7 +12353,6 @@ oct o k t
 octava o k t a b a
 octavo o k t a b o
 octreoscan o k t r e o s k a n
-octreotido o k t r e o t i d o
 octreótido o k t r e o t i d o
 octroescan o k t r o e s k a n
 octrétido o k t r e t i d o
@@ -12533,7 +12454,6 @@ omeprazol o m e p r a z o l
 ominio o m i n i o
 omm o m m
 omnic o m n i k
-ompatible o m p a t i b l e
 omóplato o m o p l a t o
 omóplatos o m o p l a t o s
 onceavo o n z e a b o
@@ -12579,7 +12499,7 @@ operar o p e r a r
 operarla o p e r a r l a
 operaron o p e r a r o n
 operarse o p e r a r s e
-operatia o p e r a t i a
+operativa o p e r a t i b a
 operativo o p e r a t i b o
 operatoria o p e r a t o r i a
 operatorio o p e r a t o r i o
@@ -12828,14 +12748,12 @@ oxifílica o x i f i l i k a
 oxigeno o x i j e n o
 oxigenoterapia o x i j e n o t e r a p i a
 oxodotreotida o x o d o t r e o t i d a
-oxtubre o x t u b r e
 oxígeno o x i j e n o
 oído o i d o
 oídos o i d o s
 p p e
 pa p a
 paaa p a a a
-paaf p a a f
 pabellón p a b e ll o n
 pablo p a b l o
 pac p a k
@@ -12859,7 +12777,6 @@ pagina p a j i n a
 pagética p a j e t i k a
 pagéticas p a j e t i k a s
 pagético p a j e t i k o
-pairetal p a i r e t a l
 pakistán p a k i s t a n
 pala p a l a
 palabras p a l a b r a s
@@ -13029,7 +12946,6 @@ paratraquial p a r a t r a k i a l
 paratímica p a r a t i m i k a
 paraumbilical p a r a u m b i l i k a l
 parauterina p a r a u t e r i n a
-paravascualr p a r a b a s k u a l r
 paravascular p a r a b a s k u l a r
 paravasculares p a r a b a s k u l a r e s
 paravertebral p a r a b e r t e b r a l
@@ -13061,7 +12977,6 @@ pare p a r e
 parece p a r e z e
 parecen p a r e z e n
 parecer p a r e z e r
-parecia p a r e z i a
 parecida p a r e z i d a
 parecidas p a r e z i d a s
 parecidos p a r e z i d o s
@@ -13073,7 +12988,6 @@ parecían p a r e k i a n
 pared p a r e d
 paredes p a r e d e s
 pareja p a r e j a
-parenquima p a r e n k i m a
 parenquimatosa p a r e n k i m a t o s a
 parenquimatosas p a r e n k i m a t o s a s
 parenquimatoso p a r e n k i m a t o s o
@@ -13085,7 +12999,6 @@ parestesias p a r e s t e s i a s
 parezca p a r e z k a
 pariareolar p a r i a r e o l a r
 paricapsular p a r i k a p s u l a r
-pariet p a r i e t
 parietal p a r i e t a l
 parietales p a r i e t a l e s
 parieto p a r i e t o
@@ -13098,7 +13011,6 @@ parkinson p a r k i n s o n
 parkinsoniana p a r k i n s o n i a n a
 parkinsoniano p a r k i n s o n i a n o
 parkinsonianos p a r k i n s o n i a n o s
-parkinsonismo p a r k i n s o n i s m o
 parkinsonizante p a r k i n s o n i z a n t e
 parkinsonizantes p a r k i n s o n i z a n t e s
 parotida p a r o t i d a
@@ -13163,7 +13075,6 @@ pasiva p a s i b a
 pasivo p a s i b o
 paso p a s o
 pasos p a s o s
-pass p a s s
 pastillas p a s t i ll a s
 pasáramos p a s a r a m o s
 pasó p a s o
@@ -13272,8 +13183,6 @@ pellizca p e ll i z k a
 pelo p e l o
 pelvi p e l b i
 pelviana p e l b i a n a
-pelvica p e l b i k a
-pelvico p e l b i k o
 pelvis p e l b i s
 pembrolizumab p e m b r o l i z u m a b
 pemetrexed p e m e t r e x e d
@@ -13351,7 +13260,6 @@ perfundida p e r f u n d i d a
 perfundidas p e r f u n d i d a s
 perfundido p e r f u n d i d o
 perfundidos p e r f u n d i d o s
-perfusion p e r f u s i o n
 perfusión p e r f u s i o n
 perfusiónn p e r f u s i o n n
 peri p e r i
@@ -13547,7 +13455,6 @@ permitían p e r m i t i a n
 perniciosa p e r n i z i o s a
 pero p e r o
 peroea p e r o e a
-perone p e r o n e
 peronea p e r o n e a
 peroneal p e r o n e a l
 peroneas p e r o n e a s
@@ -13603,7 +13510,6 @@ persubtrocantérea p e r s u b t r o k a n t e r e a
 pertans p e r t a n s
 perte p e r t e
 pertec p e r t e k
-pertecenetato p e r t e z e n e t a t o
 pertechnegas p e r t e ch n e g a s
 pertecnetato p e r t e k n e t a t o
 pertecv p e r t e k b
@@ -13630,7 +13536,6 @@ peso p e s o
 pestaña p e s t a gn a
 pesudofracturas p e s u d o f r a k t u r a s
 pesudonodular p e s u d o n o d u l a r
-pet p e t
 pethema p e t e m a
 peticionario p e t i z i o n a r i o
 peticiones p e t i z i o n e s
@@ -13687,7 +13592,6 @@ pielonefrítico p i e l o n e f r i t i k o
 pielonefríticos p i e l o n e f r i t i k o s
 pielonefrítis p i e l o n e f r i t i s
 pielones p i e l o n e s
-pielonfrítica p i e l o n f r i t i k a
 pieloplástia p i e l o p l a s t i a
 pieloureteral p i e l o u r e t e r a l
 pieloureterales p i e l o u r e t e r a l e s
@@ -13791,11 +13695,11 @@ planteamos p l a n t e a m o s
 plantean p l a n t e a n
 planteando p l a n t e a n d o
 plantear p l a n t e a r
+plantearlo p l a n t e a r l o
 plantearse p l a n t e a r s e
 planteará p l a n t e a r a
 plantearíamos p l a n t e a r i a m o s
 plantearían p l a n t e a r i a n
-planteralo p l a n t e r a l o
 planteó p l a n t e o
 plaq p l a k
 plaquetas p l a k e t a s
@@ -13853,7 +13757,6 @@ pm p m
 pmn p m n
 pmr p m r
 pn p n
-pna p n a
 pneumocystis p n e u m o k y s t i s
 pneumoniae p n e u m o n i a e
 pnf p n f
@@ -14053,7 +13956,6 @@ pospongamos p o s p o n g a m o s
 posprandial p o s p r a n d i a l
 pospuesto p o s p u e s t o
 posrtcaptopril p o s r t k a p t o p r i l
-posrtero p o s r t e r o
 post p o s t
 postactínica p o s t a k t i n i k a
 postactínicos p o s t a k t i n i k o s
@@ -14072,7 +13974,6 @@ posteo p o s t e o
 posterapéuticas p o s t e r a p e u t i k a s
 posterapéutico p o s t e r a p e u t i k o
 posterapéuticos p o s t e r a p e u t i k o s
-posterio p o s t e r i o
 posteriobasal p o s t e r i o b a s a l
 posteriomedial p o s t e r i o m e d i a l
 posterior p o s t e r i o r
@@ -14090,7 +13991,6 @@ posterolateral p o s t e r o l a t e r a l
 posterolaterales p o s t e r o l a t e r a l e s
 posterolateralmente p o s t e r o l a t e r a l m e n t e
 posteromedial p o s t e r o m e d i a l
-posteror p o s t e r o r
 posteroseptal p o s t e r o s e p t a l
 posterosuperior p o s t e r o s u p e r i o r
 postfractura p o s t f r a k t u r a
@@ -14171,7 +14071,6 @@ practica p r a k t i k a
 practicada p r a k t i k a d a
 practicadas p r a k t i k a d a s
 practicado p r a k t i k a d o
-practicamente p r a k t i k a m e n t e
 practicamos p r a k t i k a m o s
 practicar p r a k t i k a r
 practicarla p r a k t i k a r l a
@@ -14605,7 +14504,6 @@ prostatico p r o s t a t i k o
 prostatismo p r o s t a t i s m o
 prostatitis p r o s t a t i t i s
 prostetización p r o s t e t i z a z i o n
-prostática p r o s t a t i k a
 protatectomía p r o t a t e k t o m i a
 protección p r o t e k z i o n
 protectora p r o t e k t o r a
@@ -14614,7 +14512,6 @@ proteinización p r o t e i n i z a z i o n
 proteinograma p r o t e i n o g r a m a
 proteinuria p r o t e i n u r i a
 protesicas p r o t e s i k a s
-protesis p r o t e s i s
 protetización p r o t e t i z a z i o n
 proteína p r o t e i n a
 proteínas p r o t e i n a s
@@ -14678,7 +14575,6 @@ prácticamente p r a k t i k a m e n t e
 prácticas p r a k t i k a s
 próstata p r o s t a t a
 próstático p r o s t a t i k o
-prótesico p r o t e s i k o
 prótesis p r o t e s i s
 próxima p r o x i m a
 próximales p r o x i m a l e s
@@ -14687,7 +14583,6 @@ próximas p r o x i m a s
 próximo p r o x i m o
 próximos p r o x i m o s
 ps p s
-psa p s a
 psadt p s a d t
 psamoma p s a m o m a
 psar p s a r
@@ -14748,7 +14643,6 @@ psoriasiforme p s o r i a s i f o r m e
 psoriasis p s o r i a s i s
 psoriásica p s o r i a s i k a
 psoríasica p s o r i a s i k a
-psot p s o t
 psp p s p
 pst p s t
 psíquicas p s i k i k a s
@@ -14885,7 +14779,6 @@ pólipo p o l i p o
 pólipos p o l i p o s
 pómulo p o m u l o
 pósito p o s i t o
-pósteo p o s t e o
 póstero p o s t e r o
 pósterobasal p o s t e r o b a s a l
 pósteroinferior p o s t e r o i n f e r i o r
@@ -14904,9 +14797,7 @@ qe k e
 qeu k e u
 qi k i
 qlo k l o
-qmt k m t
 qr k r
-qt k t
 qtrt k t r t
 qu k u
 quadramet k u a d r a m e t
@@ -14966,27 +14857,17 @@ quimioterápicos k i m i o t e r a p i k o s
 quincena k i n z e n a
 quinta k i n t a
 quinto k i n t o
-quirigucos k i r i g u k o s
-quirurgico k i r u r j i k o
-quirurgicos k i r u r j i k o s
 quirófano k i r o f a n o
 quirón k i r o n
-quirúgica k i r u j i k a
-quirúrg k i r u r g
 quirúrgica k i r u r j i k a
 quirúrgicamente k i r u r j i k a m e n t e
 quirúrgicas k i r u r j i k a s
 quirúrgico k i r u r j i k o
 quirúrgicos k i r u r j i k o s
-quirúrigca k i r u r i g k a
-quirúrugicos k i r u r u j i k o s
 quis k i s
 quiso k i s o
 quiste k i s t e
 quistes k i s t e s
-quistica k i s t i k a
-quistico k i s t i k o
-quisticos k i s t i k o s
 quistificada k i s t i f i k a d a
 quistificadas k i s t i f i k a d a s
 quistificado k i s t i f i k a d o
@@ -15002,8 +14883,6 @@ quísticas k i s t i k a s
 quístico k i s t i k o
 quísticos k i s t i k o s
 quístifica k i s t i f i k a
-quítico k i t i k o
-qx k x
 r e r e
 ra r a
 rab r a b
@@ -15040,7 +14919,6 @@ radiocubitales r a d i o k u b i t a l e s
 radiocubitocarpiana r a d i o k u b i t o k a r p i a n a
 radiodermitis r a d i o d e r m i t i s
 radiofrecuencia r a d i o f r e k u e n z i a
-radiofármaco r a d i o f a r m a k o
 radiografias r a d i o g r a f i a s
 radiografiá r a d i o g r a f i a
 radiografía r a d i o g r a f i a
@@ -15048,7 +14926,6 @@ radiografías r a d i o g r a f i a s
 radiográfica r a d i o g r a f i k a
 radiográfico r a d i o g r a f i k o
 radiográficos r a d i o g r a f i k o s
-radioi r a d i o i
 radioisotópica r a d i o i s o t o p i k a
 radioisotópicas r a d i o i s o t o p i k a s
 radioisotópico r a d i o i s o t o p i k o
@@ -15063,7 +14940,6 @@ radiológico r a d i o l o j i k o
 radiológicos r a d i o l o j i k o s
 radiológido r a d i o l o j i d o
 radiológiocas r a d i o l o j i o k a s
-radiomarcada r a d i o m a r k a d a
 radiopacidad r a d i o p a z i d a d
 radiopacos r a d i o p a k o s
 radioradiotrazador r a d i o r a d i o t r a z a d o r
@@ -15073,7 +14949,6 @@ radiosinoviortesis r a d i o s i n o b i o r t e s i s
 radiosinoviotesis r a d i o s i n o b i o t e s i s
 radiosisotópica r a d i o s i s o t o p i k a
 radiot r a d i o t
-radiotazador r a d i o t a z a d o r
 radioterapia r a d i o t e r a p i a
 radiotrazado r a d i o t r a z a d o
 radiotrazador r a d i o t r a z a d o r
@@ -15082,7 +14957,6 @@ radioyodo r a d i o y o d o
 radioyodos r a d i o y o d o s
 radiólogo r a d i o l o g o
 radiólogos r a d i o l o g o s
-radoiológicos r a d o i o l o j i k o s
 rads r a d s
 rafe r a f e
 rai r a i
@@ -15123,7 +14997,6 @@ rato r a t o
 raya r a y a
 rayas r a y a s
 rayos r a y o s
-razador r a z a d o r
 razonable r a z o n a b l e
 razones r a z o n e s
 razón r a z o n
@@ -15134,7 +15007,6 @@ rcibidio r z i b i d i o
 rcomp r k o m p
 rcon r k o n
 rcvp r k b p
-rd r d
 re r e
 rea r e a
 reabsorbido r e a b s o r b i d o
@@ -15451,7 +15323,6 @@ refractaria r e f r a k t a r i a
 refractariedad r e f r a k t a r i e d a d
 refractario r e f r a k t a r i o
 refractura r e f r a k t u r a
-refringenci r e f r i n j e n z i
 refringencia r e f r i n j e n z i a
 refringencias r e f r i n j e n z i a s
 refringente r e f r i n j e n t e
@@ -15504,7 +15375,6 @@ reinicie r e i n i z i e
 reinicio r e i n i z i o
 reinició r e i n i z i o
 reinyeccción r e i n y e k k z i o n
-reinyección r e i n y e k z i o n
 reinyectado r e i n y e k t a d o
 reiontervenida r e i o n t e r b e n i d a
 reiterada r e i t e r a d a
@@ -15973,11 +15843,9 @@ rezuma r e z u m a
 reúne r e u n e
 rf r f
 rfa r f a
-rfémoro r f e m o r o
 rh r
 rhb r b
 rhtsh r t s
-ri r i
 riaz r i a z
 ribas r i b a s
 ribera r i b e r a
@@ -15988,6 +15856,7 @@ riesgo r i e s g o
 rifampicina r i f a m p i z i n a
 rigidez r i j i d e z
 rigidoacinético r i j i d o a z i n e t i k o
+rigor r i g o r
 rigurosamente r i g u r o s a m e n t e
 rinina r i n i n a
 rino r i n o
@@ -16002,11 +15871,8 @@ rivas r i b a s
 rizartrosis r i z a r t r o s i s
 riñones r i gn o n e s
 riñón r i gn o n
-rm r m
 rmc r m k
 rmcr r m k r
-rmecánico r m e k a n i k o
-rmn r m n
 rn r n
 rng r n g
 rni r n i
@@ -16025,7 +15891,6 @@ rodeados r o d e a d o s
 rodean r o d e a n
 rodeando r o d e a n d o
 rodete r o d e t e
-rodila r o d i l a
 rodilla r o d i ll a
 rodillas r o d i ll a s
 rodillo r o d i ll o
@@ -16067,12 +15932,10 @@ rotura r o t u r a
 roy r o y
 royo r o y o
 rozamiento r o z a m i e n t o
-rp r p
 rpg r p g
 rpr r p r
 rrhh rr
 rs r s
-rt r t
 rta r t a
 rte r t e
 rtiente r t i e n t e
@@ -16098,8 +15961,6 @@ rutinario r u t i n a r i o
 ruv r u b
 rvm r b m
 rvuizquierdo r b u i z k i e r d o
-rx r x
-rádica r a d i k a
 rápida r a p i d a
 rápidamente r a p i d a m e n t e
 rápido r a p i d o
@@ -16141,9 +16002,7 @@ sacoíleitis s a k o i l e i t i s
 sacra s a k r a
 sacrailíaca s a k r a i l i a k a
 sacralización s a k r a l i z a z i o n
-sacrao s a k r a o
 sacras s a k r a s
-sacrco s a k r k o
 sacrilíacas s a k r i l i a k a s
 sacrilícaca s a k r i l i k a k a
 sacrismoche s a k r i s m o ch e
@@ -16155,7 +16014,6 @@ sacroiliaca s a k r o i l i a k a
 sacroiliacas s a k r o i l i a k a s
 sacroiliaco s a k r o i l i a k o
 sacroilicas s a k r o i l i k a s
-sacroilíaca s a k r o i l i a k a
 sacros s a k r o s
 sacroíliacas s a k r o i l i a k a s
 sacroílíaca s a k r o i l i a k a
@@ -16224,7 +16082,6 @@ sapho s a p o
 saptal s a p t a l
 saquen s a k e n
 sara s a r a
-sarco s a r k o
 sarcoidosis s a r k o i d o s i s
 sarcoma s a r k o m a
 sarcomas s a r k o m a s
@@ -16244,7 +16101,6 @@ saturando s a t u r a n d o
 satélite s a t e l i t e
 satélites s a t e l i t e s
 sayas s a y a s
-sbcortical s b k o r t i k a l
 sbrt s b r t
 scacest s k a z e s t
 scan s k a n
@@ -16544,7 +16400,6 @@ sigmos s i g m o s
 significa s i g n i f i k a
 significación s i g n i f i k a z i o n
 significado s i g n i f i k a d o
-significaión s i g n i f i k a i o n
 significar s i g n i f i k a r
 significativa s i g n i f i k a t i b a
 significativamente s i g n i f i k a t i b a m e n t e
@@ -16581,7 +16436,6 @@ simetría s i m e t r i a
 similar s i m i l a r
 similares s i m i l a r e s
 similitud s i m i l i t u d
-simpatico s i m p a t i k o
 simple s i m p l e
 simplemente s i m p l e m e n t e
 simples s i m p l e s
@@ -16643,7 +16497,6 @@ sinusal s i n u s a l
 sinusitis s i n u s i t i s
 sináptica s i n a p t i k a
 sináptico s i n a p t i k o
-sinática s i n a t i k a
 sip s i p
 siquiera s i k i e r a
 siringomas s i r i n g o m a s
@@ -16757,7 +16610,6 @@ solicitéis s o l i z i t e i s
 solicitó s o l i z i t o
 solida s o l i d a
 solido s o l i d o
-solidos s o l i d o s
 solitaria s o l i t a r i a
 solitario s o l i t a r i o
 solo s o l o
@@ -17088,10 +16940,8 @@ sulcales s u l k a l e s
 sulcus s u l k u s
 sulfuro s u l f u r o
 sulhepático s u l e p a t i k o
-sulmax s u l m a x
 sulmediastino s u l m e d i a s t i n o
 sulmediastínico s u l m e d i a s t i n i k o
-sulmáx s u l m a x
 sulpiride s u l p i r i d e
 suma s u m a
 sumación s u m a z i o n
@@ -17116,8 +16966,6 @@ sumo s u m o
 sunitinb s u n i t i n b
 sunitinib s u n i t i n i b
 sup s u p
-supeior s u p e i o r
-super s u p e r
 supera s u p e r a
 superan s u p e r a n
 superando s u p e r a n d o
@@ -17131,14 +16979,12 @@ superficiales s u p e r f i z i a l e s
 superficialmente s u p e r f i z i a l m e n t e
 superficie s u p e r f i z i e
 superficies s u p e r f i z i e s
-superio s u p e r i o
 superioexterno s u p e r i o e x t e r n o
 superior s u p e r i o r
 superiora s u p e r i o r a
 superiore s u p e r i o r e
 superiores s u p e r i o r e s
 superiormente s u p e r i o r m e n t e
-superir s u p e r i r
 superna s u p e r n a
 supernumerario s u p e r n u m e r a r i o
 supero s u p e r o
@@ -17165,7 +17011,6 @@ suponen s u p o n e n
 suponer s u p o n e r
 suponga s u p o n g a
 supongo s u p o n g o
-supra s u p r a
 supraacetabular s u p r a a z e t a b u l a r
 supraareolar s u p r a a r e o l a r
 supraaórticos s u p r a a o r t i k o s
@@ -17320,7 +17165,6 @@ sólo s o l o
 són s o n
 súbita s u b i t a
 súper s u p e r
-súpero s u p e r o
 súperoexterno s u p e r o e x t e r n o
 súperointerna s u p e r o i n t e r n a
 südeck s u d e k k
@@ -17336,7 +17180,6 @@ tabique t a b i k e
 tabiques t a b i k e s
 tabla t a b l a
 tabáquico t a b a k i k o
-tac t a k
 tacar t a k a r
 tacrolimus t a k r o l i m u s
 tacs t a k s
@@ -17410,7 +17253,6 @@ tareas t a r e a s
 tarfío t a r f i o
 tarjeta t a r j e t a
 tarlov t a r l o b
-tarpecio t a r p e z i o
 tarrazo t a rr a z o
 tarsal t a r s a l
 tarsales t a r s a l e s
@@ -17429,7 +17271,6 @@ tasa t a s a
 tasas t a s a s
 taso t a s o
 taspe t a s p e
-tasplante t a s p l a n t e
 tasrsos t a s r s o s
 tatuaje t a t u a j e
 tau t a u
@@ -17440,7 +17281,6 @@ tb t b
 tbc t b k
 tbien t b i e n
 tbil t b i l
-tc t k
 tcara t k a r a
 tce t z e
 tcg t k g
@@ -17472,7 +17312,7 @@ tega t e g a
 tegd t e g d
 tehido t e i d o
 tei t e i
-teido t e i d o
+tejdo t e j d o
 tejido t e j i d o
 tejidos t e j i d o s
 tektotrid t e k t o t r i d
@@ -17507,6 +17347,7 @@ temporal t e m p o r a l
 temporales t e m p o r a l e s
 temporalizares t e m p o r a l i z a r e s
 temporalmente t e m p o r a l m e n t e
+temporero t e m p o r e r o
 temporo t e m p o r o
 temporoesfenoidal t e m p o r o e s f e n o i d a l
 temporoespacial t e m p o r o e s p a z i a l
@@ -17519,10 +17360,8 @@ temporoparieta t e m p o r o p a r i e t a
 temporoparietal t e m p o r o p a r i e t a l
 temporoparietales t e m p o r o p a r i e t a l e s
 temporoparital t e m p o r o p a r i t a l
-tempotal t e m p o t a l
 temprana t e m p r a n a
 temprano t e m p r a n o
-tempro t e m p r o
 tenal t e n a l
 tenar t e n a r
 tendencia t e n d e n z i a
@@ -17558,7 +17397,6 @@ tenía t e n i a
 teníamos t e n i a m o s
 tenían t e n i a n
 teoría t e o r i a
-tep t e p
 terapia t e r a p i a
 terapias t e r a p i a s
 terapéutica t e r a p e u t i k a
@@ -17613,7 +17451,6 @@ teórica t e o r i k a
 teóricamente t e o r i k a m e n t e
 teórico t e o r i k o
 tf t f
-tg t g
 tge t j e
 tggb t g g b
 tgs t g s
@@ -17627,7 +17464,6 @@ ti t i
 tia t i a
 tiamazol t i a m a z o l
 tias t i a s
-tibi t i b i
 tibia t i b i a
 tibial t i b i a l
 tibiales t i b i a l e s
@@ -17694,7 +17530,6 @@ tirad t i r a d
 tirada t i r a d a
 tiradas t i r a d a s
 tirado t i r a d o
-tirads t i r a d s
 tiraje t i r a j e
 tirantez t i r a n t e z
 tiras t i r a s
@@ -17758,7 +17593,6 @@ tno t n o
 to t o
 tobillo t o b i ll o
 tobillos t o b i ll o s
-tobilos t o b i l o s
 toc t o k
 toca t o k a
 tocaco t o k a k o
@@ -17814,8 +17648,6 @@ topográficamente t o p o g r a f i k a m e n t e
 topográficas t o p o g r a f i k a s
 topográfico t o p o g r a f i k o
 toprno t o p r n o
-toracica t o r a z i k a
-toraco t o r a k o
 toracoabdominal t o r a k o a b d o m i n a l
 toracocentesis t o r a k o z e n t e s i s
 toracolumbar t o r a k o l u m b a r
@@ -17845,7 +17677,6 @@ torácica t o r a z i k a
 torácicas t o r a z i k a s
 torácico t o r a z i k o
 torácicos t o r a z i k o s
-toráco t o r a k o
 tos t o s
 total t o t a l
 totales t o t a l e s
@@ -17902,7 +17733,6 @@ trangorex t r a n g o r e x
 tranmural t r a n m u r a l
 tranquila t r a n k i l a
 trans t r a n s
-transaplante t r a n s a p l a n t e
 transaxiales t r a n s a x i a l e s
 transcisural t r a n s z i s u r a l
 transcisurales t r a n s z i s u r a l e s
@@ -17942,7 +17772,6 @@ transparietohepático t r a n s p a r i e t o e p a t i k o
 transpedicular t r a n s p e d i k u l a r
 transpediculares t r a n s p e d i k u l a r e s
 transperitoneal t r a n s p e r i t o n e a l
-transplante t r a n s p l a n t e
 transportado t r a n s p o r t a d o
 transportador t r a n s p o r t a d o r
 transportadores t r a n s p o r t a d o r e s
@@ -17961,7 +17790,6 @@ trapeciometacarpiana t r a p e z i o m e t a k a r p i a n a
 trapeciometacarpianas t r a p e z i o m e t a k a r p i a n a s
 trapeciometacarpinana t r a p e z i o m e t a k a r p i n a n a
 trapecios t r a p e z i o s
-trapezio t r a p e z i o
 trapezo t r a p e z o
 trapezoide t r a p e z o i d e
 trapezoidea t r a p e z o i d e a
@@ -17997,7 +17825,6 @@ traslado t r a s l a d o
 traslados t r a s l a d o s
 trasnmural t r a s n m u r a l
 trasnmurales t r a s n m u r a l e s
-trasnplante t r a s n p l a n t e
 traspapelado t r a s p a p e l a d o
 traspasarlas t r a s p a s a r l a s
 trasplantada t r a s p l a n t a d a
@@ -18057,7 +17884,6 @@ traumática t r a u m a t i k a
 traumáticas t r a u m a t i k a s
 traumático t r a u m a t i k o
 traumáticos t r a u m a t i k o s
-traves t r a b e s
 través t r a b e s
 trayecto t r a y e k t o
 trayectoria t r a y e k t o r i a
@@ -18106,7 +17932,6 @@ triyodotironina t r i y o d o t i r o n i n a
 triángulo t r i a n g u l o
 trmórico t r m o r i k o
 trnscurrido t r n s k u rr i d o
-tro t r o
 trocante t r o k a n t e
 trocanter t r o k a n t e r
 trocanterea t r o k a n t e r e a
@@ -18128,7 +17953,6 @@ trocántereas t r o k a n t e r e a s
 trocánteres t r o k a n t e r e s
 trocánters t r o k a n t e r s
 trocántérea t r o k a n t e r e a
-trombectomia t r o m b e k t o m i a
 trombectomía t r o m b e k t o m i a
 trombo t r o m b o
 trombocitopenia t r o m b o z i t o p e n i a
@@ -18167,9 +17991,7 @@ tríceps t r i z e p s
 trócanter t r o k a n t e r
 tróclea t r o k l e a
 tsa t s a
-tsh t s
 tshb t s b
-tshr t s r
 tshrh t s r
 tsi t s i
 tsmbién t s m b i e n
@@ -18234,7 +18056,6 @@ técnicamente t e k n i k a m e n t e
 técnicas t e k n i k a s
 técnico t e k n i k o
 técnicos t e k n i k o s
-témporo t e m p o r o
 témporomandibular t e m p o r o m a n d i b u l a r
 témporoparietales t e m p o r o p a r i e t a l e s
 término t e r m i n o
@@ -18346,8 +18167,6 @@ uraco u r a k o
 urea u r e a
 urente u r e n t e
 uret u r e t
-ureteral u r e t e r a l
-ureterales u r e t e r a l e s
 ureterectomía u r e t e r e k t o m i a
 ureterestomía u r e t e r e s t o m i a
 uretero u r e t e r o
@@ -18360,7 +18179,6 @@ ureteropélvica u r e t e r o p e l b i k a
 ureterostomía u r e t e r o s t o m i a
 ureterostomías u r e t e r o s t o m i a s
 ureterovesical u r e t e r o b e s i k a l
-ureteval u r e t e b a l
 uretra u r e t r a
 uretral u r e t r a l
 uretrales u r e t r a l e s
@@ -18422,7 +18240,6 @@ utilizarse u t i l i z a r s e
 uu u u
 uui u u i
 uy u y
-v u b e
 va b a
 vaascularización b a a s k u l a r i z a z i o n
 vacacional b a k a z i o n a l
@@ -18434,7 +18251,6 @@ vaciamientos b a z i a m i e n t o s
 vaciar b a z i a r
 vaciarla b a z i a r l a
 vaciarse b a z i a r s e
-vacio b a z i o
 vaciá b a z i a
 vació b a z i o
 vacuolas b a k u o l a s
@@ -18443,7 +18259,7 @@ vacían b a k i a n
 vacíe b a k i e
 vacío b a k i o
 vad b a d
-vagal b a g a l
+vaga b a g a
 vagas b a g a s
 vagina b a j i n a
 vaginal b a j i n a l
@@ -18548,7 +18364,6 @@ varones b a r o n e s
 varía b a r i a
 varían b a r i a n
 varón b a r o n
-vasc b a s k
 vasculación b a s k u l a z i o n
 vascular b a s k u l a r
 vasculares b a s k u l a r e s
@@ -18601,7 +18416,6 @@ velloso b e ll o s o
 velo b e l o
 velocidad b e l o z i d a d
 vemos b e m o s
-vemtilación b e m t i l a z i o n
 vemurafenib b e m u r a f e n i b
 ven b e n
 vena b e n a
@@ -18624,7 +18438,6 @@ ventada b e n t a d a
 ventana b e n t a n a
 venti b e n t i
 ventila b e n t i l a
-ventilacion b e n t i l a z i o n
 ventilación b e n t i l a z i o n
 ventilada b e n t i l a d a
 ventilan b e n t i l a n
@@ -18634,16 +18447,13 @@ ventilatorias b e n t i l a t o r i a s
 ventilatorio b e n t i l a t o r i o
 ventilatorios b e n t i l a t o r i o s
 ventimask b e n t i m a s k
-ventr b e n t r
 ventral b e n t r a l
 ventricular b e n t r i k u l a r
 ventriculares b e n t r i k u l a r e s
-ventriculo b e n t r i k u l o
 ventriculogammagrafía b e n t r i k u l o g a m m a g r a f i a
 ventriculografía b e n t r i k u l o g r a f i a
 ventrículo b e n t r i k u l o
 ventrículos b e n t r i k u l o s
-ventríiculo b e n t r i i k u l o
 venéreo b e n e r e o
 veo b e o
 ver b e r
@@ -18677,15 +18487,12 @@ vertebras b e r t e b r a s
 vertebrectomía b e r t e b r e k t o m i a
 vertebro b e r t e b r o
 vertebroplastia b e r t e b r o p l a s t i a
-verteral b e r t e r a l
-verterbal b e r t e r b a l
 verterbales b e r t e r b a l e s
 vertex b e r t e x
 vertical b e r t i k a l
 verticalización b e r t i k a l i z a z i o n
 vertiente b e r t i e n t e
 vertientes b e r t i e n t e s
-vertrebral b e r t r e b r a l
 verá b e r a
 vesica b e s i k a
 vesical b e s i k a l
@@ -18708,7 +18515,6 @@ vgpr b g p r
 vhb b b
 vhc b k
 vhs b s
-vi b i
 viabilidad b i a b i l i d a d
 viable b i a b l e
 viables b i a b l e s
@@ -18733,8 +18539,6 @@ vigilancia b i j i l a n z i a
 vigilar b i j i l a r
 vigilia b i j i l i a
 vih b i
-vii b i i
-viii b i i i
 vila b i l a
 vilanova b i l a n o b a
 vilaplana b i l a p l a n a
@@ -18882,7 +18686,6 @@ vulvar b u l b a r
 vvh b b
 vw b u
 vxl b x l
-váesico b a e s i k o
 válida b a l i d a
 válidas b a l i d a s
 válido b a l i d o
@@ -18919,10 +18722,8 @@ wild u i l d
 wirsung u i r s u n g
 wl u l
 wt u t
-x k o m a n d o e k i s
 xativa x a t i b a
 xc x k
-xcm x k m
 xd x d
 xeliri x e l i r i
 xeloda x e l o d a
@@ -18978,7 +18779,6 @@ yodado y o d a d o
 yodados y o d a d o s
 yodo y o d o
 yodobencilguanidina y o d o b e n z i l g u a n i d i n a
-yodocolesterol y o d o k o l e s t e r o l
 yodofecol y o d o f e k o l
 yoduro y o d u r o
 ypn y p n
@@ -19009,7 +18809,6 @@ yuxtatiroidea y u x t a t i r o i d e a
 yuxtavertebral y u x t a b e r t e b r a l
 yuxtayugular y u x t a y u g u l a r
 yódico y o d i k o
-yúgulo y u g u l o
 yúgulocarotídeos y u g u l o k a r o t i d e o s
 z z e t a
 zacarés z a k a r e s
@@ -19028,7 +18827,6 @@ zoledrónico z o l e d r o n i k o
 zometa z o m e t a
 zona z o n a
 zonas z o n a s
-zquierdo z k i e r d o
 zukerkandl z u k e r k a n d l
 zx z x
 zyloric z y l o r i k
@@ -19044,13 +18842,10 @@ zytiga z y t i g a
 álvaro a l b a r o
 ámbar a m b a r
 ámbito a m b i t o
-ámbos a m b o s
-ámtero a m t e r o
 ángeles a n j e l e s
 ángor a n g o r
 ángulo a n g u l o
 ánimo a n i m o
-ántero a n t e r o
 ápex a p e x
 ápice a p i z e
 ápices a p i z e s
@@ -19076,7 +18871,6 @@ zytiga z y t i g a
 í i
 íleo i l e o
 íleon i l e o n
-ílio i l i o
 índica i n d i k a
 índice i n d i z e
 índices i n d i z e s
@@ -19089,6 +18883,7 @@ zytiga z y t i g a
 ístmica i s t m i k a
 ístmico i s t m i k o
 ístmicos i s t m i k o s
+ñ e gn e
 ña gn a
 ó o
 óptica o p t i k a
@@ -19107,7 +18902,6 @@ zytiga z y t i g a
 óseas o s e a s
 óseo o s e o
 óseos o s e o s
-ósteo o s t e o
 ósteoarticular o s t e o a r t i k u l a r
 úlcera u l z e r a
 úlceras u l z e r a s
