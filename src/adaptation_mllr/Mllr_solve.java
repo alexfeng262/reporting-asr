@@ -5,7 +5,7 @@
  */
 package adaptation_mllr;
 
-import asr_utils.Resource_manager;
+import asr_utils.ResourceManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +19,7 @@ public class Mllr_solve {
     
     public Mllr_solve(String name){
         cmd = new String[9];
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         cmd[0] = rm.getMllr_solve_tool_path();
         cmd[1] = "-meanfn";

@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ASR_tfm;
+package ASR;
 
-import static adaptation_mllr.Generate_files.*;
+import asr_utils.LoggerStatus;
+import static adaptation_mllr.GenerateFiles.*;
 import adaptation_mllr.Bw;
 import adaptation_mllr.Mllr_solve;
 import adaptation_mllr.Sphinx_fe;
 import asr_utils.Directories;
-import asr_utils.Resource_manager;
+import asr_utils.ResourceManager;
 import edu.cmu.sphinx.frontend.Data;
 import edu.cmu.sphinx.frontend.DoubleData;
 import edu.cmu.sphinx.frontend.window.RaisedCosineWindower;
@@ -58,8 +59,14 @@ import train_sentence_generation.SentenceGenerator;
 import java.awt.datatransfer.StringSelection;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 
 /**
  *
@@ -67,7 +74,7 @@ import java.time.Instant;
  */
 public class AppGui extends javax.swing.JFrame {
 
-    private App_recognizer recognize;
+    private AppRecognizer recognize;
     public static RecognizerConfiguration recognizerConfig;
     
     private final String relBeamWidthProp = "relativeBeamWidth";
@@ -79,7 +86,7 @@ public class AppGui extends javax.swing.JFrame {
     private static Timer timer;
     private int seconds;
     private int minutes;
-    static final Resource_manager rm = new Resource_manager();
+    static final ResourceManager rm = new ResourceManager();
     //*********************************************************
     static final String CONTEXT = "AudioTool";
     static final String PREFS_CONTEXT = "/edu/cmu/sphinx/tools/audio/"+CONTEXT;
@@ -124,7 +131,7 @@ public class AppGui extends javax.swing.JFrame {
         minutes = 0;
 
         generate = new SentenceGenerator();
-        recognize = new App_recognizer();
+        recognize = new AppRecognizer();
         recognizerConfig = new RecognizerConfiguration();
         loadRecognizerConfiguration();
         load_audio_interface();
@@ -295,6 +302,7 @@ public class AppGui extends javax.swing.JFrame {
                     OutputStreamWriter stream_writer = new OutputStreamWriter(output_stream,"utf-8");
                     BufferedWriter out = new BufferedWriter(stream_writer);
                     
+                    //String new_sentence = transform_sentence(adapt_text_area.getText());
                     out.write(adapt_text_area.getText());
                     out.close();
                     save_as_menu_item.setEnabled(false);
@@ -304,6 +312,26 @@ public class AppGui extends javax.swing.JFrame {
                     showMessageGUI("Archivo no encontrado.", "error");
                 }
     
+    }
+    private static String transform_sentence(String sent) throws FileNotFoundException{
+        File abc_json = new File("etc\\word_correction\\abc.json");
+
+        //Read Json
+        JsonReader reader = Json.createReader(new FileReader(abc_json));
+        JsonObject abc_object = reader.readObject();
+        reader.close();
+        
+        String[] sent_tokens = sent.split("\\s+");
+        List<String> new_sent = new ArrayList<>();
+        
+        for(String token : sent_tokens){
+            if(abc_object.containsKey(token)){
+                token = abc_object.getString(token);
+            }
+            new_sent.add(token);
+        }
+        
+        return String.join(" ", new_sent);
     }
     private static void open_corpus_file(){
         getFilename("Select corpus...", JFileChooser.OPEN_DIALOG);
@@ -554,6 +582,7 @@ public class AppGui extends javax.swing.JFrame {
         train_mllr_menu_item = new javax.swing.JMenuItem();
         lang_model_menu_item = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Reconocimiento automático del habla para reportes médicos");
@@ -1002,6 +1031,7 @@ public class AppGui extends javax.swing.JFrame {
         file_menu.add(del_speaker_menu_item);
 
         save_as_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        save_as_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         save_as_menu_item.setText("Guardar como...");
         save_as_menu_item.setEnabled(false);
         save_as_menu_item.addActionListener(new java.awt.event.ActionListener() {
@@ -1087,8 +1117,17 @@ public class AppGui extends javax.swing.JFrame {
         jMenuBar1.add(view_menu);
 
         jMenu1.setText("Ayuda");
-        jMenu1.setEnabled(false);
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Listado de comandos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -1137,8 +1176,8 @@ public class AppGui extends javax.swing.JFrame {
         recognize.closeRecognition();
         disableView(1);
         edit_menu.setEnabled(true);
-
-        Logger_status.Log("Modo adaptación del usuario", Logger_status.LogType.INFO);
+        adapt_text_area.setText(generate.generateSentences());
+        LoggerStatus.Log("Modo adaptación del usuario", LoggerStatus.LogType.INFO);
     }//GEN-LAST:event_speaker_adapt_menu_itemActionPerformed
 
     private void play_pause_btnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_play_pause_btnItemStateChanged
@@ -1188,7 +1227,7 @@ public class AppGui extends javax.swing.JFrame {
         report_txt.setEnabled(false);
         play_pause_btn.setSelected(false);
         
-        Logger_status.Log("Modo reconocimiento.", Logger_status.LogType.INFO);
+        LoggerStatus.Log("Modo reconocimiento.", LoggerStatus.LogType.INFO);
     }//GEN-LAST:event_create_report_menu_itemActionPerformed
 
     private void sent_gen_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sent_gen_btnActionPerformed
@@ -1216,7 +1255,7 @@ public class AppGui extends javax.swing.JFrame {
             });
             timer.start();
             recorder.startRecording();
-            Logger_status.Log("Grabando audio...", Logger_status.LogType.INFO);
+            LoggerStatus.Log("Grabando audio...", LoggerStatus.LogType.INFO);
         } 
         else if(evt.getStateChange()==ItemEvent.DESELECTED){
             recorder.stopRecording();
@@ -1229,13 +1268,13 @@ public class AppGui extends javax.swing.JFrame {
             sent_gen_btn.setEnabled(true);
             playback_btn.setEnabled(true);
             save_btn.setEnabled(true);
-            Logger_status.Log("Grabación de audio detenido.", Logger_status.LogType.INFO);
+            LoggerStatus.Log("Grabación de audio detenido.", LoggerStatus.LogType.INFO);
         }
     }//GEN-LAST:event_record_btnItemStateChanged
 
     private void playback_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playback_btnActionPerformed
         // TODO add your handling code here:
-        Logger_status.Log("Reproduciendo audio...", Logger_status.LogType.INFO);
+        LoggerStatus.Log("Reproduciendo audio...", LoggerStatus.LogType.INFO);
         player.play(audioPanel.getSelectionStart(),
                        audioPanel.getSelectionEnd());
 
@@ -1254,7 +1293,7 @@ public class AppGui extends javax.swing.JFrame {
     private void crop_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crop_menu_itemActionPerformed
         
         audioPanel.crop();
-        Logger_status.Log("Audio cortado.", Logger_status.LogType.INFO);
+        LoggerStatus.Log("Audio cortado.", LoggerStatus.LogType.INFO);
     }//GEN-LAST:event_crop_menu_itemActionPerformed
 
     private void selectAll_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectAll_menu_itemActionPerformed
@@ -1279,7 +1318,7 @@ public class AppGui extends javax.swing.JFrame {
         cl.show(card_layout_panel, "mllr_card");
         for(String s:Directories.getAllSpeakers())
             speakers_combo_box.addItem(s);
-        Logger_status.Log("Training MLLR mode.", Logger_status.LogType.INFO);
+        LoggerStatus.Log("Training MLLR mode.", LoggerStatus.LogType.INFO);
     }//GEN-LAST:event_train_mllr_menu_itemActionPerformed
 
     private void del_speaker_menu_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_speaker_menu_itemActionPerformed
@@ -1332,9 +1371,9 @@ public class AppGui extends javax.swing.JFrame {
                     create_transcription_file(name);
                     Thread.sleep(100);
                     
-                    publish(2);
-                    create_vocab(name);
-                    Thread.sleep(100);
+                    //publish(2);
+                    //create_vocab(name);
+                    //Thread.sleep(100);
                     
                     publish(3);
                     acoustic_feature.exec_sphinx_fe();
@@ -1400,7 +1439,7 @@ public class AppGui extends javax.swing.JFrame {
         if(id_item > 0){
             recognize.loadSpeakerMLLR(item);
             showMessageGUI("MLLR de usuario "+item+" cargado.", "info");
-            //Logger_status.Log("MLLR de usuario "+item+" cargado.", Logger_status.LogType.INFO);
+            //Logger_status.Log("MLLR de usuario "+item+" cargado.", LoggerStatus.LogType.INFO);
             init_speaker_combo_box.setEnabled(false);
         }
         
@@ -1411,7 +1450,7 @@ public class AppGui extends javax.swing.JFrame {
         CardLayout cl = (CardLayout)(card_layout_panel.getLayout());
         cl.show(card_layout_panel, "lm_card");
         recognize.closeRecognition();
-        Logger_status.Log("Language modeling mode.", Logger_status.LogType.INFO);
+        LoggerStatus.Log("Language modeling mode.", LoggerStatus.LogType.INFO);
         disableView(3);
     }//GEN-LAST:event_lang_model_menu_itemActionPerformed
 
@@ -1543,6 +1582,12 @@ public class AppGui extends javax.swing.JFrame {
 
     }//GEN-LAST:event_new_speaker_menu_itemActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        CommandHelp help = new CommandHelp(this, false);
+        help.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1602,6 +1647,7 @@ public class AppGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

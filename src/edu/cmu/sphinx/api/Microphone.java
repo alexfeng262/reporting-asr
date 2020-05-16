@@ -12,8 +12,8 @@
 
 package edu.cmu.sphinx.api;
 
-import ASR_tfm.AppGui;
-import ASR_tfm.Logger_status;
+import ASR.AppGui;
+import asr_utils.LoggerStatus;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;

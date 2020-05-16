@@ -5,7 +5,7 @@
  */
 package train_sentence_generation;
 
-import asr_utils.Resource_manager;
+import asr_utils.ResourceManager;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +27,7 @@ public class SentenceGenerator {
     }
     
     private String[] loadCorpus(){
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         List<String> list = new ArrayList<>();
         try {

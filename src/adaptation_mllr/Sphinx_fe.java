@@ -5,7 +5,7 @@
  */
 package adaptation_mllr;
 
-import asr_utils.Resource_manager;
+import asr_utils.ResourceManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +22,7 @@ public class Sphinx_fe {
     
     public Sphinx_fe(String name){
         cmd = new String[13];
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         cmd[0] = rm.getSphinx_fe_tool_path();
         cmd[1] = "-argfile";

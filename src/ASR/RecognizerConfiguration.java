@@ -1,7 +1,7 @@
 
-package ASR_tfm;
+package ASR;
 
-import asr_utils.Resource_manager;
+import asr_utils.ResourceManager;
 import edu.cmu.sphinx.util.props.ConfigurationManager;
 import java.util.Map;
 
@@ -15,11 +15,11 @@ public class RecognizerConfiguration {
     private static double Lw;   
     private static double Pbeam;
     public RecognizerConfiguration(){
-        Resource_manager props = new Resource_manager();
+        ResourceManager props = new ResourceManager();
         getGlobalProperties(props);
     }
     
-    private static void getGlobalProperties(Resource_manager props){
+    private static void getGlobalProperties(ResourceManager props){
         ConfigurationManager cm;
         cm = new ConfigurationManager(props.getDefault_config_xml_file_path());
         

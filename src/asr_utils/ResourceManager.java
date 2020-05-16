@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
  *
  * @author alexf
  */
-public class Resource_manager {
+public class ResourceManager {
 
     private final String default_acoustic_model_dir_path;
     private final String default_language_model_file_path;
@@ -91,7 +91,7 @@ public class Resource_manager {
     }
     
 /*
-    public Resource_manager(){
+    public ResourceManager(){
         default_acoustic_model_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\es_acoustic_model";
         default_language_model_file_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\lm_3gram.bin";
         default_dictionary_file_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\vocab_phoneme.dict";
@@ -110,13 +110,14 @@ public class Resource_manager {
         
     }*/
   
-    public Resource_manager(){
+    public ResourceManager(){
         // Default files
         default_acoustic_model_dir_path = "etc\\es_acoustic_model";
         default_language_model_file_path = "etc\\linguist\\lm_3gram.lm";
         default_dictionary_file_path = "etc\\linguist\\vocab_phoneme.dict";
         default_config_xml_file_path = "etc\\config_xml\\config.xml";
-        default_corpus_file_path = "etc\\corpus\\result.txt";
+        default_corpus_file_path = "etc\\corpus\\lm3gram.txt";
+        //default_corpus_file_path = "etc\\corpus\\result.txt";
         fileids_path = "wav\\Alex\\test.fileids"; //remember to omit
         transcription_path = "wav\\Alex\\test.transcription"; //remember to omit
         base_dir_path = "wav\\Alex"; //remember to omit

@@ -12,7 +12,7 @@
 
 package edu.cmu.sphinx.tools.audio;
 
-import ASR_tfm.Logger_status;
+import asr_utils.LoggerStatus;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
@@ -82,7 +82,7 @@ public class AudioPlayer extends Thread {
                         Utils.toBytes(data[i], frame, false);
                         line.write(frame, 0, frame.length);
                     }
-                    Logger_status.Log("Finish audio play.", Logger_status.LogType.INFO);
+                    LoggerStatus.Log("Finish audio play.", LoggerStatus.LogType.INFO);
                     line.drain();
                     line.close();
                     line = null;

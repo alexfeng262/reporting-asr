@@ -5,7 +5,7 @@
  */
 package adaptation_mllr;
 
-import asr_utils.Resource_manager;
+import asr_utils.ResourceManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +20,7 @@ public class Bw {
     
     public Bw(String name){
         cmd = new String[23];
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         cmd[0] = rm.getBw_tool_path();
         cmd[1] = "-hmmdir";
         cmd[2] = rm.getDefault_acoustic_model_dir_path();
@@ -37,7 +37,8 @@ public class Bw {
         cmd[13] = "-agc";
         cmd[14] = "none";
         cmd[15] = "-dictfn";
-        cmd[16] = rm.getWav_dir_path()+"\\"+name+"\\vocab.dict";
+        cmd[16] = rm.getDefault_dictionary_file_path();
+        //cmd[16] = rm.getWav_dir_path()+"\\"+name+"\\vocab.dict";
         cmd[17] = "-ctlfn";
         cmd[18] = rm.getWav_dir_path()+"\\"+name+"\\test.fileids";
         cmd[19] = "-lsnfn";

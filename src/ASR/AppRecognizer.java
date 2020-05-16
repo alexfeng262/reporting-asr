@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ASR_tfm;
+package ASR;
 
-import asr_utils.Resource_manager;
+import asr_utils.LoggerStatus;
+import asr_utils.ResourceManager;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.Context;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
@@ -23,7 +24,7 @@ import javax.sound.sampled.LineUnavailableException;
  *
  * @author alexf
  */
-public class App_recognizer extends Thread{
+public class AppRecognizer extends Thread{
     private volatile Configuration configuration;
     private volatile Boolean IsStart = false;
     private volatile LiveSpeechRecognizer recognizer;
@@ -45,8 +46,8 @@ public class App_recognizer extends Thread{
     //private App_gui Gui;
 
 
-    public App_recognizer(){
-        Resource_manager rm = new Resource_manager();
+    public AppRecognizer(){
+        ResourceManager rm = new ResourceManager();
         acoustic_model_path = "file:"+rm.getDefault_acoustic_model_dir_path();
         language_model_path = "file:"+rm.getDefault_language_model_file_path();
         dictionary_path = "file:"+rm.getDefault_dictionary_file_path();
@@ -98,7 +99,7 @@ public class App_recognizer extends Thread{
     }
     
     private void Config(){
-        Logger_status.Log("Loading Model",Logger_status.LogType.INFO);
+        LoggerStatus.Log("Loading Model",LoggerStatus.LogType.INFO);
         configuration = new Configuration();
         
         configuration.setAcousticModelPath(acoustic_model_path);
@@ -126,7 +127,7 @@ public class App_recognizer extends Thread{
         this.start();
         //app_gui.report_txt.append("Models ready....\n");
         
-        Logger_status.Log("Preparado para escuchar. Presiona PLAY para empezar.",Logger_status.LogType.INFO);
+        LoggerStatus.Log("Preparado para escuchar. Presiona PLAY para empezar.",LoggerStatus.LogType.INFO);
         
     }
     
@@ -141,7 +142,7 @@ public class App_recognizer extends Thread{
     public void run(){
         String previous_word = "";
         boolean capital_letter = true;
-        Logger_status.Log("Preparado para escuchar. Presiona PLAY para empezar.",Logger_status.LogType.INFO);
+        LoggerStatus.Log("Preparado para escuchar. Presiona PLAY para empezar.",LoggerStatus.LogType.INFO);
         while(!StopThread){
 
             String utf = "holis";
@@ -204,7 +205,7 @@ public class App_recognizer extends Thread{
         //this.IsStart = false;
         recognizer.stopRecognition();
         //app_gui.report_txt.setEnabled(false);
-        Logger_status.Log("Reconocedor detenido.",Logger_status.LogType.INFO);
+        LoggerStatus.Log("Reconocedor detenido.",LoggerStatus.LogType.INFO);
     }
     
     public void closeRecognition(){
@@ -218,17 +219,17 @@ public class App_recognizer extends Thread{
     public void startRecognition(){
       
         recognizer.startRecognition(true);
-        Logger_status.Log("Reconociendo....",Logger_status.LogType.INFO);            
+        LoggerStatus.Log("Reconociendo....",LoggerStatus.LogType.INFO);            
     }
     
     public void loadSpeakerMLLR(String name){
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         try {
             recognizer.loadTransform(rm.getWav_dir_path()+"\\"+name+"\\mllr_matrix", 1); // Load MLLR
         } catch (Exception ex) {
             AppGui.showMessageGUI("Excepción al cargar MLLR", "error");
-            Logger.getLogger(App_recognizer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppRecognizer.class.getName()).log(Level.SEVERE, null, ex);
         }
     
     }

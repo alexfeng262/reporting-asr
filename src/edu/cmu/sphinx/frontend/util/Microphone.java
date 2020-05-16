@@ -11,8 +11,8 @@
  */
 package edu.cmu.sphinx.frontend.util;
 
-import ASR_tfm.AppGui;
-import ASR_tfm.Logger_status;
+import ASR.AppGui;
+import asr_utils.LoggerStatus;
 import edu.cmu.sphinx.frontend.*;
 import edu.cmu.sphinx.util.props.*;
 
@@ -255,7 +255,7 @@ public class Microphone extends BaseDataProcessor {
                     getSelectedMixer());
             if (nativeFormat == null) {
                 AppGui.showMessageGUI("No se ha podido identificar micrófono. Asegúrese de tener micrófono disponible.", "error");
-                //Logger_status.Log("No se ha podido identificar micrófono.", Logger_status.LogType.ERROR);
+                //Logger_status.Log("No se ha podido identificar micrófono.", LoggerStatus.LogType.ERROR);
                 logger.severe("couldn't find suitable target audio format");
             } else {
                 finalFormat = nativeFormat;

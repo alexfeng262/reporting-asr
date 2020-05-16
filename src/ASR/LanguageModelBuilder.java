@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ASR_tfm;
+package ASR;
 
-import asr_utils.Resource_manager;
+import asr_utils.ResourceManager;
 import edu.stanford.nlp.io.IOUtils;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
@@ -37,12 +37,12 @@ import kylm.main.CountNgrams;
  * @author alexf
  */
 public class LanguageModelBuilder {
-    private final Resource_manager rm;
+    private final ResourceManager rm;
     private final String model_name;
     private final String corpus_path;
     
     public LanguageModelBuilder(String name, String corpus_path){
-        this.rm = new Resource_manager();
+        this.rm = new ResourceManager();
         this.model_name = name;
         this.corpus_path = corpus_path;
     }

@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ASR_tfm;
-import asr_utils.Resource_manager;
+package ASR;
+import asr_utils.ResourceManager;
 import edu.stanford.nlp.io.IOUtils;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;

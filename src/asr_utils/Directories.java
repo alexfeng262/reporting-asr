@@ -31,7 +31,7 @@ public class Directories {
     }
     
     public static String[] getAllSpeakers(){
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         File dir = new File(rm.getWav_dir_path());
         FilenameFilter filter = new FilenameFilter() {
@@ -45,7 +45,7 @@ public class Directories {
     }
     
     public static int createSpeakerDir(String name){
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         File dir = new File(rm.getWav_dir_path()+"\\"+name);
     
@@ -62,14 +62,14 @@ public class Directories {
     }
     
     public static void deleteSpeakerDir(String name){
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         File dir = new File(rm.getWav_dir_path()+"\\"+name);
         recursiveDelete(dir);
     }
     
     public static boolean isEmptyDir(String name){
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         File dir = new File(rm.getWav_dir_path()+"\\"+name);
         
@@ -82,7 +82,7 @@ public class Directories {
     }
     
     public static String[] getAllLm(){
-        Resource_manager rm = new Resource_manager();
+        ResourceManager rm = new ResourceManager();
         
         File dir = new File(rm.getLm_dir_path());
         FilenameFilter filter = new FilenameFilter() {

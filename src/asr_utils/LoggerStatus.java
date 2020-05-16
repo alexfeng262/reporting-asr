@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ASR_tfm;
+package asr_utils;
+
+import ASR.AppGui;
 
 /**
  *
  * @author alexf
  */
-public class Logger_status {
+public class LoggerStatus {
      public static enum LogType { INFO, WARNING, ERROR }
      
      public static void Log(String msg, LogType type){
