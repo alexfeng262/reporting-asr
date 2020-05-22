@@ -5,6 +5,7 @@
  */
 package adaptation_mllr;
 
+import ASR.AppGui;
 import asr_utils.ResourceManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -60,10 +61,8 @@ public class Sphinx_fe {
                 System.out.println("sphinx_fe finished");
             else
                System.out.println("somethings occured in sphinx_fe");
-        } catch (IOException  ex) {
-            Logger.getLogger(Sphinx_fe.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Sphinx_fe.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | InterruptedException  ex) {
+            AppGui.showMessageGUI("Excepcion de tipo: "+ ex.getMessage(), "error");
         }
     
     }

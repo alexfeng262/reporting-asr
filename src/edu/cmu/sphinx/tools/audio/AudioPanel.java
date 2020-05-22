@@ -349,5 +349,6 @@ public class AudioPanel extends JPanel
 
 
     public void mouseClicked(MouseEvent evt) {
+        requestFocus();
     }
 }

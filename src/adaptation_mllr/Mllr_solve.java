@@ -5,6 +5,7 @@
  */
 package adaptation_mllr;
 
+import ASR.AppGui;
 import asr_utils.ResourceManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -52,7 +53,7 @@ public class Mllr_solve {
             else
                System.out.println("somethings occured in mllr_solve.exe");
         } catch (IOException | InterruptedException  ex) {
-            Logger.getLogger(Sphinx_fe.class.getName()).log(Level.SEVERE, null, ex);
+            AppGui.showMessageGUI("Excepcion de tipo: "+ ex.getMessage(), "error");
         }
         
     }

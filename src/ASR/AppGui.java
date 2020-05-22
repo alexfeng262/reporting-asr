@@ -23,8 +23,10 @@ import edu.cmu.sphinx.tools.audio.Downsampler;
 import edu.cmu.sphinx.tools.audio.SpectrogramPanel;
 import edu.cmu.sphinx.tools.audio.Utils;
 import edu.cmu.sphinx.util.props.ConfigurationManager;
+import edu.cmu.sphinx.util.props.PropertyException;
 import edu.cmu.sphinx.util.props.PropertySheet;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -46,8 +48,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import java.util.prefs.Preferences;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -61,9 +62,11 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.text.DecimalFormatSymbols;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Locale;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
@@ -274,7 +277,9 @@ public class AppGui extends javax.swing.JFrame {
             player = new AudioPlayer(audio);
             player.start();
         }
-        catch (Exception e) {}
+        catch (PropertyException e) {
+            showMessageGUI("No se puede leer Default_audio_config_xml", "error");
+        }
     }
     private static void saveAudioFile(){
         getFilename("Save As...", JFileChooser.SAVE_DIALOG);
@@ -399,12 +404,14 @@ public class AppGui extends javax.swing.JFrame {
     }
     private static void loadRecognizerConfiguration(){
         NumberFormat formatter, formatter_dec;
-        formatter = new DecimalFormat("0.#E0");
-        formatter_dec = new DecimalFormat("0.#");
+        DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        formatSymbols.setDecimalSeparator('.');
+        
+        formatter = new DecimalFormat("0.#E0",formatSymbols);
+        formatter_dec = new DecimalFormat("0.#",formatSymbols);
        
         //beam_slider.setValue((int) (Math.log10(recognizerConfig.getRelBeamWidth())*-1)-50);
         beam_value_lbl.setText(formatter.format(recognizerConfig.getRelBeamWidth()));
-        
         //WIP
         wip_slider.setValue((int) (recognizerConfig.getWip()*10.0));
         wip_value_lbl.setText(formatter_dec.format(recognizerConfig.getWip()));
@@ -586,7 +593,7 @@ public class AppGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Reconocimiento automático del habla para reportes médicos");
-        setMinimumSize(new java.awt.Dimension(1000, 800));
+        setPreferredSize(new java.awt.Dimension(300, 300));
 
         status_jpanel.setBackground(new java.awt.Color(204, 204, 204));
         status_jpanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
@@ -1137,7 +1144,10 @@ public class AppGui extends javax.swing.JFrame {
 
     private void beam_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_beam_sliderStateChanged
         NumberFormat formatter;
-        formatter = new DecimalFormat("0.#E0");
+        DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        formatSymbols.setDecimalSeparator('.');
+        
+        formatter = new DecimalFormat("0.#E0",formatSymbols);
         double rbw = recognizerConfig.getRelBeamWidth();
         double exp = beam_slider.getValue();
         rbw = rbw/Math.pow(10, exp);
@@ -1147,19 +1157,28 @@ public class AppGui extends javax.swing.JFrame {
 
     private void wip_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_wip_sliderStateChanged
         NumberFormat formatter;
-        formatter = new DecimalFormat("0.#");
+        DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        formatSymbols.setDecimalSeparator('.');
+        
+        formatter = new DecimalFormat("0.#",formatSymbols);
         wip_value_lbl.setText(formatter.format(wip_slider.getValue()/10.0));
     }//GEN-LAST:event_wip_sliderStateChanged
 
     private void lw_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lw_sliderStateChanged
         NumberFormat formatter;
-        formatter = new DecimalFormat("0.#");
+        DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        formatSymbols.setDecimalSeparator('.');
+        
+        formatter = new DecimalFormat("0.#",formatSymbols);
         lw_value_lbl.setText(formatter.format(lw_slider.getValue()));
     }//GEN-LAST:event_lw_sliderStateChanged
 
     private void pbeam_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pbeam_sliderStateChanged
         NumberFormat formatter;
-        formatter = new DecimalFormat("0.#E0");
+        DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.getDefault());
+        formatSymbols.setDecimalSeparator('.');
+        
+        formatter = new DecimalFormat("0.#E0",formatSymbols);
         double rbw = recognizerConfig.getPbeam();
         //double rbw = Double.parseDouble(beam_value_lbl.getText());
         double exp = pbeam_slider.getValue();
@@ -1223,6 +1242,7 @@ public class AppGui extends javax.swing.JFrame {
         edit_menu.setEnabled(false);
         disableView(0);
         update_init_speakers();
+        update_init_lm();
         recognize.initRecognition();
         report_txt.setEnabled(false);
         play_pause_btn.setSelected(false);
@@ -1538,7 +1558,7 @@ public class AppGui extends javax.swing.JFrame {
                             lm_text_area.append("Tiempo transcurrido: "+timeElapsed.toMinutes()+" minutos \n");
                             lm_text_area.setCaretPosition(lm_text_area.getDocument().getLength());
                         } catch (InterruptedException | ExecutionException ex) {
-                            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
+                            showMessageGUI("Excepción de tipo: " +ex.getMessage() , "error");
                         }
 
                     }
@@ -1621,7 +1641,13 @@ public class AppGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AppGui().setVisible(true);
+                AppGui app = new AppGui();
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                int height = screenSize.height * 8 / 10;
+                int width = screenSize.width * 2 / 3;
+                app.setMinimumSize(new Dimension(width, height));
+                
+                app.setVisible(true);
             }
         });
     }

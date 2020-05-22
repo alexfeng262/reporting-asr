@@ -92,7 +92,7 @@ public class AppRecognizer extends Thread{
             //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
         }
         catch(Exception ex){
-            AppGui.showMessageGUI("No se ha podido cargar configuración del reconocedor.", "error");
+            AppGui.showMessageGUI("No se ha podido cargar configuración del reconocedor. Exception de tipo: " + ex.getMessage(), "error");
             System.out.println(ex.getMessage());
         }
         
@@ -228,7 +228,7 @@ public class AppRecognizer extends Thread{
         try {
             recognizer.loadTransform(rm.getWav_dir_path()+"\\"+name+"\\mllr_matrix", 1); // Load MLLR
         } catch (Exception ex) {
-            AppGui.showMessageGUI("Excepción al cargar MLLR", "error");
+            AppGui.showMessageGUI("Excepción al cargar MLLR: "+ex.getMessage(), "error");
             Logger.getLogger(AppRecognizer.class.getName()).log(Level.SEVERE, null, ex);
         }
     

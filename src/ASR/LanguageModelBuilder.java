@@ -19,15 +19,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
-import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
@@ -116,16 +111,18 @@ public class LanguageModelBuilder {
 
                 //System.out.println(tok);
                 tok = tok.trim();
-
-                if(!tok.isBlank())
-                    if(!(tok.matches("^h+h$") || tok.matches("^c+c$") || tok.matches("^q+q$") || tok.matches("^v+v$") ||
-                    tok.matches("^w+w$") || tok.matches("^ñ+ñ$"))){
-                        for(String word:tok.split("\\s+")){
-                            if(vocabObject.containsKey(word))
-                                word = vocabObject.getString(word); 
+ 
+                if(!tok.isBlank()){
+                    for(String word:tok.split("\\s+")){
+                        if(vocabObject.containsKey(word))
+                            word = vocabObject.getString(word); 
+                        if(!(word.matches("^h+h$") || word.matches("^c+c$") || word.matches("^q+q$") || word.matches("^v+v$") ||
+                            word.matches("^w+w$") || word.matches("^ñ+ñ$"))){
                             strList.add(word);
                         }
+                        
                     }
+                }
             }
 
             if(!strList.isEmpty())
