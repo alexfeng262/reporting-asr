@@ -586,7 +586,7 @@ public class CommandHelp extends javax.swing.JDialog {
         jPanel2.add(jLabel80, gridBagConstraints);
 
         jLabel81.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel81.setText("comandodiesciochoefe");
+        jLabel81.setText("diesciochoefedege");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;

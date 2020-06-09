@@ -26,6 +26,7 @@ import edu.cmu.sphinx.util.props.ConfigurationManager;
 import edu.cmu.sphinx.util.props.PropertyException;
 import edu.cmu.sphinx.util.props.PropertySheet;
 import java.awt.CardLayout;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -580,6 +581,7 @@ public class AppGui extends javax.swing.JFrame {
         new_speaker_menu_item = new javax.swing.JMenuItem();
         del_speaker_menu_item = new javax.swing.JMenuItem();
         save_as_menu_item = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         edit_menu = new javax.swing.JMenu();
         selectAll_menu_item = new javax.swing.JMenuItem();
         crop_menu_item = new javax.swing.JMenuItem();
@@ -1047,6 +1049,15 @@ public class AppGui extends javax.swing.JFrame {
             }
         });
         file_menu.add(save_as_menu_item);
+
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem2.setText("Editar abreviaturas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        file_menu.add(jMenuItem2);
 
         jMenuBar1.add(file_menu);
 
@@ -1604,9 +1615,24 @@ public class AppGui extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        CommandHelp help = new CommandHelp(this, false);
-        help.setVisible(true);
+        if (Desktop.isDesktopSupported()) {
+            try {
+                File myFile = new File("etc\\docs\\help.pdf");
+                Desktop.getDesktop().open(myFile);
+            } catch (IOException ex) {
+                showMessageGUI("no application registered for PDFs", "error");
+            }
+        }
+        //CommandHelp help = new CommandHelp(this, false);
+        //help.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        
+        EditAbrev editWindows = new EditAbrev(this, false);
+        editWindows.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1674,6 +1700,7 @@ public class AppGui extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

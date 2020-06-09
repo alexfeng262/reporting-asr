@@ -11,16 +11,11 @@
 123I-MIBG z i e n t o b e i n t i t r e s e m e i b e j e
 18F-FDG d i e s z i o ch o e f e d e j e
 2 d o s
-223-Ra r a
-223-Radio r a d i o
 3 t r e s
 4 k u a t r o
 4R k o m a n d o k u a t r o e rr e
 5 z i n k o
 6 s e i s
-67Ga g a
-67Galio g a l i o
-67Gammagrafía g a m m a g r a f i a
 7 s i e t e
 8 o ch o
 9 n u e b e
@@ -58,25 +53,32 @@ DMSA d m s a
 DTPA d t p a
 DaTSCAN d a t s k a n
 ECD e k d
+ECG e l e k t r o k a r d i o g r a m a
 EPOC k o m a n d o e p o k
 F f
-FDG f d g
+FDG k o m a n d o e f e d e j e
 FE k o m a n d o e f e e
 FEVI f e b i
-HDP k o m a n d o a ch e d e p e
+HDP a ch e d e p e
 I r o m a n o u n o
 IECA k o m a n d o i e k a
 II r o m a n o d o s
 III r o m a n o t r e s
 IV r o m a n o k u a t r o
+Ioflupano i o f l u p a n o
 Kg k i l o g r a m o s
+L l i t r o s
 L1 k o m a n d o e l e u n o
 L2 k o m a n d o e l e d o s
 L3 k o m a n d o e l e t r e s
 L4 k o m a n d o e l e k u a t r o
 L5 k o m a n d o e l e z i n k o
 LID k o m a n d o e l e i d e
+LID1 l i d
+LID4 l i d
 LSD k o m a n d o e l e e s e d e
+LSD1 l s d
+LSD8 l s d
 LSI k o m a n d o e l e e s e i
 MAA m a a
 MAG m a g
@@ -85,27 +87,35 @@ MIBI m i b i
 MSI k o m a n d o e m e e s e i
 Mx k o m a n d o e m e e k i s
 Nx k o m a n d o e n e e k i s
-OCFA a k r o n i m o o z e e f e a
+OCFA k o m a n d o o z e e f e a
 OSNA k o m a n d o o s n a
 PAAF p a a f
 PET k o m a n d o p e t
 PET-CT p e z e t e
-PSA k o m a n d o p e e s e a
-PTHi k o m a n d o p e t e a ch e i
-RM k o m a n d o e rr e e m e
+PSA p e e s e a
+PTHio k o m a n d o p e t e a ch e i
+RM e rr e e m e
 ROLL k o m a n d o rr o l
 RUSS k o m a n d o rr u s
+RUSS2 r u s s
 S1 k o m a n d o e s e u n o
 S2 k o m a n d o e s e d o s
 SDRC k o m a n d o e s e d e e rr e z e
 SUL s u l
+SUL1 s u l
+SUL2 s u l
+SUL3 s u l
 SULmax s u l m a x
-SUV k o m a n d o s u b
+SUV s u b
 SUVmax s u b m a x
-TC k o m a n d o t e z e
+TC t a k
+TC1 t k
+TC2 t k
+TC3 t k
+TC7 t k
 TNM k o m a n d o t e e n e e m e
-TSH k o m a n d o t e e s e a ch e
-TSHr k o m a n d o t e e s e a ch e e rr e
+TSH t e e s e a ch e
+TSHr t e e s e a ch e e rr e
 V r o m a n o z i n k o
 VI r o m a n o s e i s
 VII r o m a n o s i e t e
@@ -1768,7 +1778,6 @@ aviso a b i s o
 aviséis a b i s e i s
 avl a b l
 avulsión a b u l s i o n
-ax a x
 axial a x i a l
 axiales a x i a l e s
 axil a x i l
@@ -2581,7 +2590,6 @@ caña k a gn a
 cañas k a gn a s
 cb k b
 cbdca k b d k a
-cc k k
 cce k z e
 ccir k z i r
 cck k k k
@@ -2763,7 +2771,6 @@ cilindros z i l i n d r o s
 cilo z i l o
 cimentada z i m e n t a d a
 cinco z i n k o
-cinematografía z i n e m a t o g r a f i a
 cinesia z i n e s i a
 cingular z i n g u l a r
 cingulares z i n g u l a r e s
@@ -2976,7 +2983,6 @@ codeína k o d e i n a
 codición k o d i z i o n
 codificación k o d i f i k a z i o n
 codiovan k o d i o b a n
-codirigido k o d i r i j i d o
 codo k o d o
 codorniu k o d o r n i u
 codos k o d o s
@@ -3991,7 +3997,7 @@ cpnmic k p n m i k
 cpno k p n o
 cprc k p r k
 cprcm k p r k m
-cps k o m a n d o z e p e e s e
+cps z e p e e s e
 cptopril k p t o p r i l
 cque k k e
 cr k r
@@ -5529,7 +5535,12 @@ ecatabulo e k a t a b u l o
 ecatasia e k a t a s i a
 ecm e k m
 ecocardio e k o k a r d i o
+ecocardiografía e k o k a r d i o g r a f i a
+ecocardiográfica e k o k a r d i o g r a f i k a
+ecocardiográfico e k o k a r d i o g r a f i k o
+ecocistografía e k o z i s t o g r a f i a
 ecodirigida e k o d i r i j i d a
+ecodirigido e k o d i r i j i d o
 ecodoppler e k o d o p p l e r
 ecoendoscopia e k o e n d o s k o p i a
 ecoestructura e k o e s t r u k t u r a
@@ -5651,7 +5662,6 @@ elastofibroma e l a s t o f i b r o m a
 elastofibromas e l a s t o f i b r o m a s
 elcontexto e l k o n t e x t o
 elección e l e k z i o n
-electrocardiograma e l e k t r o k a r d i o g r a m a
 electrocardiográfica e l e k t r o k a r d i o g r a f i k a
 electrocardiográficas e l e k t r o k a r d i o g r a f i k a s
 electrocardiográficos e l e k t r o k a r d i o g r a f i k o s
@@ -7803,7 +7813,6 @@ gástrico g a s t r i k o
 gástricos g a s t r i k o s
 génico j e n i k o
 gómez g o m e z
-h a ch e
 ha a
 haber a b e r
 haberla a b e r l a
@@ -8583,7 +8592,7 @@ húmero u m e r o
 húmeros u m e r o s
 húngaro u n g a r o
 hürthle u r t l e
-i.v. i u b e
+i.v. i n t r a b e n o s o
 ia i a
 iam i a m
 iamsest i a m s e s t
@@ -8724,7 +8733,6 @@ identificativo i d e n t i f i k a t i b o
 identifico i d e n t i f i k o
 identificándose i d e n t i f i k a n d o s e
 identificó i d e n t i f i k o
-identifiicamos i d e n t i f i i k a m o s
 identifique i d e n t i f i k e
 identifiquemos i d e n t i f i k e m o s
 identifiquen i d e n t i f i k e n
@@ -8902,11 +8910,11 @@ idsospecha i d s o s p e ch a
 idsospechoso i d s o s p e ch o s o
 idsugestivo i d s u j e s t i b o
 idsí i d s i
-idt i d t
 idtamaño i d t a m a gn o
 idtanto i d t a n t o
 idteniendo i d t e n i e n d o
 idterritorio i d t e rr i t o r i o
+idtiempo i d t i e m p o
 idtiroides i d t i r o i d e s
 idtiroiditis i d t i r o i d i t i s
 idtodos i d t o d o s
@@ -9944,7 +9952,6 @@ iodobenzamida i o d o b e n z a m i d a
 iodocolesterol i o d o k o l e s t e r o l
 ioflufano i o f l u f a n o
 ioflupan i o f l u p a n
-ioflupano i o f l u p a n o
 iofupano i o f u p a n o
 iolupano i o l u p a n o
 ion i o n
@@ -10183,7 +10190,6 @@ krd k r d
 kupffer k u p f f e r
 kurtner k u r t n e r
 kütner k u t n e r
-l e l e
 la l a
 laa l a a
 laaxila l a a x i l a
@@ -14654,7 +14660,6 @@ pterigoidea p t e r i g o i d e a
 pterigoideo p t e r i g o i d e o
 pterigoides p t e r i g o i d e s
 pth p t
-pthio p t i o
 pthr p t r
 pti p t i
 ptosico p t o s i k o
@@ -14915,7 +14920,6 @@ radiocubitocarpiana r a d i o k u b i t o k a r p i a n a
 radiodermitis r a d i o d e r m i t i s
 radiofrecuencia r a d i o f r e k u e n z i a
 radiografias r a d i o g r a f i a s
-radiografiá r a d i o g r a f i a
 radiografía r a d i o g r a f i a
 radiografías r a d i o g r a f i a s
 radiográfica r a d i o g r a f i k a
@@ -17162,7 +17166,6 @@ súper s u p e r
 súperoexterno s u p e r o e x t e r n o
 súperointerna s u p e r o i n t e r n a
 südeck s u d e k k
-t t e
 ta t a
 tabaquismo t a b a k i s m o
 tabicaciones t a b i k a z i o n e s
@@ -18715,6 +18718,7 @@ wild u i l d
 wirsung u i r s u n g
 wl u l
 wt u t
+x k o m a n d o e k i s
 xativa x a t i b a
 xc x k
 xd x d
@@ -18798,6 +18802,7 @@ yuxtatiroidea y u x t a t i r o i d e a
 yuxtavertebral y u x t a b e r t e b r a l
 yuxtayugular y u x t a y u g u l a r
 yódico y o d i k o
+yúgulo y u g u l o
 yúgulocarotídeos y u g u l o k a r o t i d e o s
 z z e t a
 zacarés z a k a r e s

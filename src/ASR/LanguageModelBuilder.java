@@ -25,6 +25,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.json.JsonReader;
 import kylm.main.CountNgrams;
 /**
@@ -109,9 +110,9 @@ public class LanguageModelBuilder {
                     tok = tok.replaceAll("(?=\\. \\d)"," ");
                 }
 
-                //System.out.println(tok);
+                
                 tok = tok.trim();
- 
+                //System.out.println(tok);
                 if(!tok.isBlank()){
                     for(String word:tok.split("\\s+")){
                         if(vocabObject.containsKey(word))
@@ -128,25 +129,41 @@ public class LanguageModelBuilder {
             if(!strList.isEmpty())
                 all_sentences.add(String.join(" ", strList));
         }
-
+        //TODO: Create mapping
+        
+        JsonObject abv_mapping = create_abv_mapping(abcObject);
+        for(String key: abv_mapping.keySet()){
+                System.out.println(key);
+               
+            }
         //Preprocess sentences
         for(String sent : all_sentences){
             String sent1 = sent.replaceAll("(i\\.v\\.)|(i\\.? ?v\\.)|(i\\.v)","i.v.");
             sent1 = sent1.replaceAll("\\b(x x)\\b","");
             sent1 = sent1.replaceAll("([I|j] \\. d \\.)|(I \\.?d \\.)|(I \\. d)|(idx)|(j \\.? ?d \\.?)|([Ij] \\. d)","id");
-            sent1 = sent1.replaceAll("1 8 F - FDG","18F-FDG");
-            sent1 = sent1.replaceAll("PET - CT","PET-CT");
-            sent1 = sent1.replaceAll("9 9 mTc - HDP","99mTc-HDP");
-            sent1 = sent1.replaceAll("9 9 mTc - DMSA","99mTc-DMSA");
-            sent1 = sent1.replaceAll("9 9 mTc - MAG 3","99mTc-MAG3");
-            sent1 = sent1.replaceAll("9 9 mTc - MAA","99mTc-MAA");
-            sent1 = sent1.replaceAll("9 9 mTc - DTPA","99mTc-DTPA");
-            sent1 = sent1.replaceAll("9 9 mTc - ECD","99mTc-ECD");
-            sent1 = sent1.replaceAll("1 2 3 I - ioflupano","123I-Ioflupano");
-            sent1 = sent1.replaceAll("1 2 3 I - MIBG","123I-MIBG");
-            sent1 = sent1.replaceAll("2 2 3 - ra","223-Ra");
-            sent1 = sent1.replaceAll("6 7 ga","67Ga");
+     
+            for(String key: abv_mapping.keySet()){
+                //System.out.println(key);
+                if(!key.isEmpty())
+                    
+                    sent1 = sent1.replace(key,abv_mapping.getString(key));
+            }
+        
+//            sent1 = sent1.replaceAll("1 8 F - FDG","18F-FDG");
+//            sent1 = sent1.replaceAll("PET - CT","PET-CT");
+//            sent1 = sent1.replaceAll("9 9 mTc - HDP","99mTc-HDP");
+//            sent1 = sent1.replaceAll("9 9 mTc - DMSA","99mTc-DMSA");
+//            sent1 = sent1.replaceAll("9 9 mTc - MAG 3","99mTc-MAG3");
+//            sent1 = sent1.replaceAll("9 9 mTc - MAA","99mTc-MAA");
+//            sent1 = sent1.replaceAll("9 9 mTc - DTPA","99mTc-DTPA");
+//            sent1 = sent1.replaceAll("9 9 mTc - ECD","99mTc-ECD");
+//            sent1 = sent1.replaceAll("1 2 3 I - ioflupano","123I-Ioflupano");
+//            sent1 = sent1.replaceAll("1 2 3 I - MIBG","123I-MIBG");
+//            sent1 = sent1.replaceAll("2 2 3 - ra","223-Ra");
+//            sent1 = sent1.replaceAll("6 7 ga","67Ga");
             regex_sentences.add(sent1);
+            System.out.println(sent1);
+      
         }
 
         //Write to file
@@ -162,8 +179,29 @@ public class LanguageModelBuilder {
         
         return regex_sentences;
     }
-    
-    public void buildVocab(List<String> sentences) throws FileNotFoundException, IOException{
+    private JsonObject create_abv_mapping(JsonObject abv){
+        JsonObjectBuilder abvBuilder = Json.createObjectBuilder();
+        
+        for(String key : abv.keySet()){
+            String prev_key = key;
+            key = key.replaceAll("(?<=[A-Za-záéíóú//\\-])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-])"," ");
+            key = key.replaceAll("(?=\\d)"," ");
+            key = key.replaceAll("(?=\\. \\d)"," ");
+            key = String.join(" ",key.split("\\s+"));
+            key = key.trim();
+            
+            abvBuilder.add(key,prev_key);
+           
+            
+        }
+        JsonObject abvJsonObject = abvBuilder.build();
+        //System.out.println(abvJsonObject);
+        return abvJsonObject;
+    }
+    public void buildVocab(List<String> sentences) throws IOException{
+        buildVocab(sentences,rm.getLm_dir_path() + "\\"+model_name+".dict");
+    }
+    public void buildVocab(List<String> sentences, String path) throws FileNotFoundException, IOException{
         SortedSet<String> vocab = new TreeSet<>();
         List<String> vocab_phoneme = new ArrayList<>();
         File abc_json = new File("etc\\word_correction\\abc.json");
@@ -223,7 +261,7 @@ public class LanguageModelBuilder {
             if(!new_word.isBlank())
                 vocab_phoneme.add(word_vocab+" "+new_word);
         }
-        File filewrite = new File(rm.getLm_dir_path() + "\\"+model_name+".dict"); //set name
+        File filewrite = new File(path); //set name
         BufferedWriter writer;
        
         writer = new BufferedWriter(new FileWriter(filewrite));

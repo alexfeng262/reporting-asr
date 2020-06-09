@@ -1,0 +1,555 @@
+[n]
+3
+
+[smoother]
+kylm.model.ngram.smoother.MKNSmoother
+
+[closed]
+true
+
+[max_length]
+90
+
+[vocab_cutoff]
+0
+
+[start_symbol]
+<s>
+
+[terminal_symbol]
+</s>
+
+[unknown_symbol]
+<unk>
+
+\data\
+ngram 1=115
+ngram 2=194
+ngram 3=211
+\1-grams: 
+-99.0000	<s>	-0.1550
+-2.2878	</s>
+-1.4427	%	-0.0788
+-2.2878	(	-0.0549
+-2.2878	)	-0.0549
+-1.4427	,	-0.2591
+-2.2878	-	-0.0549
+-1.1117	.	-0.3538
+-2.2878	/	-0.0549
+-1.6857	0	-0.0549
+-2.2878	1	-0.0549
+-1.5097	2	-0.1190
+-2.2878	3	-0.0549
+-1.6857	4	-0.0549
+-1.5888	5	-0.0549
+-1.8107	6	-0.0549
+-2.2878	7	-0.0549
+-1.6857	8	-0.0549
+-1.8107	9	-0.0549
+-2.2878	99mTc-MAA	-0.0549
+-2.2878	EPOC	-0.0549
+-2.2878	LID1	-0.0549
+-2.2878	LSD8	-0.0549
+-2.2878	LSI	-0.0549
+-2.2878	MIBI	-0.0549
+-2.2878	PET-CT	-0.0549
+-1.9868	a	-0.0549
+-2.2878	adjuntan	-0.0549
+-2.2878	administración	-0.0549
+-2.2878	alcanzando	-0.0549
+-2.2878	anterior	-0.0549
+-2.2878	atenuación	-0.0549
+-1.8107	años	-0.1307
+-2.2878	basales	-0.0549
+-2.2878	cara	-0.0549
+-2.2878	cardíaca	-0.0549
+-2.2878	clínica	-0.0549
+-2.2878	completando	-0.0549
+-1.6857	con	-0.0549
+-2.2878	conclusión	-0.0549
+-2.2878	condiciones	-0.0549
+-2.2878	cuantificación	-0.0549
+-1.2086	de	-0.1689
+-2.2878	derecho	-0.0549
+-2.2878	descartar	-0.0549
+-2.2878	diagnosticado	-0.0549
+-2.2878	dolor	-0.0549
+-2.2878	dosis	-0.0549
+-2.2878	días	-0.0549
+-2.2878	e	-0.0549
+-2.2878	edad	-0.0549
+-2.2878	el	-0.0549
+-1.5888	en	-0.1040
+-2.2878	esfuerzo	-0.0549
+-1.5888	estudio	-0.4529
+-2.2878	frecuencia	-0.0549
+-2.2878	gammagrafía	-0.0549
+-2.2878	gammapatía	-0.0549
+-2.2878	ha	-0.0549
+-2.2878	hipoperfusión	-0.0549
+-2.2878	hipoxemia	-0.0549
+-2.2878	hospitalizado	-0.0549
+-2.2878	i.v.	-0.0549
+-2.2878	igg	-0.0549
+-2.2878	imágenes	-0.0549
+-2.2878	incierto	-0.0549
+-1.9868	inferior	-0.0549
+-1.9868	izquierdo	-0.0549
+-2.2878	kappa	-0.0549
+-1.9868	la	-0.0549
+-2.2878	lesiones	-0.0549
+-2.2878	leve	-0.0549
+-2.2878	lmd	-0.0549
+-2.2878	língula	-0.0549
+-2.2878	líticas	-0.0549
+-2.2878	lóbulo	-0.0549
+-2.2878	mTc	-0.0549
+-2.2878	mantenida	-0.0549
+-2.2878	mejoría	-0.0549
+-2.2878	mets	-0.0549
+-2.2878	mieloma	-0.0549
+-2.2878	miocárdica	-0.0549
+-2.2878	monoclonal	-0.0549
+-2.2878	máxima	-0.0549
+-2.2878	obtenemos	-0.0549
+-1.9868	paciente	-0.1742
+-2.2878	para	-0.0549
+-2.2878	pasado	-0.0549
+-2.2878	perfusión	-0.0549
+-2.2878	pesar	-0.0549
+-2.2878	planares	-0.0549
+-1.9868	por	-0.0549
+-2.2878	porcentajes	-0.0549
+-2.2878	prevista	-0.0549
+-2.2878	probable	-0.0549
+-1.9868	pulmonar	-0.0549
+-2.2878	que	-0.0549
+-2.2878	quiescente	-0.0549
+-2.2878	realizamos	-0.0549
+-2.2878	relación	-0.0549
+-2.2878	reposo	-0.0549
+-2.2878	se	-0.0549
+-2.2878	segmentos	-0.0549
+-2.2878	según	-0.0549
+-2.2878	significado	-0.0549
+-2.2878	solicita	-0.0549
+-2.2878	tercios	-0.0549
+-2.2878	torácico	-0.0549
+-2.2878	total	-0.0549
+-2.2878	tras	-0.0549
+-2.2878	tratamiento	-0.0549
+-2.2878	una	-0.0549
+-2.2878	vasodilatadores	-0.0549
+-2.2878	ventilación	-0.0549
+-1.9868	y	-0.0549
+
+\2-grams: 
+-1.6865	<s> conclusión	-0.0206
+-1.0087	<s> obtenemos	-0.0206
+-1.0087	<s> realizamos	-0.0206
+-1.0087	<s> se	-0.0206
+-1.7569	% LID1	-0.0206
+-1.7569	% LSD8	-0.0206
+-1.1884	% de	-0.0206
+-1.7569	% lmd	-0.0206
+-1.7569	% língula	-0.0206
+-1.7569	% lóbulo	-0.0206
+-1.6615	% paciente	-0.0206
+-1.1094	% total	-0.0206
+-0.9088	( alcanzando	-0.0206
+-0.8222	) ,	-0.0206
+-1.7523	, EPOC	-0.0206
+-1.7523	, completando	-0.0206
+-1.7523	, diagnosticado	-0.0206
+-0.4098	, en	-0.0206
+-1.7523	, hospitalizado	-0.0206
+-1.7523	, que	-0.0206
+-0.9088	- MIBI	-0.0206
+-0.3568	. </s>	0.0000
+-2.0129	. 1	-0.0206
+-1.6753	. 2	-0.0206
+-1.3606	. 3
+-1.7811	. 4	-0.0206
+-1.7250	. 5	-0.0206
+-1.3174	. 6
+-1.8455	. 9	-0.0206
+-0.9088	/ ventilación	-0.0206
+-1.0367	0 .	-0.0206
+-1.3775	0 0	-0.0206
+-1.3775	0 8	-0.0206
+-1.4273	0 años	-0.0206
+-1.5481	0 mets	-0.0206
+-0.8222	1 %	-0.0206
+-1.3526	2 %	-0.0206
+-1.1206	2 .	-0.0206
+-0.9583	2 0	-0.0206
+-0.9431	2 5
+-1.6800	2 días	-0.0206
+-0.8222	3 %	-0.0206
+-1.2111	4 %	-0.0206
+-1.0095	4 .	-0.0206
+-1.4654	4 7	-0.0206
+-1.3632	4 años	-0.0206
+-1.2553	5 %	-0.0206
+-1.0367	5 .	-0.0206
+-1.2923	5 2	-0.0206
+-1.3328	5 5	-0.0206
+-1.4273	5 años	-0.0206
+-1.2111	6 %	-0.0206
+-1.0095	6 .	-0.0206
+-1.3199	6 0	-0.0206
+-1.3199	6 4	-0.0206
+-0.7283	7 .	-0.0206
+-1.2111	8 %	-0.0206
+-1.0095	8 .	-0.0206
+-1.3199	8 8	-0.0206
+-1.0746	8 de	-0.0206
+-1.2383	9 0	-0.0206
+-1.2738	9 9	-0.0206
+-1.3551	9 mTc	-0.0206
+-0.8222	99mTc-MAA ,	-0.0206
+-0.8222	EPOC ,	-0.0206
+-0.8633	LID1 4	-0.0206
+-0.7283	LSD8 .	-0.0206
+-0.8780	LSI 6	-0.0206
+-0.8492	MIBI en	-0.0206
+-0.9088	PET-CT para	-0.0206
+-1.1942	a mieloma	-0.0206
+-1.1942	a pesar	-0.0206
+-0.9088	adjuntan porcentajes	-0.0206
+-0.7612	administración de	-0.0206
+-0.8633	alcanzando 8	-0.0206
+-0.9088	anterior e	-0.0206
+-0.7283	atenuación .	-0.0206
+-0.6073	años ,	-0.0206
+-1.2607	años con	-0.0206
+-0.9088	basales cara	-0.0206
+-0.9088	cara anterior	-0.0206
+-0.9088	cardíaca máxima	-0.0206
+-0.7283	clínica .	-0.0206
+-0.9088	completando el	-0.0206
+-1.3632	con 9	-0.0206
+-1.4654	con atenuación	-0.0206
+-1.4654	con dolor	-0.0206
+-1.4654	con vasodilatadores	-0.0206
+-0.9088	conclusión hipoperfusión	-0.0206
+-0.7612	condiciones de	-0.0206
+-0.7612	cuantificación de	-0.0206
+-1.5750	de 5	-0.0206
+-1.7073	de 6	-0.0206
+-1.8985	de 99mTc-MAA	-0.0206
+-1.8985	de cuantificación	-0.0206
+-1.8985	de esfuerzo	-0.0206
+-1.8985	de gammapatía	-0.0206
+-1.7924	de la	-0.0206
+-1.8985	de mejoría	-0.0206
+-0.6303	de perfusión	-0.0206
+-1.8985	de significado	-0.0206
+-1.8985	de una	-0.0206
+-0.8633	derecho 4	-0.0206
+-0.9088	descartar lesiones	-0.0206
+-0.8492	diagnosticado en	-0.0206
+-0.9088	dolor torácico	-0.0206
+-0.9088	dosis i.v.	-0.0206
+-0.7283	días .	-0.0206
+-0.8931	e inferior	-0.0206
+-0.8931	edad y	-0.0206
+-0.8492	el estudio	-0.0206
+-1.0098	en 2	-0.0206
+-1.7630	en condiciones	-0.0206
+-1.0886	en paciente
+-1.7630	en probable	-0.0206
+-1.7630	en reposo	-0.0206
+-1.7630	en segmentos	-0.0206
+-1.7630	en tratamiento	-0.0206
+-0.9088	esfuerzo (	-0.0206
+-1.5921	estudio PET-CT	-0.0206
+-1.3414	estudio de	-0.0206
+-0.2153	estudio en	-0.0206
+-0.9088	frecuencia cardíaca	-0.0206
+-0.7612	gammagrafía de	-0.0206
+-0.9088	gammapatía monoclonal	-0.0206
+-0.9088	ha pasado	-0.0206
+-0.9088	hipoperfusión leve	-0.0206
+-0.9088	hipoxemia mantenida	-0.0206
+-0.8931	hospitalizado por	-0.0206
+-0.7612	i.v. de	-0.0206
+-0.9088	igg kappa	-0.0206
+-0.9088	imágenes planares	-0.0206
+-0.9088	incierto igg	-0.0206
+-1.0400	inferior ,	-0.0206
+-1.1644	inferior izquierdo	-0.0206
+-1.0622	izquierdo 2	-0.0206
+-1.0856	izquierdo 5	-0.0206
+-0.8222	kappa ,	-0.0206
+-1.1942	la administración	-0.0206
+-1.1942	la frecuencia	-0.0206
+-0.9088	lesiones líticas	-0.0206
+-0.8492	leve en	-0.0206
+-0.8355	lmd 2	-0.0206
+-0.8355	língula 2	-0.0206
+-0.7283	líticas .	-0.0206
+-0.8931	lóbulo inferior	-0.0206
+-0.9088	mTc -	-0.0206
+-0.8931	mantenida a	-0.0206
+-0.9088	mejoría clínica	-0.0206
+-0.9088	mets )	-0.0206
+-0.9088	mieloma quiescente	-0.0206
+-0.8633	miocárdica con	-0.0206
+-0.7612	monoclonal de	-0.0206
+-0.9088	máxima prevista	-0.0206
+-1.0856	obtenemos estudio	-0.0206
+-1.1942	obtenemos imágenes	-0.0206
+-0.4296	paciente de	-0.4977
+-0.9088	para descartar	-0.0206
+-0.8931	pasado a	-0.0206
+-1.3551	perfusión /	-0.0206
+-1.3551	perfusión miocárdica	-0.0206
+-1.3126	perfusión pulmonar	-0.0206
+-0.7612	pesar de	-0.0206
+-0.7283	planares .	-0.0206
+-1.1942	por hipoxemia	-0.0206
+-1.1942	por tercios	-0.0206
+-0.7612	porcentajes de	-0.0206
+-0.9088	prevista según	-0.0206
+-0.9088	probable relación	-0.0206
+-1.1644	pulmonar por	-0.0206
+-1.1942	pulmonar tras	-0.0206
+-0.9088	que ha	-0.0206
+-0.7283	quiescente .	-0.0206
+-1.0856	realizamos estudio	-0.0206
+-1.1942	realizamos gammagrafía	-0.0206
+-0.8633	relación con	-0.0206
+-0.8931	reposo y	-0.0206
+-1.1942	se adjuntan	-0.0206
+-1.1942	se solicita	-0.0206
+-0.9088	segmentos basales	-0.0206
+-0.9088	según edad	-0.0206
+-0.9088	significado incierto	-0.0206
+-0.8492	solicita estudio	-0.0206
+-0.9088	tercios LSI	-0.0206
+-0.8222	torácico ,	-0.0206
+-1.1942	total derecho	-0.0206
+-1.1644	total izquierdo	-0.0206
+-0.8931	tras la	-0.0206
+-0.8633	tratamiento con	-0.0206
+-0.9088	una dosis	-0.0206
+-0.7283	vasodilatadores .	-0.0206
+-0.8931	ventilación pulmonar	-0.0206
+-1.1103	y 8	-0.0206
+-1.0856	y estudio	-0.0206
+
+\3-grams: 
+-0.7853	<s> conclusión hipoperfusión
+-0.9937	<s> obtenemos estudio
+-1.0750	<s> obtenemos imágenes
+-0.9937	<s> realizamos estudio
+-1.0750	<s> realizamos gammagrafía
+-1.0750	<s> se adjuntan
+-1.0750	<s> se solicita
+-0.7522	% LID1 4
+-0.6486	% LSD8 .
+-1.2099	% de la
+-0.7314	% lmd 2
+-0.7314	% língula 2
+-0.7740	% lóbulo inferior
+-0.3969	% paciente de
+-1.0750	% total derecho
+-1.0532	% total izquierdo
+-0.7522	( alcanzando 8
+-1.1995	) , completando
+-0.7214	, EPOC ,
+-0.7853	, completando el
+-0.7417	, diagnosticado en
+-1.0306	, en paciente
+-1.4963	, en probable
+-1.4963	, en tratamiento
+-0.7740	, hospitalizado por
+-0.7853	, que ha
+-0.7417	- MIBI en
+-0.7214	. 1 %
+-1.0523	. 2 %
+0.0000	. 3 %
+-0.9790	. 4 %
+-1.0031	. 5 %
+0.0000	. 6 %
+-0.9940	. 9 0
+-0.7740	/ ventilación pulmonar
+-1.1921	0 . 5
+-1.0641	0 0 8
+-0.8975	0 8 de
+-1.0060	0 años con
+-0.7853	0 mets )
+-1.2007	1 % língula
+-1.2007	2 % lóbulo
+-1.2070	2 . 4
+-0.9555	2 0 .
+-1.1997	2 0 0
+0.0000	2 5 .
+-0.6486	2 días .
+-1.3997	3 % LSD8
+-1.0120	3 % total
+-0.9193	4 % total
+-1.0562	4 . 3
+-0.6486	4 7 .
+-0.5500	4 años ,
+-1.2007	5 % lmd
+-1.3636	5 . 2
+-1.1607	5 . 6
+-0.9261	5 2 .
+-1.0864	5 5 años
+-0.5500	5 años ,
+-1.3997	6 % LID1
+-1.3571	6 % paciente
+-1.0562	6 . 3
+-1.0864	6 0 años
+-1.0574	6 4 años
+-1.0352	7 . 6
+-0.9662	8 % de
+-1.2225	8 . 9
+-0.9790	8 8 %
+-1.2340	8 de gammapatía
+-1.1350	9 0 mets
+-1.0536	9 9 mTc
+-0.7853	9 mTc -
+-0.3794	99mTc-MAA , en
+-1.1995	EPOC , hospitalizado
+-0.8551	LID1 4 .
+-1.2553	LSD8 . 1
+-0.8551	LSI 6 .
+-0.9063	MIBI en paciente
+-0.7853	PET-CT para descartar
+-0.7853	a mieloma quiescente
+-0.6745	a pesar de
+-0.6745	adjuntan porcentajes de
+-1.2340	administración de una
+-1.0364	alcanzando 8 8
+-0.7740	anterior e inferior
+-0.3319	atenuación . </s>
+-1.3977	años , EPOC
+-1.3977	años , diagnosticado
+-1.1026	años con dolor
+-0.7853	basales cara anterior
+-0.7853	cara anterior e
+-0.7853	cardíaca máxima prevista
+-0.3319	clínica . </s>
+-0.7417	completando el estudio
+-1.0129	con 9 9
+-0.6486	con atenuación .
+-0.7853	con dolor torácico
+-0.6486	con vasodilatadores .
+-0.7853	conclusión hipoperfusión leve
+-1.2340	condiciones de esfuerzo
+-0.5691	cuantificación de perfusión
+-1.0428	de 5 5
+-1.1624	de 6 0
+-1.1624	de 6 4
+-0.7214	de 99mTc-MAA ,
+-0.6745	de cuantificación de
+-0.7853	de esfuerzo (
+-0.7853	de gammapatía monoclonal
+-0.9695	de la frecuencia
+-0.7853	de mejoría clínica
+-1.2401	de perfusión /
+-1.2401	de perfusión miocárdica
+-1.2085	de perfusión pulmonar
+-0.7853	de significado incierto
+-0.7853	de una dosis
+-1.1026	derecho 4 7
+-0.7853	descartar lesiones líticas
+-0.8553	diagnosticado en 2
+-0.7214	dolor torácico ,
+-0.6745	dosis i.v. de
+-0.3319	días . </s>
+-0.8753	e inferior ,
+-0.9198	edad y 8
+-0.2026	el estudio en
+-0.8923	en 2 0
+-1.3658	en 2 días
+-0.6745	en condiciones de
+0.0000	en paciente de
+-0.7853	en probable relación
+-0.7740	en reposo y
+-0.7853	en segmentos basales
+-0.7522	en tratamiento con
+-0.7853	esfuerzo ( alcanzando
+-0.7853	estudio PET-CT para
+-0.5691	estudio de perfusión
+-0.9638	estudio en 2
+-1.4963	estudio en condiciones
+-1.4963	estudio en reposo
+-0.7853	frecuencia cardíaca máxima
+-0.5691	gammagrafía de perfusión
+-0.6745	gammapatía monoclonal de
+-0.7740	ha pasado a
+-0.7417	hipoperfusión leve en
+-0.7740	hipoxemia mantenida a
+-0.9695	hospitalizado por hipoxemia
+-1.2340	i.v. de 99mTc-MAA
+-0.7214	igg kappa ,
+-0.6486	imágenes planares .
+-0.7853	incierto igg kappa
+-0.3794	inferior , en
+-0.8896	inferior izquierdo 2
+-0.8096	izquierdo 2 5
+-1.0225	izquierdo 5 2
+-1.1995	kappa , que
+-0.6745	la administración de
+-0.7853	la frecuencia cardíaca
+-0.6486	lesiones líticas .
+-1.2023	leve en segmentos
+-0.8096	lmd 2 5
+-0.8202	língula 2 0
+-0.3319	líticas . </s>
+-0.9523	lóbulo inferior izquierdo
+-0.7853	mTc - MIBI
+-0.9695	mantenida a pesar
+-0.6486	mejoría clínica .
+-0.7214	mets ) ,
+-0.6486	mieloma quiescente .
+-1.0574	miocárdica con 9
+-1.2340	monoclonal de significado
+-0.7853	máxima prevista según
+-0.2026	obtenemos estudio en
+-0.7853	obtenemos imágenes planares
+-1.6218	paciente de 5
+-0.1720	paciente de 6
+-0.7853	para descartar lesiones
+-0.9695	pasado a mieloma
+-0.7853	perfusión / ventilación
+-0.7522	perfusión miocárdica con
+-0.9695	perfusión pulmonar tras
+-1.2340	pesar de mejoría
+-0.3319	planares . </s>
+-0.7853	por hipoxemia mantenida
+-0.7853	por tercios LSI
+-1.2340	porcentajes de cuantificación
+-0.7853	prevista según edad
+-0.7522	probable relación con
+-0.9695	pulmonar por tercios
+-0.7740	pulmonar tras la
+-0.7853	que ha pasado
+-0.3319	quiescente . </s>
+-1.0470	realizamos estudio de
+-0.6745	realizamos gammagrafía de
+-1.1026	relación con atenuación
+-0.9044	reposo y estudio
+-0.7853	se adjuntan porcentajes
+-0.7417	se solicita estudio
+-0.7853	segmentos basales cara
+-0.7740	según edad y
+-0.7853	significado incierto igg
+-1.1506	solicita estudio PET-CT
+-0.7630	tercios LSI 6
+-0.3794	torácico , en
+-0.7522	total derecho 4
+-0.9044	total izquierdo 5
+-0.9695	tras la administración
+-1.1026	tratamiento con vasodilatadores
+-0.7853	una dosis i.v.
+-0.3319	vasodilatadores . </s>
+-0.9523	ventilación pulmonar por
+-0.8551	y 8 .
+-0.2026	y estudio en
+
+\end\
