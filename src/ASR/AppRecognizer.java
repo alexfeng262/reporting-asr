@@ -119,10 +119,10 @@ public class AppRecognizer extends Thread{
             System.out.println(ex.getMessage());
         } catch (LineUnavailableException ex) {      
             AppGui.showMessageGUI("No line matching interface TargetDataLine supporting format "
-                    + "PCM_SIGNED 16000.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian is supported.", "error");
+                    + "PCM_SIGNED 16000.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian is supported.", "warning");
         } catch (IllegalArgumentException ex){
             AppGui.showMessageGUI("No line matching interface TargetDataLine supporting format "
-                    + "PCM_SIGNED 16000.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian is supported.", "error");
+                    + "PCM_SIGNED 16000.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian is supported.", "warning");
         }
         this.start();
         //app_gui.report_txt.append("Models ready....\n");
@@ -192,7 +192,7 @@ public class AppRecognizer extends Thread{
             } catch (UnsupportedEncodingException ex) {
                 AppGui.showMessageGUI("Excepción de tipo UnsupportedEncodingException.", "error");
             } catch(NullPointerException ex){
-                AppGui.showMessageGUI("Excepción de tipo NullPointerException en App_recognizer.", "error");
+                //AppGui.showMessageGUI("Excepción de tipo NullPointerException en App_recognizer.", "error");
                 StopThread = true;
             }
             

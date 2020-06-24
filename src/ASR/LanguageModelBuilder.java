@@ -100,11 +100,11 @@ public class LanguageModelBuilder {
                 if(!abcObject.containsKey(tok)){
                     tok = tok.replaceAll(",+(?=\\d)",".");
                     tok = tok.replaceAll("^\\.+(?=\\d)","0.");
-                    tok = tok.replaceAll("[^a-zA-ZáéíóúüñÁÉÍÓÚÑ0-9\\)\\(\\.\\%,\\-\\s//]", "");
+                    tok = tok.replaceAll("[^a-zA-ZáéíóúüñÁÉÍÓÚÑ0-9\\)\\(\\.\\%,\\-\\s//\\*]", " ");
                     tok = tok.replaceAll("x{2,}","");
                     tok = tok.replaceAll("\\.{1,}",".");
                     tok = tok.replaceAll("\\-{1,}","-");
-                    tok = tok.replaceAll("(?<=[A-Za-záéíóú//\\-])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-])"," ");
+                    tok = tok.replaceAll("(?<=[A-Za-záéíóú//\\-\\*])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-\\*])"," ");
                     //tok = tok.replaceAll("(?<=[A-Za-záéíóú//])\\.?(?=[\\-\\.])|(?<=[\\-\\.])\\.?(?=[A-Za-záéíóú//])"," ");
                     tok = tok.replaceAll("(?=\\d)"," ");
                     tok = tok.replaceAll("(?=\\. \\d)"," ");
@@ -132,16 +132,17 @@ public class LanguageModelBuilder {
         //TODO: Create mapping
         
         JsonObject abv_mapping = create_abv_mapping(abcObject);
-        for(String key: abv_mapping.keySet()){
-                System.out.println(key);
-               
-            }
+//        for(String key: abv_mapping.keySet()){
+//                System.out.println(key);
+//               
+//            }
         //Preprocess sentences
         for(String sent : all_sentences){
+            System.out.println(sent);
             String sent1 = sent.replaceAll("(i\\.v\\.)|(i\\.? ?v\\.)|(i\\.v)","i.v.");
             sent1 = sent1.replaceAll("\\b(x x)\\b","");
-            sent1 = sent1.replaceAll("([I|j] \\. d \\.)|(I \\.?d \\.)|(I \\. d)|(idx)|(j \\.? ?d \\.?)|([Ij] \\. d)","id");
-     
+            sent1 = sent1.replaceAll("([I|j] \\. d \\.)|(I \\.?d \\.)|(I \\. d)|(idx)|(j \\.?d \\.?)|([Ij] \\. d)","id");
+            System.out.println(sent1);
             for(String key: abv_mapping.keySet()){
                 //System.out.println(key);
                 if(!key.isEmpty())
@@ -162,7 +163,7 @@ public class LanguageModelBuilder {
 //            sent1 = sent1.replaceAll("2 2 3 - ra","223-Ra");
 //            sent1 = sent1.replaceAll("6 7 ga","67Ga");
             regex_sentences.add(sent1);
-            System.out.println(sent1);
+            //System.out.println(sent1);
       
         }
 
@@ -184,7 +185,7 @@ public class LanguageModelBuilder {
         
         for(String key : abv.keySet()){
             String prev_key = key;
-            key = key.replaceAll("(?<=[A-Za-záéíóú//\\-])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-])"," ");
+            key = key.replaceAll("(?<=[A-Za-záéíóú//\\-\\*])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-\\*])"," ");
             key = key.replaceAll("(?=\\d)"," ");
             key = key.replaceAll("(?=\\. \\d)"," ");
             key = String.join(" ",key.split("\\s+"));

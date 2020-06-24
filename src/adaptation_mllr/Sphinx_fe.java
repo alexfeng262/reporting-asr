@@ -22,7 +22,7 @@ public class Sphinx_fe {
     private static String[] cmd;
     
     public Sphinx_fe(String name){
-        cmd = new String[13];
+        cmd = new String[23];
         ResourceManager rm = new ResourceManager();
         
         cmd[0] = rm.getSphinx_fe_tool_path();
@@ -38,6 +38,17 @@ public class Sphinx_fe {
         cmd[10] = "yes";
         cmd[11] = "-ei";
         cmd[12] = "wav";
+        cmd[13] = "-nfilt";
+        cmd[14] = "25";
+        cmd[15] = "-transform";
+        cmd[16] = "dct";
+        cmd[17] = "-lifter";
+        cmd[18] = "22";
+        cmd[19] = "-lowerf";
+        cmd[20] = "130";
+        cmd[21] = "-upperf";
+        cmd[22] = "6800";
+        
         
     }
     

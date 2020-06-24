@@ -254,7 +254,7 @@ public class Microphone extends BaseDataProcessor {
                     = DataUtil.getNativeAudioFormat(desiredFormat,
                     getSelectedMixer());
             if (nativeFormat == null) {
-                AppGui.showMessageGUI("No se ha podido identificar micrófono. Asegúrese de tener micrófono disponible.", "error");
+                AppGui.showMessageGUI("No se ha podido identificar micrófono. Asegúrese de tener micrófono disponible.", "warning");
                 //Logger_status.Log("No se ha podido identificar micrófono.", LoggerStatus.LogType.ERROR);
                 logger.severe("couldn't find suitable target audio format");
             } else {

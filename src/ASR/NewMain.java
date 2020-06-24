@@ -45,18 +45,19 @@ public class NewMain {
     public static void main(String[] args) throws IOException {
         ResourceManager rm = new ResourceManager();
         List<String> data = new ArrayList<>();
-        File file = new File(rm.getDefault_corpus_file_path());
+        File file = new File("etc\\corpus\\lm3gram1.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String st; 
-        while ((st = br.readLine()) != null){
-            //text = text + " " +st;
-            if(!st.isBlank())
-                data.add(st);
-            //i++;
-        }
+//        while ((st = br.readLine()) != null){
+//            //text = text + " " +st;
+//            if(!st.isBlank())
+//                data.add(st);
+//            //i++;
+//        }
         br.close();
-        LanguageModelBuilder lm = new LanguageModelBuilder(null,null);
-        lm.buildVocab(data, rm.getDefault_dictionary_file_path());
+        LanguageModelBuilder lm = new LanguageModelBuilder("prueba","etc\\corpus\\lm3gram1.txt");
+        data = lm.cleanCorpus();
+        lm.buildVocab(data, "etc\\linguist\\vocab_phoneme1.dict");
      
         
     }

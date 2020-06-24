@@ -1,6 +1,7 @@
 % p o r z i e n t o
 ( a b r e p a r e n t e s i s
 ) z i e rr a p a r e n t e s i s
+* a s t e r i s k o
 , k o m a
 - k o m a n d o g i o n
 . p u n t o
@@ -335,6 +336,7 @@ activada a k t i b a d a
 activadas a k t i b a d a s
 activado a k t i b a d o
 activados a k t i b a d o s
+activamente a k t i b a m e n t e
 activas a k t i b a s
 actividad a k t i b i d a d
 actividades a k t i b i d a d e s
@@ -1042,6 +1044,7 @@ anquilosante a n k i l o s a n t e
 anserino a n s e r i n o
 ansiedad a n s i e d a d
 ansioso a n s i o s o
+ant a n t
 antagonista a n t a g o n i s t a
 antagonistas a n t a g o n i s t a s
 ante a n t e
@@ -1908,7 +1911,7 @@ bebexarotenoborrotear b e b e x a r o t e n o b o rr o t e a r
 bebé b e b e
 bebés b e b e s
 beg b e g
-behet b e e t
+beh b e
 bellini b e ll i n i
 beltrán b e l t r a n
 ben b e n
@@ -2390,7 +2393,6 @@ caracterizarle k a r a k t e r i z a r l e
 caracterizarlo k a r a k t e r i z a r l o
 caracterizarlos k a r a k t e r i z a r l o s
 caracterizó k a r a k t e r i z o
-caracternosoportadoui k a r a k t e r n o s o p o r t a d o u i
 característica k a r a k t e r i s t i k a
 características k a r a k t e r i s t i k a s
 característico k a r a k t e r i s t i k o
@@ -4331,7 +4333,6 @@ deambulación d e a m b u l a z i o n
 deambular d e a m b u l a r
 deauvi d e a u b i
 deauville d e a u b i ll e
-deauvilles d e a u b i ll e s
 deba d e b a
 debajo d e b a j o
 debamos d e b a m o s
@@ -4938,7 +4939,6 @@ dfe d f e
 dfifosfonatos d f i f o s f o n a t o s
 dft d f t
 dhap d a p
-dhebron d e b r o n
 di d i
 diabetes d i a b e t e s
 diabética d i a b e t i k a
@@ -5101,6 +5101,7 @@ dinámicas d i n a m i k a s
 dinámico d i n a m i k o
 dio d i o
 diovan d i o b a n
+dip d i p
 dipiradamol d i p i r a d a m o l
 dipiridamo d i p i r i d a m o
 dipiridamol d i p i r i d a m o l
@@ -5109,7 +5110,6 @@ diploe d i p l o e
 diplopia d i p l o p i a
 dipnech d i p n e ch
 diponemos d i p o n e m o s
-dipridamol d i p r i d a m o l
 dirección d i r e k z i o n
 directa d i r e k t a
 directal d i r e k t a l
@@ -5366,7 +5366,6 @@ doceavo d o z e a b o
 docetaxel d o z e t a x e l
 doctor d o k t o r
 doctora d o k t o r a
-doctubre d o k t u b r e
 documenta d o k u m e n t a
 documentación d o k u m e n t a z i o n
 documentada d o k u m e n t a d a
@@ -5407,7 +5406,6 @@ donante d o n a n t e
 donantes d o n a n t e s
 donar d o n a r
 donde d o n d e
-dontinyent d o n t i n y e n t
 dontus d o n t u s
 donut d o n u t
 dopa d o p a
@@ -6231,6 +6229,7 @@ espacio e s p a z i o
 espacion e s p a z i o n
 espacios e s p a z i o s
 espalda e s p a l d a
+espanyoleto e s p a n y o l e t o
 espasmo e s p a s m o
 espasmos e s p a s m o s
 espasmódico e s p a s m o d i k o
@@ -6545,6 +6544,7 @@ estímulos e s t i m u l o s
 estómago e s t o m a g o
 esófago e s o f a g o
 esóstosis e s o s t o s i s
+et e t
 etanercept e t a n e r z e p t
 etc e t k
 eterno e t e r n o
@@ -7921,6 +7921,7 @@ hda d a
 hdb d b
 he e
 hebilla e b i ll a
+hebron e b r o n
 heces e z e s
 hecha e ch a
 hecho e ch o
@@ -10354,7 +10355,6 @@ lesional l e s i o n a l
 lesionales l e s i o n a l e s
 lesiones l e s i o n e s
 lesión l e s i o n
-lespanyoleto l e s p a n y o l e t o
 letra l e t r a
 letrozol l e t r o z o l
 leucaoaraiosis l e u k a o a r a i o s i s
@@ -11338,7 +11338,6 @@ mgr m g r
 mi m i
 mialgias m i a l j i a s
 mib m i b
-mibitc m i b i t k
 mic m i k
 micardiopatía m i k a r d i o p a t i a
 miccionada m i k z i o n a d a
@@ -11488,7 +11487,7 @@ mista m i s t a
 mit m i t
 mitad m i t a d
 mitades m i t a d e s
-mitjanant m i t j a n a n t
+mitjan m i t j a n
 mitos m i t o s
 mitosis m i t o s i s
 mitral m i t r a l
@@ -11822,7 +11821,6 @@ naughton n a u g t o n
 nauseas n a u s e a s
 nav n a b
 naúseas n a u s e a s
-ncol n k o l
 ne n e
 nebot n e b o t
 necesaria n e z e s a r i a
@@ -12152,7 +12150,6 @@ novo n o b o
 np n p
 npo n p o
 nras n r a s
-nreg n r e g
 nt n t
 ntc n t k
 ntd n t d
@@ -14645,7 +14642,6 @@ psoriasis p s o r i a s i s
 psoriásica p s o r i a s i k a
 psoríasica p s o r i a s i k a
 psp p s p
-pst p s t
 psíquicas p s i k i k a s
 psíquicos p s i k i k o s
 pt p t
@@ -14667,7 +14663,6 @@ ptosis p t o s i s
 ptrd p t r d
 ptri p t r i
 ptrizq p t r i z k
-ptron p t r o n
 ptrs p t r s
 ptta p t t a
 ptu p t u
@@ -15332,6 +15327,7 @@ refuerzo r e f u e r z o
 reg r e g
 regadenoson r e g a d e n o s o n
 regeneración r e j e n e r a z i o n
+regi r e j i
 regio r e j i o
 regional r e j i o n a l
 regionales r e j i o n a l e s
@@ -15850,6 +15846,7 @@ ribera r i b e r a
 ricardo r i k a r d o
 richter r i ch t e r
 rico r i k o
+ridamol r i d a m o l
 riesgo r i e s g o
 rifampicina r i f a m p i z i n a
 rigidez r i j i d e z
@@ -16271,9 +16268,6 @@ separadas s e p a r a d a s
 separado s e p a r a d o
 separar s e p a r a r
 separarlos s e p a r a r l o s
-sepct s e p k t
-sepect s e p e k t
-sepriembre s e p r i e m b r e
 sepsis s e p s i s
 sept s e p t
 septada s e p t a d a
@@ -16359,7 +16353,6 @@ señaliza s e gn a l i z a
 señlocalizan s e gn l o k a l i z a n
 señor s e gn o r
 señora s e gn o r a
-sgnificación s g n i f i k a z i o n
 shin s i n
 shint s i n t
 shock s o k k
@@ -16652,6 +16645,7 @@ sonmas s o n m a s
 sop s o p
 sopena s o p e n a
 soporta s o p o r t a
+soportado s o p o r t a d o
 soportar s o p o r t a r
 soporte s o p o r t e
 sorafenib s o r a f e n i b
