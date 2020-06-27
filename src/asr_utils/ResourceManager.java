@@ -26,6 +26,7 @@ public class ResourceManager {
     private final String icon_path;
     private final String default_vocab_correction_file_path;
     private final String corpus_dir_path;
+    
 
     public String getCorpus_dir_path() {
         return corpus_dir_path;
@@ -54,6 +55,11 @@ public class ResourceManager {
     private final String bw_tool_path;
     private final String sphinx_fe_tool_path;
     private final String mllr_solve_tool_path;
+    private final String map_adapt_tool_path;
+
+    public String getMap_adapt_tool_path() {
+        return map_adapt_tool_path;
+    }
 
     public String getSphinx_fe_tool_path() {
         return sphinx_fe_tool_path;
@@ -130,11 +136,13 @@ public class ResourceManager {
         bw_tool_path = "etc\\tools\\bw.exe";
         sphinx_fe_tool_path = "etc\\tools\\sphinx_fe.exe";
         mllr_solve_tool_path = "etc\\tools\\mllr_solve.exe";
+        map_adapt_tool_path = "etc\\tools\\map_adapt.exe";
         
         //Language model path
         lm_dir_path = "lm";
         default_vocab_correction_file_path = "etc\\word_correction\\vocab_correction.json";
         corpus_dir_path = "etc\\corpus";
+        
     }
 
     public String getBw_tool_path() {

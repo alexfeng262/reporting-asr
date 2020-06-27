@@ -36,6 +36,7 @@ public class AppRecognizer extends Thread{
     private final String acoustic_model_path  ;
     private final String language_model_path ;
     private final String language_model_dir_path;
+    private final String wav_dir_path;
     //private final String language_model_path1 = "file:C:\\Users\\alexf\\Documents\\GitHub\\clean-repo\\LM\\lm_4gram.bin";
     private final String dictionary_path ;
    
@@ -53,6 +54,7 @@ public class AppRecognizer extends Thread{
         dictionary_path = "file:"+rm.getDefault_dictionary_file_path();
         config_xml = "file:"+rm.getDefault_config_xml_file_path();
         language_model_dir_path = "file:"+rm.getLm_dir_path();
+        wav_dir_path = "file:"+rm.getWav_dir_path();
         Config();  
     }
     
@@ -60,9 +62,14 @@ public class AppRecognizer extends Thread{
         
         try{
             configuration = new Configuration();
-        
-            configuration.setAcousticModelPath(acoustic_model_path);
-
+            if(global_prop.get("acousticModel").equals("Default"))
+                configuration.setAcousticModelPath(acoustic_model_path);
+            else{
+                String map_adapt_path = wav_dir_path + "\\"+global_prop.get("acousticModel");
+                configuration.setAcousticModelPath(map_adapt_path);
+            }
+           
+            
             if(global_prop.get("languageModel").equals("Default")){
                 configuration.setLanguageModelPath(language_model_path);
                 configuration.setDictionaryPath(dictionary_path);

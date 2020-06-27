@@ -138,11 +138,11 @@ public class LanguageModelBuilder {
 //            }
         //Preprocess sentences
         for(String sent : all_sentences){
-            System.out.println(sent);
+            //System.out.println(sent);
             String sent1 = sent.replaceAll("(i\\.v\\.)|(i\\.? ?v\\.)|(i\\.v)","i.v.");
             sent1 = sent1.replaceAll("\\b(x x)\\b","");
-            sent1 = sent1.replaceAll("([I|j] \\. d \\.)|(I \\.?d \\.)|(I \\. d)|(idx)|(j \\.?d \\.?)|([Ij] \\. d)","id");
-            System.out.println(sent1);
+            sent1 = sent1.replaceAll("([I|j] \\. d \\.)|(I \\.?d \\.)|(I \\. d)|(idx)|([Ij] \\. d)","id");
+            //System.out.println(sent1);
             for(String key: abv_mapping.keySet()){
                 //System.out.println(key);
                 if(!key.isEmpty())

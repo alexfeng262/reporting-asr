@@ -8,6 +8,7 @@ package ASR;
 import asr_utils.LoggerStatus;
 import static adaptation_mllr.GenerateFiles.*;
 import adaptation_mllr.Bw;
+import adaptation_mllr.Map_adapt;
 import adaptation_mllr.Mllr_solve;
 import adaptation_mllr.Sphinx_fe;
 import asr_utils.Directories;
@@ -63,6 +64,8 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.text.DecimalFormatSymbols;
 import java.time.Duration;
 import java.time.Instant;
@@ -86,6 +89,7 @@ public class AppGui extends javax.swing.JFrame {
     private final String lwProp = "languageWeight";
     private final String pBeamProp = "phoneticBeam";
     private final String lmProp = "languageModel";
+    private final String acousticProp = "acousticModel";
     private static SentenceGenerator generate ;
     private static Timer timer;
     private int seconds;
@@ -1234,13 +1238,15 @@ public class AppGui extends javax.swing.JFrame {
         global_prop.put(pBeamProp, pbeam_value_lbl.getText());
         
         String lm_item = (String) lm_init_combo_box.getSelectedItem();
+        String adapt_item = (String) init_speaker_combo_box.getSelectedItem();
         global_prop.put(lmProp, lm_item);
+        global_prop.put(acousticProp, adapt_item);
         recognize.loadConfig(global_prop);
         
         //recognize.Start_recognition_reload(global_prop);
         play_pause_btn.setEnabled(true);
         init_speaker_combo_box.setEnabled(true);
-        init_speaker_combo_box.setSelectedIndex(0);
+        //init_speaker_combo_box.setSelectedIndex(0);
     
        
     }//GEN-LAST:event_reload_model_btnActionPerformed
@@ -1387,8 +1393,8 @@ public class AppGui extends javax.swing.JFrame {
             
             Sphinx_fe acoustic_feature = new Sphinx_fe(name);
             Bw acum_count = new Bw(name);
-            Mllr_solve mllr_matrix = new Mllr_solve(name);
-            
+            //Mllr_solve mllr_matrix = new Mllr_solve(name);
+            Map_adapt map_adapt = new Map_adapt(name);
             jProgressBar2.setVisible(true);
             
             SwingWorker sw1 = new SwingWorker<Boolean, Integer>() {
@@ -1411,7 +1417,21 @@ public class AppGui extends javax.swing.JFrame {
                     publish(4);
                     acum_count.exec_bw();
                     publish(5);
-                    mllr_matrix.exec_mllr_solve();
+                    //mllr_matrix.exec_mllr_solve();
+                    map_adapt.exec_map_adapt();
+                    
+                    File source_noisedict = new File(rm.getDefault_acoustic_model_dir_path()+"\\noisedict");
+                    File dest_noisedict = new File(rm.getWav_dir_path()+"\\"+name+"\\noisedict");
+                    
+                    File source_featparams = new File(rm.getDefault_acoustic_model_dir_path()+"\\feat.params");
+                    File dest_featparams = new File(rm.getWav_dir_path()+"\\"+name+"\\feat.params");
+                    
+                    File source_mdef = new File(rm.getDefault_acoustic_model_dir_path()+"\\mdef");
+                    File dest_mdef = new File(rm.getWav_dir_path()+"\\"+name+"\\mdef");
+                    
+                    Files.copy(source_noisedict.toPath(),dest_noisedict.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy(source_featparams.toPath(),dest_featparams.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy(source_mdef.toPath(),dest_mdef.toPath(), StandardCopyOption.REPLACE_EXISTING);
                     return true;
                 }
                 
@@ -1440,7 +1460,8 @@ public class AppGui extends javax.swing.JFrame {
                             mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
                             break;
                         case 5:
-                            mllr_log_txt_area.append("\n\n********GENERATING MLLR MATRIX************\n");
+                            //mllr_log_txt_area.append("\n\n********GENERATING MLLR MATRIX************\n");
+                            mllr_log_txt_area.append("\n\n********GENERATING MAP FILES************\n");
                             mllr_log_txt_area.setCaretPosition(mllr_log_txt_area.getDocument().getLength());
                             break;
                     }
@@ -1448,8 +1469,10 @@ public class AppGui extends javax.swing.JFrame {
                 }
                 @Override
                 protected void done() {
+                    
                     mllr_log_txt_area.append("\n\n********FINISHED************\n");
-                    showMessageGUI("Entrenamiento MLLR terminado.", "info");
+                    showMessageGUI("Entrenamiento MAP terminado.", "info");
+                    //showMessageGUI("Entrenamiento MLLR terminado.", "info");
                 } 
             };
             
@@ -1468,10 +1491,10 @@ public class AppGui extends javax.swing.JFrame {
         int id_item = init_speaker_combo_box.getSelectedIndex();
         
         if(id_item > 0){
-            recognize.loadSpeakerMLLR(item);
-            showMessageGUI("MLLR de usuario "+item+" cargado.", "info");
+            //recognize.loadSpeakerMLLR(item);
+           // showMessageGUI("MLLR de usuario "+item+" cargado.", "info");
             //Logger_status.Log("MLLR de usuario "+item+" cargado.", LoggerStatus.LogType.INFO);
-            init_speaker_combo_box.setEnabled(false);
+            //init_speaker_combo_box.setEnabled(false);
         }
         
     }//GEN-LAST:event_init_speaker_combo_boxActionPerformed
