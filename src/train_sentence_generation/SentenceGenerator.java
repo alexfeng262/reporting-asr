@@ -23,16 +23,17 @@ public class SentenceGenerator {
     private String[] corpus_array;
     
     public SentenceGenerator(){
+        
         corpus_array = loadCorpus();
     }
     
     private String[] loadCorpus(){
+        
         ResourceManager rm = new ResourceManager();
         
         List<String> list = new ArrayList<>();
         try {
             File file=new File(rm.getDefault_corpus_file_path());
-            //FileReader fr=new FileReader(file);
             
             BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
             String str;
@@ -42,10 +43,6 @@ public class SentenceGenerator {
             }
             String[] stringArr = list.toArray(new String[0]);
             return stringArr;
-            //
-        
-            //System.out.println(stringArr[randomInt]);
-            
             
         } catch (Exception e) {
         }
@@ -53,6 +50,7 @@ public class SentenceGenerator {
     }
     
     public String generateSentences(){
+        
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(corpus_array.length) ;
         

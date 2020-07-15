@@ -16,8 +16,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.LineUnavailableException;
-//import edu.cmu.sphinx.api.LiveSpeechRecognizer;
-
 
 
 /**
@@ -25,6 +23,7 @@ import javax.sound.sampled.LineUnavailableException;
  * @author alexf
  */
 public class AppRecognizer extends Thread{
+    
     private volatile Configuration configuration;
     private volatile Boolean IsStart = false;
     private volatile LiveSpeechRecognizer recognizer;
@@ -37,17 +36,13 @@ public class AppRecognizer extends Thread{
     private final String language_model_path ;
     private final String language_model_dir_path;
     private final String wav_dir_path;
-    //private final String language_model_path1 = "file:C:\\Users\\alexf\\Documents\\GitHub\\clean-repo\\LM\\lm_4gram.bin";
     private final String dictionary_path ;
    
     private final String config_xml ;
     
-    //public  Context context;
-  
-    //private App_gui Gui;
-
 
     public AppRecognizer(){
+        
         ResourceManager rm = new ResourceManager();
         acoustic_model_path = "file:"+rm.getDefault_acoustic_model_dir_path();
         language_model_path = "file:"+rm.getDefault_language_model_file_path();
@@ -68,14 +63,13 @@ public class AppRecognizer extends Thread{
                 String map_adapt_path = wav_dir_path + "\\"+global_prop.get("acousticModel");
                 configuration.setAcousticModelPath(map_adapt_path);
             }
-           
             
             if(global_prop.get("languageModel").equals("Default")){
                 configuration.setLanguageModelPath(language_model_path);
                 configuration.setDictionaryPath(dictionary_path);
             }
             else{
-                //String lm_name = global_prop.get("languageModel");
+                
                 String lm_path = language_model_dir_path + "\\"+global_prop.get("languageModel");
                 String dict_path = language_model_dir_path + "\\"+global_prop.get("languageModel").replace(".lm", ".dict");
                 configuration.setLanguageModelPath(lm_path);
@@ -86,17 +80,11 @@ public class AppRecognizer extends Thread{
             configuration.setNewConfig(global_prop);
             Context context;
             context = new Context(config_xml,configuration);
-            //context.setGlobalProperty("languageWeight",12);
-            //@TODO:
-            //create configuration manager from xml
-            //set new global properties
-            //export to xml with configuration manager utils and replace de old.
             
-            //System.out.println("Config reloaded");
             recognizer.loadConfig(context);
             AppGui.showMessageGUI("Parámetros de configuración cargado exitósamente.", "info");
             System.out.println("Config reloaded");
-            //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
+
         }
         catch(Exception ex){
             AppGui.showMessageGUI("No se ha podido cargar configuración del reconocedor. Exception de tipo: " + ex.getMessage(), "error");
@@ -106,6 +94,7 @@ public class AppRecognizer extends Thread{
     }
     
     private void Config(){
+        
         LoggerStatus.Log("Loading Model",LoggerStatus.LogType.INFO);
         configuration = new Configuration();
         
@@ -117,9 +106,7 @@ public class AppRecognizer extends Thread{
         
         try{
             context = new Context(config_xml,configuration);
-            recognizer = new LiveSpeechRecognizer(context);
-            //recognizer.loadTransform("C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\mllr_matrix", 1); // Load MLLR
-            
+            recognizer = new LiveSpeechRecognizer(context);        
         }
         catch(IOException ex){
             AppGui.showMessageGUI("No se ha podido cargar configuración del reconocedor.", "error");
@@ -132,13 +119,11 @@ public class AppRecognizer extends Thread{
                     + "PCM_SIGNED 16000.0 Hz, 16 bit, mono, 2 bytes/frame, little-endian is supported.", "warning");
         }
         this.start();
-        //app_gui.report_txt.append("Models ready....\n");
-        
         LoggerStatus.Log("Preparado para escuchar. Presiona PLAY para empezar.",LoggerStatus.LogType.INFO);
-        
     }
     
     private static String convertCapitalWord(String original){
+        
         if (original == null || original.length() == 0) {
             return original;
         }
@@ -147,6 +132,7 @@ public class AppRecognizer extends Thread{
     
     @Override
     public void run(){
+        
         String previous_word = "";
         boolean capital_letter = true;
         LoggerStatus.Log("Preparado para escuchar. Presiona PLAY para empezar.",LoggerStatus.LogType.INFO);
@@ -159,7 +145,6 @@ public class AppRecognizer extends Thread{
                 utf = new String(utterance.getBytes("ISO-8859-1"), "UTF-8");
                 
                 String[] words = utf.split(" ");
-                //String phrase = "";
                 
                 for(String word: words){
                     int pos = AppGui.report_txt.getCaretPosition();
@@ -199,7 +184,6 @@ public class AppRecognizer extends Thread{
             } catch (UnsupportedEncodingException ex) {
                 AppGui.showMessageGUI("Excepción de tipo UnsupportedEncodingException.", "error");
             } catch(NullPointerException ex){
-                //AppGui.showMessageGUI("Excepción de tipo NullPointerException en App_recognizer.", "error");
                 StopThread = true;
             }
             
@@ -209,9 +193,8 @@ public class AppRecognizer extends Thread{
 
 
     public void stopRecognition(){
-        //this.IsStart = false;
+
         recognizer.stopRecognition();
-        //app_gui.report_txt.setEnabled(false);
         LoggerStatus.Log("Reconocedor detenido.",LoggerStatus.LogType.INFO);
     }
     
@@ -230,6 +213,7 @@ public class AppRecognizer extends Thread{
     }
     
     public void loadSpeakerMLLR(String name){
+        
         ResourceManager rm = new ResourceManager();
         
         try {

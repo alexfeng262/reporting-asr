@@ -70,11 +70,9 @@ public class Directories {
     
     public static boolean isEmptyDir(String name){
         ResourceManager rm = new ResourceManager();
-        
         File dir = new File(rm.getWav_dir_path()+"\\"+name);
-        
         String [] files = dir.list();
-        
+
         if(files == null)
             return true;
         

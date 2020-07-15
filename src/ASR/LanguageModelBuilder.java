@@ -33,17 +33,20 @@ import kylm.main.CountNgrams;
  * @author alexf
  */
 public class LanguageModelBuilder {
+    
     private final ResourceManager rm;
     private final String model_name;
     private final String corpus_path;
     
     public LanguageModelBuilder(String name, String corpus_path){
+        
         this.rm = new ResourceManager();
         this.model_name = name;
         this.corpus_path = corpus_path;
     }
     
     public List<String> cleanCorpus() throws IOException{
+        
         //Create ArrayList
         List<String> data = new ArrayList<>();
         List<String> all_sentences = new ArrayList<>();
@@ -77,10 +80,10 @@ public class LanguageModelBuilder {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String st; 
         while ((st = br.readLine()) != null){
-            //text = text + " " +st;
+            
             if(!st.isBlank())
                 data.add(st);
-            //i++;
+            
         }
         br.close();
 
@@ -100,11 +103,11 @@ public class LanguageModelBuilder {
                 if(!abcObject.containsKey(tok)){
                     tok = tok.replaceAll(",+(?=\\d)",".");
                     tok = tok.replaceAll("^\\.+(?=\\d)","0.");
-                    tok = tok.replaceAll("[^a-zA-ZáéíóúüñÁÉÍÓÚÑ0-9\\)\\(\\.\\%,\\-\\s//\\*]", " ");
+                    tok = tok.replaceAll("[^a-zA-ZáéíóúüñÁÉÍÓÚÑ0-9:\\)\\(\\.\\%,\\-\\s//\\*]", " ");
                     tok = tok.replaceAll("x{2,}","");
                     tok = tok.replaceAll("\\.{1,}",".");
                     tok = tok.replaceAll("\\-{1,}","-");
-                    tok = tok.replaceAll("(?<=[A-Za-záéíóú//\\-\\*])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú//\\-\\*])"," ");
+                    tok = tok.replaceAll("(?<=[A-Za-záéíóú://\\-\\*])\\.?(?=[0-9\\-\\.])|(?<=[0-9\\-\\.])\\.?(?=[A-Za-záéíóú://\\-\\*])"," ");
                     //tok = tok.replaceAll("(?<=[A-Za-záéíóú//])\\.?(?=[\\-\\.])|(?<=[\\-\\.])\\.?(?=[A-Za-záéíóú//])"," ");
                     tok = tok.replaceAll("(?=\\d)"," ");
                     tok = tok.replaceAll("(?=\\. \\d)"," ");
@@ -112,7 +115,7 @@ public class LanguageModelBuilder {
 
                 
                 tok = tok.trim();
-                //System.out.println(tok);
+                
                 if(!tok.isBlank()){
                     for(String word:tok.split("\\s+")){
                         if(vocabObject.containsKey(word))
@@ -129,58 +132,36 @@ public class LanguageModelBuilder {
             if(!strList.isEmpty())
                 all_sentences.add(String.join(" ", strList));
         }
-        //TODO: Create mapping
+        
         
         JsonObject abv_mapping = create_abv_mapping(abcObject);
-//        for(String key: abv_mapping.keySet()){
-//                System.out.println(key);
-//               
-//            }
+
         //Preprocess sentences
         for(String sent : all_sentences){
-            //System.out.println(sent);
+            
             String sent1 = sent.replaceAll("(i\\.v\\.)|(i\\.? ?v\\.)|(i\\.v)","i.v.");
             sent1 = sent1.replaceAll("\\b(x x)\\b","");
             sent1 = sent1.replaceAll("([I|j] \\. d \\.)|(I \\.?d \\.)|(I \\. d)|(idx)|([Ij] \\. d)","id");
-            //System.out.println(sent1);
+           
             for(String key: abv_mapping.keySet()){
-                //System.out.println(key);
                 if(!key.isEmpty())
                     
                     sent1 = sent1.replace(key,abv_mapping.getString(key));
             }
-        
-//            sent1 = sent1.replaceAll("1 8 F - FDG","18F-FDG");
-//            sent1 = sent1.replaceAll("PET - CT","PET-CT");
-//            sent1 = sent1.replaceAll("9 9 mTc - HDP","99mTc-HDP");
-//            sent1 = sent1.replaceAll("9 9 mTc - DMSA","99mTc-DMSA");
-//            sent1 = sent1.replaceAll("9 9 mTc - MAG 3","99mTc-MAG3");
-//            sent1 = sent1.replaceAll("9 9 mTc - MAA","99mTc-MAA");
-//            sent1 = sent1.replaceAll("9 9 mTc - DTPA","99mTc-DTPA");
-//            sent1 = sent1.replaceAll("9 9 mTc - ECD","99mTc-ECD");
-//            sent1 = sent1.replaceAll("1 2 3 I - ioflupano","123I-Ioflupano");
-//            sent1 = sent1.replaceAll("1 2 3 I - MIBG","123I-MIBG");
-//            sent1 = sent1.replaceAll("2 2 3 - ra","223-Ra");
-//            sent1 = sent1.replaceAll("6 7 ga","67Ga");
             regex_sentences.add(sent1);
-            //System.out.println(sent1);
-      
         }
 
         //Write to file
         BufferedWriter writer = new BufferedWriter(new FileWriter(filewrite));
         for(String sent : regex_sentences){  
             writer.write(sent + "\n");
-            //System.out.println(sent);
         }
         writer.close();
-            
-            
-        
-        
         return regex_sentences;
     }
+    
     private JsonObject create_abv_mapping(JsonObject abv){
+        
         JsonObjectBuilder abvBuilder = Json.createObjectBuilder();
         
         for(String key : abv.keySet()){
@@ -192,17 +173,18 @@ public class LanguageModelBuilder {
             key = key.trim();
             
             abvBuilder.add(key,prev_key);
-           
-            
+ 
         }
         JsonObject abvJsonObject = abvBuilder.build();
-        //System.out.println(abvJsonObject);
         return abvJsonObject;
     }
     public void buildVocab(List<String> sentences) throws IOException{
+        
         buildVocab(sentences,rm.getLm_dir_path() + "\\"+model_name+".dict");
     }
+    
     public void buildVocab(List<String> sentences, String path) throws FileNotFoundException, IOException{
+        
         SortedSet<String> vocab = new TreeSet<>();
         List<String> vocab_phoneme = new ArrayList<>();
         File abc_json = new File("etc\\word_correction\\abc.json");
@@ -267,15 +249,15 @@ public class LanguageModelBuilder {
        
         writer = new BufferedWriter(new FileWriter(filewrite));
         for(String sent : vocab_phoneme){  
-        writer.write(sent + "\n");
-        //System.out.println(sent);
+            writer.write(sent + "\n");
+        
         }
         writer.close();
-       
-    
+
     }
     
     public  void buildLm() throws Exception{
+        
         String[] kylm_args = new String[]{
             rm.getCorpus_dir_path()+"\\"+model_name+".txt",
             "-n","3",

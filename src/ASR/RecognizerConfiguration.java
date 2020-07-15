@@ -29,8 +29,7 @@ public class RecognizerConfiguration {
         Wip = Double.parseDouble(global_prop.get("wordInsertionProbability"));
         Lw = Double.parseDouble(global_prop.get("languageWeight"));
         Pbeam = Double.parseDouble(global_prop.get("phoneticBeam"));
-        
-        
+   
     }
     
     public double getRelBeamWidth(){

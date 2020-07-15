@@ -95,26 +95,7 @@ public class ResourceManager {
     public String getDefault_dictionary_file_path() {
         return default_dictionary_file_path;
     }
-    
-/*
-    public ResourceManager(){
-        default_acoustic_model_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\es_acoustic_model";
-        default_language_model_file_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\lm_3gram.bin";
-        default_dictionary_file_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\linguist\\vocab_phoneme.dict";
-        default_config_xml_file_path = "C:\\Users\\alexf\\Documents\\NetBeansProjects\\reporting-asr\\resources\\config_xml\\config.xml";
-        default_audio_config_xml_file_path = "C:\\Users\\alexf\\Documents\\NetBeansProjects\\reporting-asr\\resources\\config_xml\\spectrogram.config.xml";
-        corpus_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\corpus\\result.txt";
-        fileids_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\test.fileids";
-        transcription_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex\\test.transcription";
-        base_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav\\Alex";
-        wav_dir_path = "C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\wav";
-        icon_path = "file:C:\\Users\\alexf\\Desktop\\ASR\\sphinx_adapt\\etc\\icon";
-        
-        bw_tool_path = "C:\\sphinx2\\sphinxtrain\\bin\\Release\\Win32\\bw.exe";
-        sphinx_fe_tool_path = "C:\\sphinx2\\sphinxbase\\bin\\Release\\Win32\\sphinx_fe.exe";
-        mllr_solve_tool_path = "C:\\sphinx2\\sphinxtrain\\bin\\Release\\Win32\\mllr_solve.exe";
-        
-    }*/
+  
   
     public ResourceManager(){
         // Default files
@@ -123,7 +104,6 @@ public class ResourceManager {
         default_dictionary_file_path = "etc\\linguist\\vocab_phoneme.dict";
         default_config_xml_file_path = "etc\\config_xml\\config.xml";
         default_corpus_file_path = "etc\\corpus\\lm3gram.txt";
-        //default_corpus_file_path = "etc\\corpus\\result.txt";
         fileids_path = "wav\\Alex\\test.fileids"; //remember to omit
         transcription_path = "wav\\Alex\\test.transcription"; //remember to omit
         base_dir_path = "wav\\Alex"; //remember to omit
