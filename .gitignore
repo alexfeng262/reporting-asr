@@ -1,4 +1,11 @@
 /build/
 /dist/
 /wav/
-/etc/
+/etc/corpus
+/etc/linguist
+/lm
+/nbproject
+/build.xml
+/hs_err_pid20680.log
+/manifest.mf
+/resource
