@@ -1097,7 +1097,7 @@ public class AppGui extends javax.swing.JFrame {
 
         train_mllr_menu_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
         train_mllr_menu_item.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        train_mllr_menu_item.setText("Entrenar MLLR");
+        train_mllr_menu_item.setText("Entrenar MAP");
         train_mllr_menu_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 train_mllr_menu_itemActionPerformed(evt);
